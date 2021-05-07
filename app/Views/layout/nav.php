@@ -2,6 +2,7 @@
      <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
        <ul class="nav navbar-nav">
          <li><a href="<?= base_url() ?>"><b>Home</b></a></li>
+         <li><a href="<?= base_url('Kelas') ?>"><b>Kelas</b></a></li>
        </ul>
      </div>
      <!-- /.navbar-collapse -->
