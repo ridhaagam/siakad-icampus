@@ -11,11 +11,11 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Silahkan Masukkan Username dan Password</p>
+    <p class="login-box-msg">Silahkan Masukkan NIM dan Password</p>
 
     <form action="../../index2.html" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="NIM" class="form-control" placeholder="NIM">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
