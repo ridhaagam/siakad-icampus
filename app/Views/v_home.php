@@ -13,3 +13,12 @@
     </div>
 </div>
 
+<!-- Background image -->
+<div
+  class="bg-image"
+  style="
+    background-image: url('homepage/umm.png');
+    height: 100vh;
+  "
+></div>
+<!-- Background image -->
