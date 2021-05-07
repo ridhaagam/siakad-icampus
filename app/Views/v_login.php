@@ -27,7 +27,6 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-        
           <button type="submit" class="btn btn-default btn-block btn-flat">Login</button>
         </div>
         <!-- /.col -->
