@@ -11,12 +11,4 @@
             <h3><b>UMM SINCE 1964</b></h3>
         </div>
     </div>
-<!-- Background image -->
-<div
-  class="bg-image"
-  style="
-    background-image: url('homepage/umm.png');
-    height: 100vh;
-  "
-></div>
-<!-- Background image -->
+</div>

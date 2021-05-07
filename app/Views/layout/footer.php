@@ -1,19 +1,18 @@
 </section>
-      <!-- /.content -->
+<!-- /.content -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0
     </div>
-    <!-- /.container -->
+    <strong>&copy; 2021 Developed by iCampus Team Universitas Muhammadiyah Malang</strong>
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.18
-      </div>
-      <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-      reserved.
-    </div>
-    <!-- /.container -->
-  </footer>
+  <!-- /.container -->
+</footer>
 </div>
 <!-- ./wrapper -->
 
@@ -31,20 +30,21 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>/template/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?= base_url()?>/template/dist/js/demo.js"></script>
+<script src="<?= base_url() ?>/template/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
-  $(function () {
+  $(function() {
     $('#example1').DataTable()
     $('#example2').DataTable({
-      'paging'      : true,
+      'paging': true,
       'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+      'searching': false,
+      'ordering': true,
+      'info': true,
+      'autoWidth': false
     })
   })
 </script>
 </body>
+
 </html>

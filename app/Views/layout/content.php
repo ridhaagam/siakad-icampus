@@ -1,4 +1,4 @@
 <?php
-if($isi) {
+if ($isi) {
     echo view($isi);
 }
