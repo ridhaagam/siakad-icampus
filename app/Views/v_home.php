@@ -14,11 +14,8 @@
 </div>
 
 <!-- Background image -->
-<div
-  class="bg-image"
-  style="
-    background-image: url('homepage/umm.png');
+<div class="bg-image" style="
+    background-image: url('img/umm.png');
     height: 100vh;
-  "
-></div>
+  "></div>
 <!-- Background image -->
