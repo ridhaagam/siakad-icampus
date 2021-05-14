@@ -73,7 +73,7 @@
 			<div class="">
 				<div class="page-title">
 					<div class="title_left">
-						<h2>Profil</h2>
+						<h2>Mata Kuliah</h2>
                         <br>
 					</div>
 				</div>  

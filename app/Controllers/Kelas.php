@@ -11,7 +11,7 @@ class Kelas extends BaseController
 			'isi' 	=> 'v_kelas'
 		];
 
-		return view('layout/wrapper', $data);
+		return view('l_login/l_wrapper', $data);
 	}
 
 } 
