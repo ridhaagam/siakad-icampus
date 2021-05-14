@@ -8,7 +8,7 @@ class Mahasiswa extends BaseController
 	{
 		$data= [
 			'title' => 'Mahasiswa', 
-			'isi' 	=> 'mahasiswa'
+			'isi' 	=> 'admin/mahasiswa'
 		];
 
 		return view('l_login/l_wrapper', $data);

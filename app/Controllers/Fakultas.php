@@ -8,7 +8,7 @@ class Fakultas extends BaseController
 	{
 		$data= [
 			'title' => 'Fakultas', 
-			'isi' 	=> 'fakultas'
+			'isi' 	=> 'admin/fakultas'
 		];
 
 		return view('l_login/l_wrapper', $data);

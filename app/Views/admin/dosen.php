@@ -92,7 +92,6 @@
 								<li><i class="fa fa-building user-profile-icon"></i> Program Studi Informatika</li>
 								<li><i class="fa fa-phone user-profile-icon"></i> 082291991645</li>
 								<li><i class="fa fa-envelope user-profile-icon"></i> muhridhaagam@gmail.com</li>
-
 							</ul>
                             <br>
 							<a href="#" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>

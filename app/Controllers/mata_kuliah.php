@@ -8,7 +8,7 @@ class Mata_Kuliah extends BaseController
 	{
 		$data= [
 			'title' => 'Mata Kuliah', 
-			'isi' 	=> 'matkul'
+			'isi' 	=> 'admin/matkul'
 		];
 
 		return view('l_login/l_wrapper', $data);

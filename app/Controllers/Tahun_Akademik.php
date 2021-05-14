@@ -8,7 +8,7 @@ class Tahun_Akademik extends BaseController
 	{
 		$data= [
 			'title' => 'Tahun Akademik', 
-			'isi' 	=> 'akademik'
+			'isi' 	=> 'admin/akademik'
 		];
 
 		return view('l_login/l_wrapper', $data);

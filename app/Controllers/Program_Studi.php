@@ -8,7 +8,7 @@ class Program_Studi extends BaseController
 	{
 		$data= [
 			'title' => 'Program Studi', 
-			'isi' 	=> 'prodi'
+			'isi' 	=> 'admin/prodi'
 		];
 
 		return view('l_login/l_wrapper', $data);

@@ -8,7 +8,7 @@ class Dosen extends BaseController
 	{
 		$data= [
 			'title' => 'Dosen', 
-			'isi' 	=> 'dosen'
+			'isi' 	=> 'admin/dosen'
 		];
 
 		return view('l_login/l_wrapper', $data);

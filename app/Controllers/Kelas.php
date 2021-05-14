@@ -8,7 +8,7 @@ class Kelas extends BaseController
 	{
 		$data= [
 			'title' => 'Kelas', 
-			'isi' 	=> 'v_kelas'
+			'isi' 	=> 'admin/v_kelas'
 		];
 
 		return view('l_login/l_wrapper', $data);

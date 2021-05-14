@@ -8,7 +8,7 @@ class User extends BaseController
 	{
 		$data= [
 			'title' => 'User', 
-			'isi' 	=> 'user'
+			'isi' 	=> 'admin/user'
 		];
 
 		return view('l_login/l_wrapper', $data);

@@ -8,7 +8,7 @@ class Dashboard extends BaseController
 	{
 		$data= [
 			'title' => 'Dashboard', 
-			'isi' 	=> 'l_dashboard'
+			'isi' 	=> 'admin/l_dashboard'
 		];
 
 		return view('l_login/l_wrapper', $data);
