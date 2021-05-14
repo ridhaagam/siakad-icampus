@@ -4,7 +4,7 @@
             <h1><b>Selamat Datang</b></h1>
         </div>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-8">
         <div class="text-center">
             <h1><b>SISTEM INFORMASI AKADEMIK KAMPUS</b></h1>
             <h2><b>UNIVERSITAS MUHAMMADIYAH MALANG</b></h2>
