@@ -74,7 +74,7 @@
 				<div class="page-title">
 					<div class="title_left">
 						<h2>Mahasiswa</h2>
-                        <br>
+              <br>
 					</div>
 				</div>  
 	
