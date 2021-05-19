@@ -10,21 +10,22 @@
       
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu</li>
-        <li>
-          <a href=<?= base_url('Dashboard') ?>>
+        <li class="active">
+          <a href=<?= base_url('admin') ?>
             <i class="fa fa-user"></i> <span>Dashboard</span>
           </a>
         </li>
         <li class="treeview">
           <a href="#">
-          <i class="fa fa-id-card-o"></i> <span>Admin</span>
+            <i class="fa fa-id-card-o"></i> <span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('Dosen') ?>><i class="fa  fa-user"></i> <span>Dosen</span></a></li>
-          <li><a href=<?= base_url('Mahasiswa') ?>><i class="fa  fa-users"></i> <span>Mahasiswa</span></a></li>
+          
+          <li><a href=<?= base_url('Dosen') ?>><i class=" fa fa-user"></i> <span>Dosen</span></a></li>
+          <li><a href=<?= base_url('Mahasiswa') ?>><i class="fa fa-users"></i> <span>Mahasiswa</span></a></li>
           <li><a href=<?= base_url('Program_Studi') ?>><i class="fa fa-building user-profile-icon"></i> <span>Program Studi</span></a></li>
           <li><a href=<?= base_url('Fakultas') ?>><i class="glyphicon glyphicon-book"></i> <span>Fakultas</span></a></li>
           <li><a href=<?= base_url('Mata_Kuliah') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
@@ -33,7 +34,7 @@
 
         <li class="treeview">
           <a href="#">
-          <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
+            <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -44,7 +45,7 @@
           </ul>
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
           <i class="fa fa-gear"></i> <span>Settings</span>
             <span class="pull-right-container">
@@ -53,7 +54,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li class="active"><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
        
@@ -73,7 +74,7 @@
 			<div class="">
 				<div class="page-title">
 					<div class="title_left">
-						<h2>Akademik</h2>
+						<h2>Profil</h2>
                         <br>
 					</div>
 				</div>  
@@ -81,7 +82,7 @@
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div class="profile_img">
 								<div id="crop-avatar text-center">
-									<img class="img-responsive avatar-view" src="../../dist/img/user2-160x160.jpg" style="border-radius:50%; width:50%;">
+									<img class="img-responsive avatar-view" src="img-user/avatar5.png" style="border-radius:50%; width:50%;">
 								</div>
 							</div>
 

@@ -16,9 +16,10 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $aliases = [
-		'csrf'     => CSRF::class,
-		'toolbar'  => DebugToolbar::class,
-		'honeypot' => Honeypot::class,
+		'csrf'     => \CodeIgniter\Filters\CSRF::class,
+		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
+		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'authfilter' => \App\Filters\AuthFilter::class,
 	];
 
 	/**
@@ -29,10 +30,31 @@ class Filters extends BaseConfig
 	 */
 	public $globals = [
 		'before' => [
+			'authfilter' => ['except' => [
+				'auth', 'auth/*',
+				'home', 'home/*',
+				'/',
+			]],
 			// 'honeypot',
 			// 'csrf',
 		],
 		'after'  => [
+			'authfilter' => ['except' => [
+				'admin', 'admin/*',
+				'home', 'home/*',
+				'/',
+				'fakultas', 'fakultas/*',
+				'gedung', 'gedung/*',
+				'ruangan', 'ruangan/*',
+				'prodi', 'prodi/*',
+				'tahun_akademik', 'tahun_akademik/*',
+				'matkul', 'matkul/*',
+				'user', 'user/*',
+				'dosen', 'dosen/*',
+				'mahasiswa', 'mahasiswa/*',
+				'kelas', 'kelas/*',
+				'jadwal_kuliah', 'jadwal_kuliah/*',
+			]],
 			'toolbar',
 			// 'honeypot',
 		],

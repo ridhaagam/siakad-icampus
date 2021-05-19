@@ -8,10 +8,10 @@ class Dosen extends BaseController
 	{
 		$data= [
 			'title' => 'Dosen', 
-			'isi' 	=> 'admin/dosen'
+			'isi' 	=> 'admin/dosen/index'
 		];
 
-		return view('l_login/l_wrapper', $data);
+		return view('layout_dashboard/wrapper', $data);
 	}
 
 } 

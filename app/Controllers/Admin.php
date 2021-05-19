@@ -2,16 +2,15 @@
 
 namespace App\Controllers;
 
-class Mahasiswa extends BaseController
+class Admin extends BaseController
 {
 	public function index()
 	{
-		$data= [
-			'title' => 'Mahasiswa', 
-			'isi' 	=> 'admin/mahasiswa/index'
+		$data = [
+			'title' => 'Admin',
+			'isi' 	=> 'admin'
 		];
 
 		return view('layout_dashboard/wrapper', $data);
 	}
-
-} 
+}

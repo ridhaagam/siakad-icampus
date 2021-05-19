@@ -7,7 +7,7 @@
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-     &copy; 2021 - Developed by iCampus Team Universitas Muhammadiyah Malang.
+     &copy; 2021 - Developed by iCampus Team Universitas Muhammadiyah Malang
     </div>
     <strong><br></strong>
   </footer>
@@ -40,6 +40,13 @@
       'autoWidth': false
     })
   })
+</script>
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000);
 </script>
 </body>
 

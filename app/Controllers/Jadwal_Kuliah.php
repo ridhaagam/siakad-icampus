@@ -8,10 +8,10 @@ class Jadwal_Kuliah extends BaseController
 	{
 		$data= [
 			'title' => 'Jadwal Kuliah', 
-			'isi' 	=> 'admin/l_jkuliah'
+			'isi' 	=> 'admin/jadwal_kuliah/index'
 		];
 
-		return view('l_login/l_wrapper', $data);
+		return view('layout_dashboard/wrapper', $data);
 	}
 
 } 

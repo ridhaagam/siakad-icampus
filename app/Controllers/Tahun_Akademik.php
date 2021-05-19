@@ -11,7 +11,7 @@ class Tahun_Akademik extends BaseController
 			'isi' 	=> 'admin/akademik'
 		];
 
-		return view('l_login/l_wrapper', $data);
+		return view('layout_dashboard/wrapper', $data);
 	}
 
 } 
