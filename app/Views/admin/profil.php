@@ -10,31 +10,40 @@
       
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu</li>
-        <li class="active">
-          <a href=<?= base_url('admin') ?>
+        <li>
+          <a href=<?= base_url('admin') ?>>
             <i class="fa fa-user"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <li>
+          <a href=<?= base_url('home') ?>>
+            <i class="fa fa-home"></i></i> <span>Homepage</span>
+          </a>
+        </li>
+        <li class="active treeview">
           <a href="#">
-            <i class="fa fa-id-card-o"></i> <span>Master</span>
+          <i class="fa fa-id-card-o"></i> <span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          
-          <li><a href=<?= base_url('Dosen') ?>><i class=" fa fa-user"></i> <span>Dosen</span></a></li>
-          <li><a href=<?= base_url('Mahasiswa') ?>><i class="fa fa-users"></i> <span>Mahasiswa</span></a></li>
-          <li><a href=<?= base_url('Program_Studi') ?>><i class="fa fa-building user-profile-icon"></i> <span>Program Studi</span></a></li>
-          <li><a href=<?= base_url('Fakultas') ?>><i class="glyphicon glyphicon-book"></i> <span>Fakultas</span></a></li>
-          <li><a href=<?= base_url('Mata_Kuliah') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+       
+          <li><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
+          <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
+          <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
+          <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
+          <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+          <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
+          <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
+          <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

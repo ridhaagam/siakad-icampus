@@ -32,9 +32,9 @@
           <li><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
           <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
           <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
-          <li class="active"><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
+          <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
           <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
-          <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+          <li class="active"><a href=<?= base_url('mata_kuliah') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
           <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
           <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
           <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
@@ -74,8 +74,8 @@
   </aside>
   
  <!-- =============================================== -->
-
-<div class="content-wrapper">
+ 
+            <div class="content-wrapper">
     <div class="content">
         <h1>Halaman <?= $title ?></h1>
         <div class="box box-warning box-solid">
@@ -83,21 +83,11 @@
                 <h3 class="box-title">Data <?= $title ?></h3>
 
                 <div class="box-tools pull-right">
-                    <a href="<?= base_url('prodi/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> Tambah</a>
                 </div>
                 <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <?php
-
-                if (session()->getFlashdata('pesan')) {
-                    echo '<div class="alert alert-success" role="alert">';
-                    echo session()->getFlashdata('pesan');
-                    echo '</div>';
-                }
-                ?>
-
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -106,23 +96,32 @@
                             <th class="text-center">Kode Prodi</th>
                             <th class="text-center">Program Studi</th>
                             <th class="text-center">Jenjang</th>
+                            <th class="text-center">Mata Kuliah</th>
                             <th class="text-center">KA Prodi</th>
                             <th width="150px" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1;
-                        foreach ($prodi as $key => $value) { ?>
+                        <?php 
+                        $db = \Config\Database::connect();
+ 
+                        $no = 1;
+                        foreach ($prodi as $key => $value) {
+                          $total = $db->table('matkul')
+                          -> where('id_prodi', $value['id_prodi'])
+                          ->countAllResults();
+                           ?>
                             <tr>
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td class="text-center"><?= $value['fakultas']  ?></td>
                                 <td class="text-center"><?= $value['kode_prodi']  ?></td>
                                 <td class="text-center"><?= $value['prodi']  ?></td>
                                 <td class="text-center"><?= $value['jenjang']  ?></td>
+                                <td class="text-center"><a class ="label bg-green"><?= $total ?></a></td>
                                 <td class="text-center"><?= $value['ka_prodi']  ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('prodi/edit/' . $value['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_prodi'] ?>"><i class="fa fa-trash"></i></button>
+                                    <a href="<?=base_url('matkul/detail/'.$value['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"> Mata Kuliah</i></a>
+                                
                                 </td>
                             </tr>
                         <?php  } ?>
@@ -134,32 +133,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- modal delete -->
-<?php foreach ($prodi as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value['id_prodi'] ?>">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Hapus <?= $title ?></h4>
-                </div>
-                <div class="modal-body">
-
-                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['prodi'] ?></b> ?
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left " data-dismiss="modal">Tutup</button>
-                    <a href="<?= base_url('prodi/delete/' . $value['id_prodi']) ?>" class="btn btn-success ">Hapus</a>
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-<?php } ?>

@@ -11,23 +11,33 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu</li>
         <li>
-          <a href=<?= base_url('Dashboard') ?>>
+          <a href=<?= base_url('admin') ?>>
             <i class="fa fa-user"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href=<?= base_url('home') ?>>
+            <i class="fa fa-home"></i></i> <span>Homepage</span>
           </a>
         </li>
         <li class="treeview">
           <a href="#">
-          <i class="fa fa-id-card-o"></i> <span>Admin</span>
+          <i class="fa fa-id-card-o"></i> <span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('Dosen') ?>><i class="fa  fa-user"></i> <span>Dosen</span></a></li>
-          <li><a href=<?= base_url('Mahasiswa') ?>><i class="fa  fa-users"></i> <span>Mahasiswa</span></a></li>
-          <li><a href=<?= base_url('Program_Studi') ?>><i class="fa fa-building user-profile-icon"></i> <span>Program Studi</span></a></li>
-          <li><a href=<?= base_url('Fakultas') ?>><i class="glyphicon glyphicon-book"></i> <span>Fakultas</span></a></li>
-          <li><a href=<?= base_url('Mata_Kuliah') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+       
+          <li><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
+          <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
+          <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
+          <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
+          <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+          <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
+          <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
 
@@ -66,50 +76,178 @@
  <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
+ 
   <div class="content-wrapper">
-  <div class="row">
-    <div class="col-sm-12">
-		<div class="right_col" role="main" style="min-height: 583px;">
-			<div class="">
-				<div class="page-title">
-					<div class="title_left">
-						<h2>Kelas</h2>
-                        <br>
-					</div>
-				</div>  
-	
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="profile_img">
-								<div id="crop-avatar text-center">
-									<img class="img-responsive avatar-view" src="../../dist/img/user2-160x160.jpg" style="border-radius:50%; width:50%;">
-								</div>
-							</div>
+    <div class="content">
+        <h1>Halaman <?= $title ?></h1>
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Data <?= $title ?></h3>
 
-							<h3>MUH. RIDHA AGAM</h3>
-							<ul class="list-unstyled">
-								<li><i class="fa fa-address-card user-profile-icon"></i> 202010370311035</li>
-								<li><i class="fa fa-map-marker user-profile-icon"></i> Fakultas Teknik</li>
-								<li><i class="fa fa-building user-profile-icon"></i> Program Studi Informatika</li>
-								<li><i class="fa fa-phone user-profile-icon"></i> 082291991645</li>
-								<li><i class="fa fa-envelope user-profile-icon"></i> muhridhaagam@gmail.com</li>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>Tambah</b></button>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+            <?php
+                $errors = session()->getFlashdata('errors');
+                if (!empty($errors)) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            <?php foreach ($errors as $key => $value) { ?>
+                                <li><?= esc($value) ?></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                <?php } ?>
+                <?php
 
-							</ul>
-                            <br>
-							<a href="#" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
-						</div>
+                if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-success" role="alert">';
+                    echo session()->getFlashdata('pesan');
+                    echo '</div>';
+                }
+                ?>
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="50px" class="text-center">No</th>
+                            <th class="text-center">Nama Kelas</th>
+                            <th class="text-center">Program Studi</th>
+                            <th class="text-center">Nama Dosen</th>
+                            <th class="text-center">Tahun</th>
+                            <th class="text-center">Jumlah</th>
+                            <th width="50px" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php     
+                        $db = \Config\Database::connect();
+                        $no = 1;    
+                        foreach ($kelas as $key => $value) { 
+                          $jml = $db->table('mahasiswa')
+                          -> where('id_kelas', $value['id_kelas'])
+                          ->countAllResults();
+                          ?>
+                            <tr>
+                                <td class="text-center"><?= $no++; ?></td>
+                                <td class="text-center"><?= $value['kelas']?>-<?= $value['angkatan']?></td></td>
+                                <td class="text-center"><?= $value['prodi']  ?></td>
+                                <td class="text-center"><?= $value['nama_dosen']  ?></td>
+                                <td class="text-center"><?= $value['angkatan']  ?></td>
+                                <td>
+                                <p class="text-center"><a class ="label bg-green"><?= $jml ?> </a><br> <a href=<?= base_url('kelas/rincian_kelas/' . $value['id_kelas'] ) ?>>Mahasiswa</a></a></p></td>
+                                <td class="text-center">
+                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_kelas'] ?>"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        <?php  } ?>
 
-       <!-- /.box-body -->
-       <div class="box-footer">
-        
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
         </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-
-    <!-- /.content -->
-  </div>
-
+    </div>
 </div>
-=
- 
- 
+
+
+    <!-- modal Add -->
+    <div class="modal fade" id="add">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tambah Data <?= $title ?> </h4>
+            </div>
+            <div class="modal-body">
+                <?php
+                echo form_open('kelas/add');
+                ?>
+                <div class="form-group">
+                    <label>Kelas</label>
+                    <select name="kelas" class="form-control" >
+                    <option value="">Pilih Kelas</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="J">J</option>
+                    <option value="K">K</option>
+                    <option value="L">L</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Program Studi</label>
+                    <select name="id_prodi" class="form-control" >
+                    <option value="">Pilih Program Studi</option>
+                    <?php foreach ($prodi as $key => $value) { ?>
+                      <option value="<?= $value['id_prodi'] ?>"><?= $value['prodi'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label>Pilih Dosen</label>
+                    <select name="nidn" class="form-control" >
+                    <option value="">Pilih Dosen</option>
+                    <?php foreach ($dosen as $key => $value) { ?>
+                      <option value="<?= $value['nidn'] ?>"><?= $value['nama_dosen'] ?></option>
+                    <?php } ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tahun</label>
+                    <select name="angkatan" class="form-control" >
+                    <option value="">Pilih Tahun</option>
+                    <?php for ($i = date('Y'); $i >= date('Y')-5; $i--) { ?>
+                      <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php } ?>
+                    </select>
+                </div>
+                          
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
+            </div>
+            <?php echo form_close() ?>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- modal delete -->
+<?php foreach ($kelas as $key => $value) { ?>
+    <div class="modal fade" id="delete <?= $value['id_kelas'] ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Hapus <?= $title ?></h4>
+                </div>
+                <div class="modal-body">
+
+                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['id_kelas'] ?> </b>?
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
+                    <a href="<?= base_url('kelas/delete/' . $value['id_kelas']) ?>" class="btn btn-success">Hapus</a>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>

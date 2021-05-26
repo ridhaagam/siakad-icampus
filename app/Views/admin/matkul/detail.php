@@ -33,8 +33,8 @@
           <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
           <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
           <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
-          <li class="active"><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
-          <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+          <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
+          <li class="active"><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
           <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
           <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
           <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
@@ -74,13 +74,46 @@
   </aside>
   
  <!-- =============================================== -->
-
 <div class="content-wrapper">
     <div class="content">
-    <h1>Halaman <?= $title ?></h1>
+        <h1>Halaman <?= $title ?></h1>
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
-                <h3 class="box-title">Data <?= $title ?></h3>
+                <h3 class="box-title">Data <?= $title ?> - <medium style="color:white"><?=$prodi['prodi']?></medium></h3>
+                
+                <div class="box-tools pull-right">
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                <div class="box box box-solid">
+            <!-- /.box-header -->
+            <div class="box-body">
+            <div class="box-body">
+                <table class="table table-bordered">
+                        <tr>
+                         <th width ="150px">Program Studi :</th>
+                        
+                         <td><?= $prodi['prodi'] ?></td>
+                        </tr>
+                        <tr>
+                         <th>Program Studi :</th>
+                         
+                         <td><?= $prodi['jenjang'] ?></td>
+                        </tr>
+                         <th>Fakultas :</th>
+                        
+                         <td><?= $prodi['fakultas'] ?></td>
+                        </tr>
+                </table>
+            </div>
+            <!-- /.box-body -->
+</div>
+</div>
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title"><?= $title ?></h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>Tambah</b></button>
@@ -89,6 +122,17 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            <?php
+                $errors = session()->getFlashdata('errors');
+                if (!empty($errors)) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            <?php foreach ($errors as $key => $value) { ?>
+                                <li><?= esc($value) ?></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                <?php } ?>
                 <?php
 
                 if (session()->getFlashdata('pesan')) {
@@ -102,22 +146,26 @@
                     <thead>
                         <tr>
                             <th width="50px" class="text-center">No</th>
-                            <th class="text-center">Fakultas</th>
+                            <th width="50px" class="text-center">Kode</th>
+                            <th>Mata Kuliah</th>
+                            <th width="50px" class="text-center">SKS</th>
+                            <th width="50px" class="text-center">Kategori</th>
+                            <th width="50px" class="text-center">Semester</th>
                             <th width="150px" class="text-center">Action</th>
                         </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
-                    <?php $no = 1;
-                        foreach ($fakultas as $key => $value) { ?>
-                            <tr>
-                                <td class="text-center"><?= $no++; ?></td>
-                                <td class="text-center"><?= $value['fakultas'] ?></td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_fakultas'] ?>"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_fakultas'] ?>"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
-                    <?php  } ?>
+                    <?php $no=1; foreach ($matkul as $key => $value) { ?>
+                        <tr></tr>
+                            <td><?= $no++ ?></td>
+                            <td width="50px" class="text-center"><?= $value['kode_matkul']?></td>
+                            <td><?= $value['matkul']?></td>
+                            <td class="text-center"><?= $value['sks']?></td>
+                            <td class="text-center"><?= $value['kategori']?></td>
+                            <td class="text-center"><?= $value['smt']?> (<?= $value['semester']?>)</td>
+                            <td class="text-center">    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_matkul'] ?>"><i class="fa fa-trash"></i></button></td>
+                            
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -125,27 +173,65 @@
         </div>
         <!-- /.box -->
     </div>
-</div>
+    </div>
+    </div>
 
-<!-- modal Add -->
+   
+
+    <!-- modal Add -->
 <div class="modal fade" id="add">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Data Fakultas</h4>
+                <h4 class="modal-title">Tambah Data <?= $title ?> </h4>
             </div>
             <div class="modal-body">
                 <?php
-                echo form_open('fakultas/add');
+                echo form_open('matkul/add/' .$prodi['id_prodi']);
                 ?>
-
                 <div class="form-group">
-                    <label>Fakultas</label>
-                    <input name="fakultas" class="form-control" placeholder="Fakultas" required>
+                    <label>Kode</label>
+                    <input name="kode_matkul" class="form-control" placeholder="Kode Mata Kuliah">
                 </div>
-                
+                <div class="form-group">
+                    <label>Mata Kuliah</label>
+                    <input name="matkul" class="form-control" placeholder="Mata Kuliah">
+                </div>
+                <div class="form-group">
+                    <label>SKS</label>
+                    <select name="sks" class="form-control" >
+                    <option value="">Pilih SKS</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Semester</label>
+                    <select name="smt" class="form-control" >
+                    <option value="">Pilih Semester</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select name="kategori" class="form-control" >
+                    <option value="">Pilih Kategori</option>
+                    <option value="Wajib">Wajib</option>
+                    <option value="Pilihan">Pilihan</option>
+                    </select>
+                </div>
 
             </div>
             <div class="modal-footer">
@@ -159,61 +245,25 @@
     <!-- /.modal-dialog -->
 </div>
 
-
-<!-- modal edit -->
-<?php foreach ($fakultas as $key => $value) { ?>
-    <div class="modal fade" id="edit<?= $value['id_fakultas'] ?>">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Perbarui Fakultas</h4>
-                </div>
-                <div class="modal-body">
-                    <?php
-                    echo form_open('fakultas/edit/' . $value['id_fakultas']);
-                    ?>
-
-                    <div class="form-group">
-                        <label>Fakultas</label>
-                        <input name="fakultas" value="<?= $value['fakultas'] ?>" class="form-control" required>
-                    </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-success">Perbarui</button>
-                </div>
-                <?php echo form_close() ?>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-<?php } ?>
-
-
 <!-- modal delete -->
-<?php foreach ($fakultas as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value['id_fakultas'] ?>">
+<?php foreach ($matkul as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value['id_matkul'] ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Hapus Fakultas</h4>
+                    <h4 class="modal-title">Hapus <?= $title ?></h4>
                 </div>
                 <div class="modal-body">
 
-                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['fakultas'] ?> </b>?
+                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['matkul'] ?> </b>?
 
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
-                    <a href="<?= base_url('fakultas/delete/' . $value['id_fakultas']) ?>" class="btn btn-success">Hapus</a>
+                    <a href="<?= base_url('matkul/delete/' . $prodi['id_prodi'].'/'. $value['id_matkul']) ?>" class="btn btn-success">Hapus</a>
                 </div>
 
             </div>

@@ -13,7 +13,7 @@ class ModelGedung extends Model
             ->get()->getResultArray();
     }
 
-    public function insert_data($data)
+    public function add($data)
     {
         $this->db->table('gedung')->insert($data);
     }
