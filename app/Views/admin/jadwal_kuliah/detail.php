@@ -49,8 +49,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="active"><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li class="active"><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
           </ul>
         </li>
 
@@ -62,22 +62,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
-       
-
-        
     </section>
     <!-- /.sidebar -->
   </aside>
   
  <!-- =============================================== -->
-
  <div class="content-wrapper">
     <div class="content">
-    <h1><?= $title ?> - <?= $prodi['prodi'] ?> </h1>
+        <h1>Halaman <?= $title ?></h1>
+        
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Data <?= $title ?> - <medium style="color:white"><?=$prodi['prodi']?></medium></h3>
@@ -86,37 +83,28 @@
                 </div>
                 <!-- /.box-tools -->
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                <div class="box box box-solid">
             <!-- /.box-header -->
             <div class="box-body">
-            <div class="box-body">
                 <table class="table table-bordered">
-                        <tr>
-                         <th width ="150px">Program Studi :</th>
-                        
+                <tr>
+                         <th width ="150px">Program Studi</th>
+                         <td width="20px">:</td>
                          <td><?= $prodi['prodi'] ?></td>
                         </tr>
                         <tr>
-                         <th>Program Studi :</th>
-                         
+                         <th>Jenjang</th>
+                         <td>:</td>
                          <td><?= $prodi['jenjang'] ?></td>
                         </tr>
-                         <th>Fakultas :</th>
-                        
+                         <th>Fakultas</th>
+                         <td>:</td>
                          <td><?= $prodi['fakultas'] ?></td>
                         </tr>
-                        <th>Tahun Akademik :</th>
-                        
-                        <td><?= $ta_aktif['ta'] ?> - <?= $ta_aktif['semester'] ?></td>
-                       </tr>
                 </table>
-            </div>
-            <!-- /.box-body -->
+     </div>
 </div>
-</div>
-        <div class="box box-warning box-solid">
+
+<div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title"><?= $title ?></h3>
 
@@ -149,14 +137,14 @@
 
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
-                        <tr>
+                    <tr>
                             <th width="50px" class="text-center">No</th>
                             <th width="50px" class="text-center">Semester</th>
                             <th width="100px" class="text-center">Kode MK</th>
                             <th width="100px" class="text-center">Mata Kuliah</th>
                             <th width="50px" class="text-center">SKS</th>
                             <th width="50px" class="text-center">Kelas</th>
-                            <th width="350px" class="text-center">Dosen</th>
+                            <th width="350px" class="text-center">Dosen Pengampu</th>
                             <th width="50px" class="text-center">Hari</th>
                             <th width="100px" class="text-center">Waktu</th>
                             <th width="100px" class="text-center">Ruangan</th>
@@ -165,67 +153,64 @@
                         </tr>
                     </thead> 
                     <tbody>
-                        <?php $no=1; foreach ($jadwal as $key => $value) { ?>
-                           <tr>
-                           <td class="text-center"><?= $no++ ?></td>
+                    <?php $no=1; foreach ($jadwal as $key => $value) { ?>
+                        <tr></tr>
+                        <td class="text-center"><?= $no++ ?></td>
                            <td class="text-center"><?= $value['smt']?></td>
                            <td class="text-center"><?= $value['kode_matkul']?></td>
                            <td class="text-center"><?= $value['matkul'] ?></td>
                            <td class="text-center"><?= $value['sks']?></td>
-                           <td class="text-center"><?= $value['kelas']?>-<?= $value['angkatan']?></td>
+                           <td class="text-center"><?= $value['kelas']?> - <?= $value['angkatan']?></td>
                            <td class="text-center"><?= $value['nama_dosen']?></td>
                            <td class="text-center"><?= $value['hari']?></td>
                            <td class="text-center"><?= $value['waktu']?></td>
                            <td class="text-center"><?= $value['ruangan']?></td>
                            <td class="text-center"><?= $value['kuota']?></td>
-                           <td class="text-center"> <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#delete<?= $value['id_jadwal_kuliah'] ?>"><i class="fa fa-trash"></i></button></td>
-                           </tr>
-                       <?php } ?>
+                           <td class="text-center"> <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#delete<?= $value['id_jadwal_kuliah'] ?>"><i class="fa fa-trash"></i></button></td>     
+                    <?php } ?>
                     </tbody>
                 </table>
-            </div>
+        </div>
             <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-        </div>
-    </div>
 </div>
 
-    
-    <!-- modal Add -->
+             <!-- /.box-body -->
+<!-- modal Add -->
 <div class="modal fade" id="add">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Data <?= $title ?> </h4>
+                <h4 class="modal-title">Tambah <?= $title ?></h4>
             </div>
             <div class="modal-body">
                 <?php
-                echo form_open('jadwal_kuliah/add/' .$prodi['id_prodi']);
+                echo form_open('jadwal_kuliah/add/' . $prodi['id_prodi']);
                 ?>
 
                 <div class="form-group">
                     <label>Mata Kuliah</label>
-                    <select name="id_matkul" class="form-control" >
+                    <select name="id_matkul" class="form-control">
                     <option value="">Pilih Mata Kuliah</option>
                         <?php foreach ($matkul as $key => $value) { ?>
-                            <option value="<?= $value['id_matkul']?>">Semester: <?= $value['smt']?> | <?= $value['smt']?> SKS | <?= $value['kode_matkul']?> | <?= $value['matkul']?></option>
+                            <option value="<?= $value['id_matkul']?>">Semester <?= $value['smt']?> | <?= $value['kode_matkul']?> | <?= $value['matkul']?> | <?= $value['sks']?> SKS</option>
 
                         <?php } ?>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label>Dosen</label>
-                    <select name="nidn" class="form-control" >
-                    <option value="">Pilih Dosen</option>
+                    <label>Dosen Pengampu</label>
+                    <select name="nidn" class="form-control">
+                        <option value="">--Pilih Dosen--</option>
                         <?php foreach ($dosen as $key => $value) { ?>
-                            <option value="<?= $value['nidn']?>"><?= $value['nama_dosen']?></option>
-
+                            <option value="<?= $value['nidn'] ?>"><?= $value['nama_dosen'] ?></option>
                         <?php } ?>
+
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label>Kelas</label>
                     <select name="id_kelas" class="form-control" >
@@ -236,49 +221,50 @@
                         <?php } ?>
                     </select>
                 </div>
-                <div class="row">
-                        <div class="col-sm-6">     <div class="form-group">
-                    <label>Hari</label>
-                    <select name="hari" class="form-control" >
-                    <option value="">Pilih Hari</option>
-                    <option value="Senin">Senin</option>
-                    <option value="Selasa">Selasa</option>
-                    <option value="Rabu">Rabu</option>
-                    <option value="Kamis">Kamis</option>
-                    <option value="Jumat">Jumat</option>
-                    </select>
-                </div>
-                </div>
-                    <div class="col-sm-6">
-                    <label>Waktu</label>
-                        <input name="waktu" class="form-control" placeholder="Contoh: 07:00-08:40">
-                    </div>
-                    </select>
-                </div>
-                <div class="row">
-                        <div class="col-sm-6">     <div class="form-group">
-                        <label>Ruangan</label>
-                    <select name="id_ruangan" class="form-control" >
-                    <option value="">Pilih Ruangan</option>
-                    <?php foreach ($ruangan as $key => $value) { ?>
-                            <option value="<?= $value['id_ruangan']?>"><?= $value['ruangan']?></option>
 
-                        <?php } ?>
-                    </select>
-                </div>
-                </div>
+                <div class="row">
                     <div class="col-sm-6">
-                    <label>Kuota</label>
-                        <input name="kuota" class="form-control" placeholder="Contoh: 35">
+                        <div class="form-group">
+                            <label>Hari</label>
+                            <select name="hari" class="form-control" >
+                                <option value="">Pilih Hari</option>
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                            </select>
+                        </div>
                     </div>
-        <div class="row">
-            <div class="col-sm-6">     
-            <div class="form-group">
-                   
-                </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Waktu</label>
+                            <input name="waktu" class="form-control" placeholder="Ex = 07:00-08:40">
+                        </div>
+                    </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Ruangan</label>
+                            <select name="id_ruangan" class="form-control">
+                                <option value="">--Pilih Ruangan--</option>
+                                <?php foreach ($ruangan as $key => $value) { ?>
+                                    <option value="<?= $value['id_ruangan'] ?>"><?= $value['ruangan'] ?></option>
+                                <?php } ?>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Kuota</label>
+                            <input name="kuota" class="form-control" placeholder="Kuota">
+                        </div>
+                    </div>
                 </div>
+
 
             </div>
             <div class="modal-footer">
@@ -295,8 +281,8 @@
 
 <!-- modal delete -->
 <?php foreach ($jadwal as $key => $value) { ?>
-    <div class="modal fade" id="delete <?= $value['id_jadwal_kuliah']?>">
-        <div class="modal-dialog"> 
+    <div class="modal fade" id="delete<?= $value['id_jadwal_kuliah'] ?>">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -305,13 +291,13 @@
                 </div>
                 <div class="modal-body">
 
-                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['kode_matkul'] ?> | <?= $value['nama_dosen'] ?> </b>
+                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['kode_matkul'] ?> | <?= $value['nama_dosen'] ?></b> ?
 
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
-                    <a href="<?= base_url('jadwal_kuliah/delete/' . $value['id_ruangan'].'/'. $prodi['id_prodi']) ?>" class="btn btn-success">Hapus</a>
+                    <a href="<?= base_url('jadwal_kuliah/delete/' . $value['id_ruangan'] . '/' . $prodi['id_prodi']) ?>" class="btn btn-success ">Hapus</a>
                 </div>
 
             </div>

@@ -50,7 +50,7 @@
           </a>
           <ul class="treeview-menu">
           <li class="active"><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
           </ul>
         </li>
 
@@ -62,8 +62,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
        
@@ -77,7 +77,7 @@
 
  <div class="content-wrapper">
     <div class="content">
-        <h1><?= $title ?> - Tahun Akademik: <?= $ta_aktif['ta'] ?> - <?= $ta_aktif['semester'] ?> </h1>
+        <h1><?= $title ?> - Tahun Akademik : <?= $ta_aktif['ta'] ?> - <?= $ta_aktif['semester'] ?> </h1>
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Data <?= $title ?></h3>
@@ -110,7 +110,7 @@
                         <td><?= $value['jenjang'] ?></td>
                         <td><?= $value['ka_prodi'] ?></td>
                         <td class="text-center">
-                          <a href="<?= base_url('jadwal_kuliah/detail/' . $value['id_prodi']) ?>" class="btn btn-success btn-flat btn-sm"><i class="fa fa-calendar"></i></a>
+                          <a href="<?= base_url('jadwal_kuliah/detail/' . $value['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-calendar"></i></a>
                         </td>
                         </tr>
                       <?php } ?>

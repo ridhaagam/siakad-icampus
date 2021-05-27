@@ -58,42 +58,42 @@ class Jadwal_Kuliah extends BaseController
 					'label' => 'Mata Kuliah',
 					'rules' => 'required',
 					'errors' => [
-						'required' => '{field}  Wajib Di Pilih!'
+						'required' => '{field}  Wajib di Pilih!'
 					]
 				],
 				'nidn' => [
 					'label' => 'Dosen',
 					'rules' => 'required',
 					'errors' => [
-						'required' => '{field}  Wajib Di Pilih!'
+						'required' => '{field}  Wajib di Pilih!'
 					]
 				],
 				'id_kelas' => [
 					'label' => 'Kelas',
 					'rules' => 'required',
 					'errors' => [
-						'required' => '{field}  Wajib Di Pilih!'
+						'required' => '{field}  Wajib di Pilih!'
 					]
 				],
 				'hari' => [
 					'label' => 'Hari',
 					'rules' => 'required',
 					'errors' => [
-						'required' => '{field}  Wajib Di Pilih!!'
+						'required' => '{field}  Wajib di Pilih!!'
 					]
 				],
 				'waktu' => [
 					'label' => 'waktu',
 					'rules' => 'required',
 					'errors' => [
-						'required' => '{field} Wajib Diisi!'
+						'required' => '{field} Wajib diisi!'
 					]
 				],
 				'id_ruangan' => [
 					'label' => 'Ruangan',
 					'rules' => 'required',
 					'errors' => [
-						'required' => '{field} Wajib Di Pilih!'
+						'required' => '{field} Wajib di Pilih!'
 					]
 				],
 				'kuota' => [

@@ -30,8 +30,8 @@ class ModelKelas extends Model
 
      public function delete_data($data)
     {
-        $this->db->table('matkul')
-            ->where('id_matkul', $data['id_matkul'])
+        $this->db->table('kelas')
+            ->where('id_kelas', $data['id_kelas'])
             ->delete($data);
     }
 
@@ -41,7 +41,7 @@ class ModelKelas extends Model
         return $this->db->table('mahasiswa')
         ->join('prodi', 'prodi.id_prodi = mahasiswa.id_prodi', 'left')
         ->where('id_kelas', $id_kelas)       
-        ->orderBy('nim', 'DESC')
+        ->orderBy('id_mhs', 'DESC')
         ->get()->getResultArray();
     }
 
@@ -52,7 +52,7 @@ class ModelKelas extends Model
         return $this->db->table('mahasiswa')
         ->join('prodi', 'prodi.id_prodi = mahasiswa.id_prodi', 'left')
         ->where('id_kelas', null) 
-        ->orderBy('nim', 'DESC')
+        ->orderBy('id_mhs', 'DESC')
         ->get()->getResultArray();
     }
 

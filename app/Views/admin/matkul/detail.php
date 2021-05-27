@@ -1,5 +1,5 @@
 <!-- =============================================== -->
-
+<script src="<?= base_url() ?>/template/jquery/dist/jquery.min.js"></script>
   <!-- Left side column. contains the sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -49,8 +49,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
           </ul>
         </li>
 
@@ -62,13 +62,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
-       
-
-        
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -77,6 +74,7 @@
 <div class="content-wrapper">
     <div class="content">
         <h1>Halaman <?= $title ?></h1>
+        
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Data <?= $title ?> - <medium style="color:white"><?=$prodi['prodi']?></medium></h3>
@@ -85,33 +83,29 @@
                 </div>
                 <!-- /.box-tools -->
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                <div class="box box box-solid">
             <!-- /.box-header -->
-            <div class="box-body">
             <div class="box-body">
                 <table class="table table-bordered">
                         <tr>
-                         <th width ="150px">Program Studi :</th>
-                        
+                         <th width ="150px">Program Studi</th>
+                         <td width="20px">:</td>
                          <td><?= $prodi['prodi'] ?></td>
                         </tr>
                         <tr>
-                         <th>Program Studi :</th>
-                         
+                         <th>Jenjang</th>
+                         <td>:</td>
                          <td><?= $prodi['jenjang'] ?></td>
                         </tr>
-                         <th>Fakultas :</th>
-                        
+                         <th>Fakultas</th>
+                         <td>:</td>
                          <td><?= $prodi['fakultas'] ?></td>
                         </tr>
                 </table>
-            </div>
-            <!-- /.box-body -->
+        
+     </div>
 </div>
-</div>
-        <div class="box box-warning box-solid">
+
+<div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title"><?= $title ?></h3>
 
@@ -147,37 +141,31 @@
                         <tr>
                             <th width="50px" class="text-center">No</th>
                             <th width="50px" class="text-center">Kode</th>
-                            <th>Mata Kuliah</th>
+                            <th class="text-center">Mata Kuliah</th>
                             <th width="50px" class="text-center">SKS</th>
                             <th width="50px" class="text-center">Kategori</th>
                             <th width="50px" class="text-center">Semester</th>
-                            <th width="150px" class="text-center">Action</th>
+                            <th width="50px" class="text-center">Action</th>
                         </tr>
                     </thead> 
                     <tbody>
                     <?php $no=1; foreach ($matkul as $key => $value) { ?>
                         <tr></tr>
-                            <td><?= $no++ ?></td>
+                            <td class="text-center"><?= $no++ ?></td>
                             <td width="50px" class="text-center"><?= $value['kode_matkul']?></td>
-                            <td><?= $value['matkul']?></td>
+                            <td class="text-center"><?= $value['matkul']?></td>
                             <td class="text-center"><?= $value['sks']?></td>
                             <td class="text-center"><?= $value['kategori']?></td>
                             <td class="text-center"><?= $value['smt']?> (<?= $value['semester']?>)</td>
-                            <td class="text-center">    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_matkul'] ?>"><i class="fa fa-trash"></i></button></td>
+                            <td class="text-center"><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_matkul'] ?>"><i class="fa fa-trash"></i></button></td>
                             
                     <?php } ?>
                     </tbody>
                 </table>
-            </div>
-            <!-- /.box-body -->
         </div>
-        <!-- /.box -->
-    </div>
-    </div>
-    </div>
-
-   
-
+            <!-- /.box-body -->
+</div>
+<a href="<?= base_url('matkul') ?>" class="btn btn-danger pull-left">Kembali</a>
     <!-- modal Add -->
 <div class="modal fade" id="add">
     <div class="modal-dialog modal-sm">
@@ -191,10 +179,22 @@
                 <?php
                 echo form_open('matkul/add/' .$prodi['id_prodi']);
                 ?>
-                <div class="form-group">
+                <div class="form-group" id="only-number">
                     <label>Kode</label>
-                    <input name="kode_matkul" class="form-control" placeholder="Kode Mata Kuliah">
+                    <input name="kode_matkul" class="form-control" maxlength="8" placeholder="Kode Mata Kuliah">
+                    <small style="color:red">*maximum kode matkul 8 digit angka!</small>
                 </div>
+                <script>
+                    $(function() {
+                    $('#only-number').on('keydown', '#number', function(e){
+                        -1!==$
+                        .inArray(e.keyCode,[46,8,9,27,13,110,190]) || /65|67|86|88/
+                        .test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey)
+                        || 35 <= e.keyCode && 40 >= e.keyCode || (e.shiftKey|| 48 > e.keyCode || 57 < e.keyCode)
+                        && (96 > e.keyCode || 105 < e.keyCode) && e.preventDefault()
+                    });
+                    })
+                </script>
                 <div class="form-group">
                     <label>Mata Kuliah</label>
                     <input name="matkul" class="form-control" placeholder="Mata Kuliah">

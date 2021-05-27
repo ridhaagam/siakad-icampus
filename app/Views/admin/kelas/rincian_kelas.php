@@ -49,8 +49,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li class="active"><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li class="active"><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
           </ul>
         </li>
 
@@ -62,13 +62,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
        
-
-        
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -79,7 +77,7 @@
  
   <div class="content-wrapper">
     <div class="content">
-        <h1>Halaman <?= $title ?> - <label><?=$kelas['kelas'] ?>-<?= $kelas['angkatan']?></h1>
+        <h1>Halaman <?= $title ?> : <label><?=$kelas['kelas'] ?> - <?= $kelas['angkatan']?></h1>
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Data <?= $title ?>: <label><?=$kelas['kelas'] ?></label></h3>
@@ -107,7 +105,7 @@
                          <td><?= $kelas['prodi'] ?></td>
                         </tr>
                         <tr>
-                         <th>Jumlah</th>
+                         <th>Jumlah Mahasiswa</th>
                          <th>:</th>
                          <td><?= $jml ?></td>
                         </tr>
@@ -137,9 +135,8 @@
                         <td class="text-center"><?=$value['nim']?></td>
                         <td class="text-center"><?=$value['nama_mahasiswa']?></td>
                         <td class="text-center">
-                            <a href="<?=base_url('kelas/remove_anggota_kelas/'. $value['id_mhs']. '/' . $kelas['id_kelas'])?>" button class="btn btn-flat btn-sm btn-danger">
+                            <a href="<?=base_url('kelas/remove_anggota_kelas/'. $value['id_mhs']. '/' . $kelas['id_kelas'])?>" button class="btn btn-sm btn-danger">
                                 <i class="fa fa-trash"></i>
-                               
                             </a>
                         </td>
                     </tr>
@@ -150,8 +147,10 @@
             </div>
             <!-- /.box-body -->
         </div>
+        <a href="<?= base_url('kelas') ?>" class="btn btn-danger pull-left">Kembali</a>
     </div>
 </div>
+
 
 
     <!-- modal Add -->
@@ -161,7 +160,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title text-center">Mahasiswa </h4>
+                <h4 class="modal-title text-center">Data Mahasiswa</h4>
             </div>
             <div class="modal-body">
             <table id="example1" class="table table-bordered table-striped">
@@ -171,7 +170,7 @@
                     <th>NIM</th>
                     <th>Nama Mahasiswa</th>
                     <th>Program Studi</th>
-                    <th width="50px">Tambah</th>
+                    <th width="50px">Action</th>
                 </tr>
             </thead>
                 <tbody>

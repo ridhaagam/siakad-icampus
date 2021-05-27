@@ -1,5 +1,5 @@
 <!-- =============================================== -->
-
+<script src="<?= base_url() ?>/template/jquery/dist/jquery.min.js"></script>
   <!-- Left side column. contains the sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -120,11 +120,22 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="only-number">
                     <label>Kode Program Studi</label>
-                    <input name="kode_prodi" class="form-control" placeholder="Kode Program Studi">
+                    <input name="kode_prodi" class="form-control" id="number" maxlength="8" placeholder="Kode Program Studi">
+                    <small style="color:red">*maximum kode prodi 8 digit angka!</small>
                 </div>
-
+                <script>
+                $(function() {
+                $('#only-number').on('keydown', '#number', function(e){
+                  -1!==$
+                  .inArray(e.keyCode,[46,8,9,27,13,110,190]) || /65|67|86|88/
+                  .test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey)
+                  || 35 <= e.keyCode && 40 >= e.keyCode || (e.shiftKey|| 48 > e.keyCode || 57 < e.keyCode)
+                  && (96 > e.keyCode || 105 < e.keyCode) && e.preventDefault()
+                });
+              })
+              </script>
                 <div class="form-group">
                     <label>Program Studi</label>
                     <input name="prodi" class="form-control" placeholder="Program Studi">

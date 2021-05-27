@@ -49,8 +49,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
           </ul>
         </li>
 
@@ -62,8 +62,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
        
@@ -117,7 +117,7 @@
                                 <td class="text-center"><?= $value['kode_prodi']  ?></td>
                                 <td class="text-center"><?= $value['prodi']  ?></td>
                                 <td class="text-center"><?= $value['jenjang']  ?></td>
-                                <td class="text-center"><a class ="label bg-green"><?= $total ?></a></td>
+                                <td class="text-center"><a class ="label label-warning"><?= $total ?></a></td>
                                 <td class="text-center"><?= $value['ka_prodi']  ?></td>
                                 <td class="text-center">
                                     <a href="<?=base_url('matkul/detail/'.$value['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"> Mata Kuliah</i></a>

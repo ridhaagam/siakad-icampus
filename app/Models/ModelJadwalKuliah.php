@@ -43,7 +43,7 @@ class ModelJadwalKuliah extends Model
     public function delete_data($data)
     {
         $this->db->table('jadwal_kuliah')
-            ->where('jadwal_kuliah.id_jadwal_kuliah', $data['id_jadwal_kuliah'])
+            ->where('id_jadwal_kuliah', $data['id_jadwal_kuliah'])
             ->delete($data);
             
     }

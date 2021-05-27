@@ -49,8 +49,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li class="active"><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li class="active"><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
           </ul>
         </li>
 
@@ -62,13 +62,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
           </ul>
         </li>
        
-
-        
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -76,22 +74,21 @@
  <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
- 
   <div class="content-wrapper">
     <div class="content">
-        <h1>Halaman <?= $title ?></h1>
+    <h1>Halaman <?= $title ?></h1>
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Data <?= $title ?></h3>
 
                 <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>Tambah</b></button>
+                    <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b> Tambah</b></button>
                 </div>
                 <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <?php
+                <?php
                 $errors = session()->getFlashdata('errors');
                 if (!empty($errors)) { ?>
                     <div class="alert alert-danger" role="alert">
@@ -102,6 +99,7 @@
                         </ul>
                     </div>
                 <?php } ?>
+
                 <?php
 
                 if (session()->getFlashdata('pesan')) {
@@ -110,13 +108,14 @@
                     echo '</div>';
                 }
                 ?>
-                <table id="example1" class="table table-bordered table-striped">
+
+                  <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th width="50px" class="text-center">No</th>
                             <th class="text-center">Nama Kelas</th>
                             <th class="text-center">Program Studi</th>
-                            <th class="text-center">Nama Dosen</th>
+                            <th class="text-center">Dosen Pembimbing Akademik</th>
                             <th class="text-center">Tahun</th>
                             <th class="text-center">Jumlah</th>
                             <th width="50px" class="text-center">Action</th>
@@ -133,12 +132,15 @@
                           ?>
                             <tr>
                                 <td class="text-center"><?= $no++; ?></td>
-                                <td class="text-center"><?= $value['kelas']?>-<?= $value['angkatan']?></td></td>
+                                <td class="text-center"><?= $value['kelas']?> - <?= $value['angkatan']?></td></td>
                                 <td class="text-center"><?= $value['prodi']  ?></td>
                                 <td class="text-center"><?= $value['nama_dosen']  ?></td>
                                 <td class="text-center"><?= $value['angkatan']  ?></td>
-                                <td>
-                                <p class="text-center"><a class ="label bg-green"><?= $jml ?> </a><br> <a href=<?= base_url('kelas/rincian_kelas/' . $value['id_kelas'] ) ?>>Mahasiswa</a></a></p></td>
+                                <td class="text-center">
+                                    <p class="label label-warning"><?= $jml ?></p>
+                                    <br>
+                                    <a href="<?= base_url('kelas/rincian_kelas/' . $value['id_kelas']) ?>">Mahasiswa</a>
+                                </td>
                                 <td class="text-center">
                                 <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_kelas'] ?>"><i class="fa fa-trash"></i></button>
                                 </td>
@@ -150,18 +152,20 @@
             </div>
             <!-- /.box-body -->
         </div>
+        <!-- /.box -->
     </div>
 </div>
 
 
-    <!-- modal Add -->
-    <div class="modal fade" id="add">
+
+<!-- modal Add -->
+<div class="modal fade" id="add">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Data <?= $title ?> </h4>
+                <h4 class="modal-title">Tambah Data <?= $title ?></h4>
             </div>
             <div class="modal-body">
                 <?php
@@ -195,7 +199,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                    <label>Pilih Dosen</label>
+                    <label>Dosen Pembimbing Akademik</label>
                     <select name="nidn" class="form-control" >
                     <option value="">Pilih Dosen</option>
                     <?php foreach ($dosen as $key => $value) { ?>
@@ -212,7 +216,7 @@
                     <?php } ?>
                     </select>
                 </div>
-                          
+              </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
                 <button type="submit" class="btn btn-success">Simpan</button>
@@ -224,9 +228,11 @@
     <!-- /.modal-dialog -->
 </div>
 
+
+
 <!-- modal delete -->
 <?php foreach ($kelas as $key => $value) { ?>
-    <div class="modal fade" id="delete <?= $value['id_kelas'] ?>">
+    <div class="modal fade" id="delete<?= $value['id_kelas'] ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -235,9 +241,8 @@
                     <h4 class="modal-title">Hapus <?= $title ?></h4>
                 </div>
                 <div class="modal-body">
-
-                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['id_kelas'] ?> </b>?
-
+                
+                    Apakah Anda Yakin Ingin Menghapus Data Kelas <b><?= $value['kelas'] ?> - <?= $value['angkatan'] ?> - <?= $value['prodi'] ?></b> ?
 
                 </div>
                 <div class="modal-footer">
