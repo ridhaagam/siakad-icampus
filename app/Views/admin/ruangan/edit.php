@@ -83,7 +83,7 @@
         <div class="col-sm-3">
     </div>
     <div class="col-sm-6">
-        <div class="box box-success box-solid">
+        <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title"><?= $title ?></h3>
 

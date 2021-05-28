@@ -43,7 +43,7 @@ class Ruangan extends BaseController
                 'label' => 'Gedung',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib Diisi!'
+                    'required' => '{field} Wajib di isi!'
                 ]
             ],
         ])) {

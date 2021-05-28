@@ -139,17 +139,17 @@
                     <thead>
                     <tr>
                             <th width="50px" class="text-center">No</th>
-                            <th width="50px" class="text-center">Semester</th>
-                            <th width="100px" class="text-center">Kode MK</th>
-                            <th width="100px" class="text-center">Mata Kuliah</th>
-                            <th width="50px" class="text-center">SKS</th>
-                            <th width="50px" class="text-center">Kelas</th>
-                            <th width="350px" class="text-center">Dosen Pengampu</th>
-                            <th width="50px" class="text-center">Hari</th>
-                            <th width="100px" class="text-center">Waktu</th>
-                            <th width="100px" class="text-center">Ruangan</th>
-                            <th width="50px" class="text-center">Kuota</th>
-                            <th width="150px" class="text-center">Action</th>
+                            <th class="text-center">Semester</th>
+                            <th class="text-center">Kode MK</th>
+                            <th class="text-center">Mata Kuliah</th>
+                            <th class="text-center">SKS</th>
+                            <th class="text-center">Kelas</th>
+                            <th class="text-center">Dosen Pengampu</th>
+                            <th class="text-center">Hari</th>
+                            <th class="text-center">Waktu</th>
+                            <th class="text-center">Ruangan</th>
+                            <th class="text-center">Kuota</th>
+                            <th width="50px" class="text-center">Action</th>
                         </tr>
                     </thead> 
                     <tbody>
