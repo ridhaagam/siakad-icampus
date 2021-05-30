@@ -7,7 +7,6 @@ use App\Models\ModelJadwalKuliah;
 use App\Models\ModelDosen;
 use App\Models\ModelRuangan;
 
-
 class Jadwal_Kuliah extends BaseController
 {
 
@@ -61,7 +60,7 @@ class Jadwal_Kuliah extends BaseController
 						'required' => '{field}  Wajib di Pilih!'
 					]
 				],
-				'nidn' => [
+				'id_dosen' => [
 					'label' => 'Dosen',
 					'rules' => 'required',
 					'errors' => [
@@ -111,7 +110,7 @@ class Jadwal_Kuliah extends BaseController
 					'id_tahun_akademik'=> $ta['id_tahun_akademik'],
 					'id_kelas' => $this->request->getPost('id_kelas'),
 					'id_matkul' => $this->request->getPost('id_matkul'),
-					'nidn' => $this->request->getPost('nidn'),
+					'id_dosen' => $this->request->getPost('id_dosen'),
 					'hari' => $this->request->getPost('hari'),
 					'waktu' => $this->request->getPost('waktu'),
 					'id_ruangan' => $this->request->getPost('id_ruangan'),

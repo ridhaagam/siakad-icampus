@@ -75,50 +75,96 @@
   
  <!-- =============================================== -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-  <div class="row">
-    <div class="col-sm-12">
-		<div class="right_col" role="main" style="min-height: 583px;">
-			<div class="">
-				<div class="page-title">
-					<div class="title_left">
-						<h2>Dosen</h2>
-                        <br>
-					</div>
-				</div>  
-	
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="profile_img">
-								<div id="crop-avatar text-center">
-									<img class="img-responsive avatar-view" src="../../dist/img/user2-160x160.jpg" style="border-radius:50%; width:50%;">
-								</div>
-							</div>
+ <div class="content-wrapper">
+    <div class="content">
+        <h1>Halaman <?= $title ?></h1>
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Data <?= $title ?></h3>
 
-							<h3>MUH. RIDHA AGAM</h3>
-							<ul class="list-unstyled">
-								<li><i class="fa fa-address-card user-profile-icon"></i> 202010370311035</li>
-								<li><i class="fa fa-map-marker user-profile-icon"></i> Fakultas Teknik</li>
-								<li><i class="fa fa-building user-profile-icon"></i> Program Studi Informatika</li>
-								<li><i class="fa fa-phone user-profile-icon"></i> 082291991645</li>
-								<li><i class="fa fa-envelope user-profile-icon"></i> muhridhaagam@gmail.com</li>
-							</ul>
-                            <br>
-							<a href="#" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
-						</div>
+                <div class="box-tools pull-right">
+                    <a href="<?= base_url('dosen/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> Tambah</a>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <?php
 
-       <!-- /.box-body -->
-       <div class="box-footer">
-        
+                if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-success" role="alert">';
+                    echo session()->getFlashdata('pesan');
+                    echo '</div>';
+                }
+                ?>
+
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="50px" class="text-center">No</th>
+                            <th class="text-center">NIDN</th>
+                            <th class="text-center">Kode Dosen</th>
+                            <th class="text-center">Nama Dosen</th>
+                            <th class="text-center">No. Hp</th>
+                            <th class="text-center">Pendidikan</th>
+                            <th class="text-center">Password</th>
+                            <th class="text-center">Foto</th>
+                            <th width="150px" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php $no = 1;
+                        foreach ($dosen as $key => $value) { ?>
+                            <tr>
+                                <td class="text-center"><?= $no++; ?></td>
+                                <td class="text-center"><?= $value['nidn']  ?></td>
+                                <td class="text-center"><?= $value['kode_dosen']  ?></td>
+                                <td class="text-center"><?= $value['nama_dosen']  ?></td>
+                                <td class="text-center"><?= $value['no_hp']  ?></td>
+                                <td class="text-center"><?= $value['pendidikan']  ?></td>
+                                <td class="text-center"><?= $value['password']  ?></td>
+                                <td class="text-center"><img src="<?= base_url('img-dosen/'.$value['foto']) ?>" class="img-circle" width="70px" height="70px"></td>
+                                <td class="text-center">
+                                    <a href="<?= base_url('dosen/edit/' . $value['id_dosen']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_dosen'] ?>"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                     <?php  } ?>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
         </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-
-    <!-- /.content -->
-  </div>
-
+    </div>
 </div>
-=
- 
- 
+
+<!-- modal delete -->
+<?php foreach ($dosen as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value['id_dosen'] ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Hapus Data Dosen</h4>
+                </div>
+                <div class="modal-body">
+
+                    Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['nama_dosen'] ?> </b>?
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
+                    <a href="<?= base_url('dosen/delete/' . $value['id_dosen']) ?>" class="btn btn-success">Hapus</a>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
+                        

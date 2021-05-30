@@ -10,7 +10,7 @@ class ModelKelas extends Model
     {
         return $this->db->table('kelas')
             ->join('prodi', 'prodi.id_prodi = kelas.id_prodi', 'left')
-            ->join('dosen', 'dosen.nidn = kelas.nidn', 'left')
+            ->join('dosen', 'dosen.id_dosen = kelas.id_dosen', 'left')
             ->orderBy('kelas.id_prodi', 'ASC')
             ->get()->getResultArray();
     }
@@ -18,7 +18,7 @@ class ModelKelas extends Model
     public function detail($id_kelas){
         return $this->db->table('kelas')
         ->join('prodi', 'prodi.id_prodi = kelas.id_prodi', 'left')
-        ->join('dosen', 'dosen.nidn = kelas.nidn', 'left')
+        ->join('dosen', 'dosen.id_dosen = kelas.id_dosen', 'left')
         ->where('id_kelas', $id_kelas)
         ->get()->getRowArray();
     }

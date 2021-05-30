@@ -200,10 +200,10 @@
                 </div>
                 <div class="form-group">
                     <label>Dosen Pembimbing Akademik</label>
-                    <select name="nidn" class="form-control" >
+                    <select name="id_dosen" class="form-control" >
                     <option value="">Pilih Dosen</option>
                     <?php foreach ($dosen as $key => $value) { ?>
-                      <option value="<?= $value['nidn'] ?>"><?= $value['nama_dosen'] ?></option>
+                      <option value="<?= $value['id_dosen'] ?>"><?= $value['nama_dosen'] ?></option>
                     <?php } ?>
                     </select>
                 </div>

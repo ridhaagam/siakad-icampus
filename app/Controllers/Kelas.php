@@ -51,7 +51,7 @@ class Kelas extends BaseController
             'id_kelas' => $id_kelas
 		];
         $this->ModelKelas->update_mhs($data);
-        session()->setFlashdata('pesan', 'Mahasiswa berhasil ditambah ke kelas!');
+        session()->setFlashdata('pesan', 'Mahasiswa berhasil ditambah ke Kelas!');
         return redirect()->to(base_url('kelas/rincian_kelas/'. $id_kelas));
     }
 
@@ -84,7 +84,7 @@ class Kelas extends BaseController
                     'required' => '{field} Wajib Diisi!'
                 ]
             ],
-            'nidn' => [
+            'id_dosen' => [
                 'label' => 'Nama Dosen',
                 'rules' => 'required',
                 'errors' => [
@@ -103,7 +103,7 @@ class Kelas extends BaseController
             $data = [
                 'kelas' => $this->request->getPost('kelas'),
                 'id_prodi' => $this->request->getPost('id_prodi'),
-                'nidn' => $this->request->getPost('nidn'),
+                'id_dosen' => $this->request->getPost('id_dosen'),
                 'angkatan' => $this->request->getPost('angkatan'),
             ];
             $this->ModelKelas->add($data);

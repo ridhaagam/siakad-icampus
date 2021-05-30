@@ -9,14 +9,14 @@ class ModelDosen extends Model
     public function allData()
     {
         return $this->db->table('dosen')
-            ->orderBy('nidn', 'DESC')
+            ->orderBy('id_dosen', 'DESC')
             ->get()->getResultArray();
     }
-
-    public function detailData($nidn)
+    
+    public function detailData($id_dosen)
     {
         return $this->db->table('dosen')
-            ->where('nidn', $nidn)
+            ->where('id_dosen', $id_dosen)
             ->get()->getRowArray();
     }
 
@@ -28,14 +28,14 @@ class ModelDosen extends Model
     public function edit($data)
     {
         $this->db->table('dosen')
-            ->where('nidn', $data['nidn'])
+            ->where('id_dosen', $data['id_dosen'])
             ->update($data);
     }
 
     public function delete_data($data)
     {
         $this->db->table('dosen')
-            ->where('nidn', $data['nidn'])
+            ->where('id_dosen', $data['id_dosen'])
             ->delete($data);
     }
 }
