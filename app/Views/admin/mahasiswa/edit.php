@@ -166,6 +166,12 @@
               </div>
             </div>
 
+            <div class="col-sm-6 ">
+              <div class="form-group">
+                <img src="<?= base_url('img-mahasiswa/' . $mhs['foto']) ?>" id="gambar_load" width="100px">
+              </div>
+            </div>
+
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Foto Mahasiswa</label>
@@ -173,16 +179,10 @@
               </div>
             </div>
 
-            <div class="col-sm-6 ">
-              <div class="form-group">
-                <img src="<?= base_url('img-mahasiswa/' . $mhs['foto']) ?>" id="gambar_load" width="100px">
-              </div>
-            </div>
-
           </div>
           <div class="modal-footer">
             <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left">Kembali</a>
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-success">Perbarui</button>
           </div>
           <?php echo form_close() ?>
           <!-- /.box-body -->

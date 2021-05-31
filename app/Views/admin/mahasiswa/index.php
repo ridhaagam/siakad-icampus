@@ -89,7 +89,14 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
+      <?php
 
+        if (session()->getFlashdata('pesan')) {
+          echo '<div class="alert alert-success" role="alert">';
+          echo session()->getFlashdata('pesan');
+          echo '</div>';
+        }
+        ?>
 
         <table id="example1" class="table table-bordered table-striped">
           <thead>
