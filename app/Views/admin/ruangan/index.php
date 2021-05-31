@@ -43,22 +43,6 @@
 
       <li class="treeview">
         <a href="#">
-          <i class="glyphicon glyphicon-th-list"></i> <span>Mahasiswa</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href=<?= base_url('krs') ?>><i class="glyphicon glyphicon-calendar"></i> <span>KRS</span></a></li>
-          <li><a href=<?= base_url('hasil_studi') ?>><i class="glyphicon glyphicon-book"></i> <span>Hasil Studi</span></a></li>
-          <li><a href=<?= base_url('grafik') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Grafik Nilai</span></a></li>
-          <li><a href=<?= base_url('transkrip') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Transkrip</span></a></li>
-
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
           <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
