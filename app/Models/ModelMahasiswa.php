@@ -13,10 +13,11 @@ class ModelMahasiswa extends Model
             ->orderBy('id_mhs', 'DESC')
             ->get()->getResultArray();
     }
-    
+
     public function detailData($id_mhs)
     {
         return $this->db->table('mahasiswa')
+            ->join('prodi', 'prodi.id_prodi = mahasiswa.id_prodi', 'left')
             ->where('id_mhs', $id_mhs)
             ->get()->getRowArray();
     }
@@ -28,7 +29,7 @@ class ModelMahasiswa extends Model
 
     public function edit($data)
     {
-        
+
         $this->db->table('mahasiswa')
             ->where('id_mhs', $data['id_mhs'])
             ->update($data);
