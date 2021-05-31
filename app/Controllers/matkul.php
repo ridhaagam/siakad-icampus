@@ -79,7 +79,7 @@ class matkul extends BaseController
 			])) {
 				//jika valid
 				$smt = $this->request->getPost('smt');
-				if ($smt== 1 || $smt == 3 || $smt == 5) {
+				if ($smt== 1 || $smt == 3 || $smt == 5) { 
 					$semester = 'Ganjil';
 				} else {
 					$semester = 'Genap';

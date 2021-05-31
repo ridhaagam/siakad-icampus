@@ -1,34 +1,34 @@
 <!-- =============================================== -->
 
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
 
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Menu</li>
-        <li>
-          <a href=<?= base_url('admin') ?>>
-            <i class="fa fa-user"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href=<?= base_url('home') ?>>
-            <i class="fa fa-home"></i></i> <span>Homepage</span>
-          </a>
-        </li>
-        <li class="active treeview">
-          <a href="#">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">Menu</li>
+      <li>
+        <a href=<?= base_url('admin') ?>>
+          <i class="fa fa-user"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href=<?= base_url('home') ?>>
+          <i class="fa fa-home"></i></i> <span>Homepage</span>
+        </a>
+      </li>
+      <li class="active treeview">
+        <a href="#">
           <i class="fa fa-id-card-o"></i> <span>Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-       
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+
           <li><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
           <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
           <li class="active"><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
@@ -38,87 +38,104 @@
           <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
           <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
           <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
+        </ul>
+      </li>
 
-        <li class="treeview">
-          <a href="#">
+      <li class="treeview">
+        <a href="#">
           <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
           <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
           <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
-          </ul>
-        </li>
+        </ul>
+      </li>
 
-        <li class="treeview">
-          <a href="#">
+      <li class="treeview">
+        <a href="#">
           <i class="fa fa-gear"></i> <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
           <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
           <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
-       
+        </ul>
+      </li>
 
-        
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-  
- <!-- =============================================== -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-  <div class="row">
-    <div class="col-sm-12">
-		<div class="right_col" role="main" style="min-height: 583px;">
-			<div class="">
-				<div class="page-title">
-					<div class="title_left">
-						<h2>Mahasiswa</h2>
-              <br>
-					</div>
-				</div>  
-	
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="profile_img">
-								<div id="crop-avatar text-center">
-									<img class="img-responsive avatar-view" src="../../dist/img/user2-160x160.jpg" style="border-radius:50%; width:50%;">
-								</div>
-							</div>
 
-							<h3>MUH. RIDHA AGAM</h3>
-							<ul class="list-unstyled">
-								<li><i class="fa fa-address-card user-profile-icon"></i> 202010370311035</li>
-								<li><i class="fa fa-map-marker user-profile-icon"></i> Fakultas Teknik</li>
-								<li><i class="fa fa-building user-profile-icon"></i> Program Studi Informatika</li>
-								<li><i class="fa fa-phone user-profile-icon"></i> 082291991645</li>
-								<li><i class="fa fa-envelope user-profile-icon"></i> muhridhaagam@gmail.com</li>
+  </section>
+  <!-- /.sidebar -->
+</aside>
 
-							</ul>
-                            <br>
-							<a href="#" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
-						</div>
+<!-- =============================================== -->
 
-       <!-- /.box-body -->
-       <div class="box-footer">
-        
+<div class="content-wrapper">
+  <div class="content">
+    <h1>Halaman <?= $title ?></h1>
+    <div class="box box-warning box-solid">
+      <div class="box-header with-border">
+        <h3 class="box-title">Data <?= $title ?></h3>
+
+        <div class="box-tools pull-right">
+          <a href="<?= base_url('dosen/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> Tambah</a>
         </div>
-        <!-- /.box-footer-->
+        <!-- /.box-tools -->
       </div>
-      <!-- /.box -->
+      <!-- /.box-header -->
+      <div class="box-body">
 
-    <!-- /.content -->
+
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th width="50px" class="text-center">No</th>
+              <th class="text-center">NIM</th>
+              <th class="text-center">Nama Mahasiswa</th>
+              <th class="text-center">Program Studi</th>
+              <th class="text-center">Jenis Kelamin</th>
+              <th class="text-center">Password</th>
+              <th class="text-center">Nomor Telepon</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Alamat</th>
+              <th class="text-center">Foto</th>
+              <th width="150px" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php $no = 1;
+            foreach ($mhs as $key => $value) { ?>
+              <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $value['nim'] ?></td>
+                <td><?= $value['nama_mahasiswa'] ?></td>
+                <td><?= $value['prodi'] ?></td>
+                <td><?= $value['jenkel'] ?></td>
+                <td><?= $value['password'] ?></td>
+                <td><?= $value['no_hp'] ?></td>
+                <td><?= $value['email'] ?></td>
+                <td><?= $value['alamat'] ?></td>
+                <td class="text-center"><img src="<?= base_url('img-mahasiswa/' . $value['foto']) ?>" class="img-circle" width="70px" height="70px"></td>
+
+                <td class="text-center">
+                  <a href="<?= base_url('mahasiswa/edit/' . $value['id_mhs']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_mhs'] ?>"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            <?php } ?>
+
+
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
   </div>
-
 </div>
- 
- 
+
+<!-- modal delete -->

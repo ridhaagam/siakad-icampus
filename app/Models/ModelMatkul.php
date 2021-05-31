@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ModelMatkul extends Model
 {
-    public function allData()
+    public function allData() 
     {
         return $this->db->table('matkul')
             ->orderBy('id_matkul', 'DESC')

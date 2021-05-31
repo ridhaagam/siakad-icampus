@@ -1,73 +1,73 @@
 <!-- =============================================== -->
 
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Menu</li>
-        <li>
-          <a href=<?= base_url('admin') ?>>
-            <i class="fa fa-user"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href=<?= base_url('home') ?>>
-            <i class="fa fa-home"></i></i> <span>Homepage</span>
-          </a>
-        </li>
-        <li class="active treeview">
-          <a href="#">
-          <i class="fa fa-id-card-o"></i> <span>Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li class="active"><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
-          <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
-          <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
-          <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
-          <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
-          <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
-          <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
-          <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-          <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-          <i class="fa fa-gear"></i> <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
+        <!-- Sidebar user panel -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">Menu</li>
+            <li>
+                <a href=<?= base_url('admin') ?>>
+                    <i class="fa fa-user"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href=<?= base_url('home') ?>>
+                    <i class="fa fa-home"></i></i> <span>Homepage</span>
+                </a>
+            </li>
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-id-card-o"></i> <span>Master</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
+                    <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
+                    <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
+                    <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
+                    <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
+                    <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
+                    <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
+                    <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
+                    <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+                    <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gear"></i> <span>Settings</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
+                    <li><a href=<?= base_url('Tahun_Akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+                </ul>
+            </li>
     </section>
     <!-- /.sidebar -->
-  </aside>
- <!-- =============================================== -->
-  <div class="content-wrapper">
+</aside>
+<!-- =============================================== -->
+<div class="content-wrapper">
     <div class="content">
-    <h1>Halaman <?= $title ?></h1>
+        <h1>Halaman <?= $title ?></h1>
         <div class="box box-warning box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Data <?= $title ?></h3>
@@ -78,7 +78,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <?php
+                <?php
                 $errors = session()->getFlashdata('errors');
                 if (!empty($errors)) { ?>
                     <div class="alert alert-danger" role="alert">
@@ -109,20 +109,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php $no = 1;
+                        <?php $no = 1;
                         foreach ($user as $key => $value) { ?>
                             <tr>
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td class="text-center"><?= $value['nama_user'] ?></td>
                                 <td class="text-center"><?= $value['username'] ?></td>
                                 <td class="text-center"><?= $value['password'] ?></td>
-                                <td class="text-center"><img src="<?= base_url('img-user/'.$value['foto']) ?>" class="img-circle" width="70px" height="70px"></td>
+                                <td class="text-center"><img src="<?= base_url('img-user/' . $value['foto']) ?>" class="img-circle" width="70px" height="70px"></td>
                                 <td class="text-center">
                                     <buttn class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_user'] ?>"><i class="fa fa-pencil"></i></buttn>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_user'] ?>"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
-                    <?php  } ?>
+                        <?php  } ?>
                     </tbody>
                 </table>
             </div>
@@ -132,7 +132,7 @@
     </div>
 </div>
 
- <!-- modal Add -->
+<!-- modal Add -->
 <div class="modal fade" id="add">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -197,13 +197,13 @@
                     </div>
 
                     <div class="form-group">
-                    <label>Username</label>
-                    <input name="username" value="<?= $value['username'] ?>" class="form-control">
+                        <label>Username</label>
+                        <input name="username" value="<?= $value['username'] ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
-                    <label>Password</label>
-                    <input name="password" value="<?= $value['password']  ?>" class="form-control">
+                        <label>Password</label>
+                        <input name="password" value="<?= $value['password']  ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
