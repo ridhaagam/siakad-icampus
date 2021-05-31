@@ -151,12 +151,12 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Foto Dosen</label>
-                <input type="file" name="foto" id="preview_gambar" class="form-control">
+                <input type="file" name="foto" id="preview_gambar4" class="form-control">
               </div>
             </div>
             <div class="col-sm-6 ">
               <div class="form-group">
-                <img src="<?= base_url('img-dosen/' . $dosen['foto']) ?>" id="gambar_load" width="100px">
+                <img src="<?= base_url('img-dosen/' . $dosen['foto']) ?>" id="gambar_load4" width="100px">
               </div>
             </div>
             <div class="modal-footer">
