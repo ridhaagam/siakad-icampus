@@ -243,12 +243,26 @@ class Mahasiswa extends BaseController
 			//memindahkan file foto dari form input ke folder foto di directory
 
 
-			session()->setFlashdata('pesan', 'Data Berhasil di Tambahkan!');
+			session()->setFlashdata('pesan', 'Data Berhasil di Perbarui!');
 			return redirect()->to(base_url('mahasiswa'));
 		} else {
 			//jika tidak valid
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
 			return redirect()->to(base_url('mahasiswa/edit' . $id_mhs));
 		}
+	}
+	public function delete($id_mhs)
+	{
+		//menghapus foto lama
+		$mahasiswa = $this->ModelMahasiswa->detailData($id_mhs);
+		if ($mahasiswa['foto'] != "") {
+			unlink('img-mahasiswa/' . $mahasiswa['foto']);
+		}
+		$data = [
+			'id_mhs' => $id_mhs,
+		];
+		$this->ModelMahasiswa->delete_data($data);
+		session()->setFlashdata('pesan', 'Data Berhasil di Hapus!');
+		return redirect()->to(base_url('mahasiswa'));
 	}
 }

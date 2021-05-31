@@ -139,3 +139,29 @@
 </div>
 
 <!-- modal delete -->
+<?php foreach ($mhs as $key => $value) { ?>
+  <div class="modal fade" id="delete<?= $value['id_mhs'] ?>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Hapus Data Mahasiswa</h4>
+        </div>
+        <div class="modal-body">
+
+          Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['nama_mahasiswa'] ?> </b>?
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
+          <a href="<?= base_url('mahasiswa/delete/' . $value['id_mhs']) ?>" class="btn btn-success">Hapus</a>
+        </div>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+<?php } ?>
