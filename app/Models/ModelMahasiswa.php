@@ -28,6 +28,7 @@ class ModelMahasiswa extends Model
 
     public function edit($data)
     {
+        
         $this->db->table('mahasiswa')
             ->where('id_mhs', $data['id_mhs'])
             ->update($data);
