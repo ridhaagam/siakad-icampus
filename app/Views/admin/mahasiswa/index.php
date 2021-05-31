@@ -89,7 +89,7 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-      <?php
+        <?php
 
         if (session()->getFlashdata('pesan')) {
           echo '<div class="alert alert-success" role="alert">';
@@ -116,7 +116,7 @@
           </thead>
           <tbody>
             <?php $no = 1;
-            foreach ($mhs as $key => $value) { ?>
+            foreach ($mahasiswa as $key => $value) { ?>
               <tr>
                 <td><?= $no++ ?></td>
                 <td><?= $value['nim'] ?></td>
@@ -146,7 +146,7 @@
 </div>
 
 <!-- modal delete -->
-<?php foreach ($mhs as $key => $value) { ?>
+<?php foreach ($mahasiswa as $key => $value) { ?>
   <div class="modal fade" id="delete<?= $value['id_mhs'] ?>">
     <div class="modal-dialog">
       <div class="modal-content">

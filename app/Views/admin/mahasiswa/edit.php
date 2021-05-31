@@ -96,27 +96,27 @@
           <div class="box-body">
 
             <?php
-            echo form_open_multipart('mahasiswa/update/' . $mhs['id_mhs']);
+            echo form_open_multipart('mahasiswa/update/' . $mahasiswa['id_mhs']);
             ?>
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
                 <label>NIM</label>
-                <input name="nim" value="<?= $mhs['nim'] ?>" class="form-control" placeholder="NIM">
+                <input name="nim" value="<?= $mahasiswa['nim'] ?>" class="form-control" placeholder="NIM">
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
                 <label>Nama Mahasiswwa</label>
-                <input name="nama_mahasiswa" value="<?= $mhs['nama_mahasiswa'] ?>" class="form-control" placeholder="Nama Mahasiswa">
+                <input name="nama_mahasiswa" value="<?= $mahasiswa['nama_mahasiswa'] ?>" class="form-control" placeholder="Nama Mahasiswa">
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Alamat</label>
-                <input name="alamat" value="<?= $mhs['alamat'] ?>" class="form-control" placeholder="Alamat">
+                <input name="alamat" value="<?= $mahasiswa['alamat'] ?>" class="form-control" placeholder="Alamat">
               </div>
             </div>
 
@@ -124,7 +124,7 @@
               <div class="form-group">
                 <label>Jenis Kelamin</label>
                 <select name="jenkel" class="form-control">
-                  <option value="<?= $mhs['jenkel'] ?>"><?= $mhs['jenkel'] ?></option>
+                  <option value="<?= $mahasiswa['jenkel'] ?>"><?= $mahasiswa['jenkel'] ?></option>
                   <option value="Perempuan">Perempuan</option>
                   <option value="Laki-laki">Laki-laki</option>
                 </select>
@@ -134,7 +134,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Email</label>
-                <input name="email" value="<?= $mhs['email'] ?>" class="form-control" placeholder="Email">
+                <input name="email" value="<?= $mahasiswa['email'] ?>" class="form-control" placeholder="Email">
               </div>
             </div>
 
@@ -142,7 +142,7 @@
               <div class="form-group">
                 <label>Program Studi</label>
                 <select name="id_prodi" class="form-control">
-                  <option value="<?= $mhs['id_prodi'] ?>"><?= $mhs['prodi'] ?></option>
+                  <option value="<?= $mahasiswa['id_prodi'] ?>"><?= $mahasiswa['prodi'] ?></option>
                   <?php foreach ($prodi as $key => $value) { ?>
                     <option value="<?= $value['id_prodi'] ?>"><?= $value['prodi'] ?></option>
                   <?php } ?>
@@ -153,7 +153,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Password</label>
-                <input name="password" value="<?= $mhs['password'] ?>" class="form-control" id="number" maxlength="8" placeholder="Password">
+                <input name="password" value="<?= $mahasiswa['password'] ?>" class="form-control" id="number" maxlength="8" placeholder="Password">
                 <small style="color:red">*maximal 8 digit angka!</small>
               </div>
             </div>
@@ -161,21 +161,21 @@
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
                 <label>No. Hp</label>
-                <input name="no_hp" value="<?= $mhs['no_hp'] ?>" class="form-control" id="number" maxlength="13" placeholder="Nomor Telepon">
+                <input name="no_hp" value="<?= $mahasiswa['no_hp'] ?>" class="form-control" id="number" maxlength="13" placeholder="Nomor Telepon">
                 <small style="color:red">*terdiri dari 10-13 digit angka!</small>
-              </div>
-            </div>
-
-            <div class="col-sm-6 ">
-              <div class="form-group">
-                <img src="<?= base_url('img-mahasiswa/' . $mhs['foto']) ?>" id="gambar_load" width="100px">
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Foto Mahasiswa</label>
-                <input type="file" name="foto" id="preview_gambar" class="form-control">
+                <input type="file" name="foto" id="preview_gambar3" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-sm-6 ">
+              <div class="form-group">
+                <img src="<?= base_url('img-mahasiswa/' . $mahasiswa['foto']) ?>" id="gambar_load3" width="100px">
               </div>
             </div>
 

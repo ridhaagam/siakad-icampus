@@ -17,7 +17,7 @@ class Mahasiswa extends BaseController
 	{
 		$data = [
 			'title' => 'Mahasiswa',
-			'mhs' => $this->ModelMahasiswa->allData(),
+			'mahasiswa' => $this->ModelMahasiswa->allData(),
 			'isi' 	=> 'admin/mahasiswa/index'
 		];
 
@@ -133,7 +133,7 @@ class Mahasiswa extends BaseController
 		$data = [
 			'title'    => 'Mahasiswa',
 			'prodi'	   => $this->ModelProdi->allData(),
-			'mhs'      => $this->ModelMahasiswa->detailData($id_mhs),
+			'mahasiswa'      => $this->ModelMahasiswa->detailData($id_mhs),
 			'isi'      => 'admin/mahasiswa/edit'
 		];
 		return view('layout_dashboard/wrapper', $data);
@@ -236,6 +236,7 @@ class Mahasiswa extends BaseController
 					'no_hp' => $this->request->getPost('no_hp'),
 					'email' => $this->request->getPost('email'),
 					'alamat' => $this->request->getPost('alamat'),
+					'foto' => $nama_file,
 				);
 				$foto->move('img-mahasiswa', $nama_file);
 				$this->ModelMahasiswa->edit($data);

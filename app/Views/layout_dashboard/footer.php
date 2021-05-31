@@ -80,6 +80,21 @@
         bacaGambar(this);
     });
 </script>
+<script>
+    function bacaGambar(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#gambar_load3').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('#preview_gambar3').change(function() {
+        bacaGambar(this);
+    });
+</script>
 
 </body>
 
