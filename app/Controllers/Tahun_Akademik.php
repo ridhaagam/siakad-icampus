@@ -57,4 +57,25 @@ class Tahun_Akademik extends BaseController
         return redirect()->to(base_url('tahun_akademik'));
     }
 
+    public function setting()
+	{
+		$data= [
+			'title' => 'Tahun Akademik', 
+			'ta' => $this->ModelTahunAkademik->allData(),
+			'isi' 	=> 'admin/set_ta'
+		];
+
+		return view('layout_dashboard/wrapper', $data);
+	}
+    public function set($id_tahun_akademik)
+    {
+         $data = [
+             'id_tahun_akademik' => $id_tahun_akademik,
+             'status' =>1
+         ];
+         $this->ModelTahunAkademik->edit($data);
+         session()->setFlashdata('pesan', 'Data Berhasil di Setting');
+        return redirect()->to(base_url('tahun_akademik/setting'));
+    }
+
 }
