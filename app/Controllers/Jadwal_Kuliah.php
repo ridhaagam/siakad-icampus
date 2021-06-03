@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\ModelTa;
+use App\Models\ModelTahunAkademik;
 use App\Models\ModelProdi;
 use App\Models\ModelJadwalKuliah;
 use App\Models\ModelDosen;
@@ -13,7 +13,7 @@ class Jadwal_Kuliah extends BaseController
 	public function __construct()
     {
         helper('form');
-        $this->ModelTa = new ModelTa();
+        $this->ModelTahunAkademik = new ModelTahunAkademik();
 		$this->ModelProdi = new ModelProdi();
 		$this->ModelJadwalKuliah = new ModelJadwalKuliah();
 		$this->ModelDosen = new ModelDosen();
@@ -25,7 +25,7 @@ class Jadwal_Kuliah extends BaseController
 	{
 		$data= [
 			'title' => 'Jadwal Kuliah', 
-			'ta_aktif' => $this->ModelTa->ta_aktif(),
+			'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
 			'prodi' => $this->ModelProdi->allData(),
 			'isi' 	=> 'admin/jadwal_kuliah/index'
 		];
@@ -37,7 +37,7 @@ class Jadwal_Kuliah extends BaseController
 	{
 		$data= [
 			'title' => 'Jadwal Kuliah', 
-			'ta_aktif' => $this->ModelTa->ta_aktif(),
+			'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
 			'prodi' => $this->ModelProdi->detail_Data($id_prodi),
 			'jadwal'=> $this->ModelJadwalKuliah->allData($id_prodi),
 			'matkul'=> $this->ModelJadwalKuliah->matkul($id_prodi),
@@ -104,7 +104,7 @@ class Jadwal_Kuliah extends BaseController
 				],
 			])) {
 				//jika valid
-				$ta = $this->ModelTa->ta_aktif();
+				$ta = $this->ModelTahunAkademik->ta_aktif();
 				$data = [
 					'id_prodi' => $id_prodi,
 					'id_tahun_akademik'=> $ta['id_tahun_akademik'],

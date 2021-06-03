@@ -42,7 +42,7 @@
                      
                     <li class="user-footer">
                         <div class="pull-left">
-                            <a href="<?= base_url('admin/profil') ?>" class="btn btn-default"> Profil</a>
+                            <a href="#" class="btn btn-default"> Profil</a>
                         </div>
                         <div class="pull-right">
                             <a href="<?= base_url('auth/logout') ?>" class="btn btn-default pull-left"> Log out</a>

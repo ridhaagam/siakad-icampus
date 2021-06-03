@@ -10,7 +10,7 @@
       <li class="header">Menu</li>
       <li>
         <a href=<?= base_url('admin') ?>>
-          <i class="fa fa-user"></i> <span>Dashboard</span>
+          <i class="fa fa-tachometer"></i> <span>Dashboard</span>
         </a>
       </li>
       <li>
@@ -57,8 +57,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href=<?= base_url('user') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li><a href=<?= base_url('tahun_akademik/setting') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
         </ul>
       </li>
   </section>

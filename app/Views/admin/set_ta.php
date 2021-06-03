@@ -12,7 +12,7 @@
       <li class="header">Menu</li>
       <li>
         <a href=<?= base_url('admin') ?>>
-          <i class="fa fa-user"></i> <span>Dashboard</span>
+          <i class="fa fa-tachometer"></i> <span>Dashboard</span>
         </a>
       </li>
       <li>
@@ -20,7 +20,7 @@
           <i class="fa fa-home"></i></i> <span>Homepage</span>
         </a>
       </li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-id-card-o"></i> <span>Master</span>
           <span class="pull-right-container">
@@ -32,7 +32,7 @@
           <li><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
           <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
           <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
-          <li class="active"><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
+          <li><a href=<?= base_url('prodi') ?>><i class=" fa fa-rss-square"></i> <span>Program Studi</span></a></li>
           <li><a href=<?= base_url('fakultas') ?>><i class=" fa fa-archive"></i> <span>Fakultas</span></a></li>
           <li><a href=<?= base_url('matkul') ?>><i class="fa  fa-file-pdf-o"></i> <span>Mata Kuliah</span></a></li>
           <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
@@ -49,12 +49,12 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href=<?= base_url('Jadwal_Kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li><a href=<?= base_url('Kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
+          <li><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
         </ul>
       </li>
 
-      <li class="treeview">
+      <li class="active treeview">
         <a href="#">
           <i class="fa fa-gear"></i> <span>Settings</span>
           <span class="pull-right-container">
@@ -62,8 +62,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href=<?= base_url('User') ?>><i class="fa fa-user-plus"></i> <span>User</span></a></li>
-          <li><a href=<?= base_url('tahun_akademik') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+          <li class="active"><a href=<?= base_url('tahun_akademik/setting') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
         </ul>
       </li>
 
@@ -77,7 +76,7 @@
 
 <div class="content-wrapper">
   <div class="content">
-    <h1>Tahun Akademik</h1>
+    <h1>Halaman Setting Tahun Akademik</h1>
     <div class="box box-warning box-solid">
       <div class="box-header with-border">
         <h3 class="box-title">Data Tahun Akademik</h3>
@@ -116,14 +115,14 @@
                 <td class="text-center"><?= $value['ta'] ?></td>
                 <td class="text-center"><?= $value['semester'] ?></td>
                 <td class="text-center"><?php if ($value['status']== 0){
-                  echo'<p class= "label text-center bg-red">non-aktif</p>';
+                  echo'<p class= "label text-center bg-red">Non-Aktif</p>';
                 }else{
                 echo'<p class= "label text-center bg-green">Aktif</p>';
                 }?>
                 </td>
                 <td class="text-center">
                 <?php if ($value['status']== 0){?>
-                <a href="<?= base_url('Tahun_Akademik/set/'.$value['id_tahun_akademik'])?>class="btn btn-success btn-sm"><i class="fa fa-check">Aktifkan</i></a>
+                <a href="<?= base_url('Tahun_Akademik/set/'.$value['id_tahun_akademik'])?>"class="btn btn-success btn-sm"><i class="fa fa-check">Aktifkan</i></a>
                 <?php } ?>
                 </td>
               </tr>
