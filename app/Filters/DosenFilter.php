@@ -6,7 +6,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthFilter implements FilterInterface
+class DosenFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -18,8 +18,8 @@ class AuthFilter implements FilterInterface
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        if(session()->get('log') == 1){
-            return redirect()->to(base_url('admin'));
+        if(session()->get('log') == 2){
+            return redirect()->to(base_url('dsn'));
         }
     }
 }

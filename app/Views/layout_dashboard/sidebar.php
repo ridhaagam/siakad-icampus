@@ -33,8 +33,17 @@
                 <ul class="nav navbar-nav">
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                    <?php if (session()->get('log') == 1) { ?>
                       <img src="<?= base_url('img-user/' . session()->get('foto')) ?>" class="user-image" alt="User Image">
                       <span class="hidden-xs"><?= session()->get('nama_user') ?></span>
+                    <?php } elseif (session()->get('log') == 2) { ?>
+                      <img src="<?= base_url('img-dosen/' . session()->get('foto')) ?>" class="user-image" alt="User Image">
+                      <span class="hidden-xs"><?= session()->get('nama_dosen') ?></span>
+                    <?php } else { ?>
+                      <img src="<?= base_url('img-mahasiswa/' . session()->get('foto')) ?>" class="user-image" alt="User Image">
+                      <span class="hidden-xs"><?= session()->get('nama_mahasiswa') ?></span>
+                    <?php  } ?>
                       <span class=" fa fa-angle-down"></span>
                     </a>
 

@@ -13,4 +13,20 @@ class ModelAuth extends Model
             'password' => $password,
         ])->get()->getRowArray();
     }
+
+    public function login_dosen($username, $password)
+    {
+        return $this->db->table('dosen')->where([
+            'nidn' => $username,
+            'password' => $password
+        ])->get()->getRowArray();
+    }
+
+    public function login_mahasiswa($username, $password)
+    {
+        return $this->db->table('mahasiswa')->where([
+            'nim' => $username,
+            'password' => $password
+        ])->get()->getRowArray();
+    }
 }

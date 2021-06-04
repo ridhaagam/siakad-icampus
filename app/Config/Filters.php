@@ -20,6 +20,7 @@ class Filters extends BaseConfig
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
 		'authfilter' => \App\Filters\AuthFilter::class,
+		'dosenfilter' => \App\Filters\DosenFilter::class,
 	];
 
 	/**
@@ -33,9 +34,14 @@ class Filters extends BaseConfig
 			'authfilter' => ['except' => [
 				'auth', 'auth/*',
 				'home', 'home/*',
-				'/',
+				'/'
 			]],
-			// 'honeypot',
+			'dosenfilter' => ['except' => [
+				'auth', 'auth/*',
+				'home', 'home/*',
+				'/'
+			]],
+			//'honeypot'
 			// 'csrf',
 		],
 		'after'  => [
@@ -54,6 +60,11 @@ class Filters extends BaseConfig
 				'mahasiswa', 'mahasiswa/*',
 				'kelas', 'kelas/*',
 				'jadwal_kuliah', 'jadwal_kuliah/*',
+			]],
+			'dosenfilter' => ['except' => [
+				'dsn', 'dsn/*',
+				'home', 'home/*',
+				'/',
 			]],
 			'toolbar',
 			// 'honeypot',
