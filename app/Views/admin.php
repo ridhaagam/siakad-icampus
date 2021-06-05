@@ -86,7 +86,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>3</h3>
+                <h3><?= $jml_user ?></h3>
 
                 <p>User</p>
             </div>
@@ -101,7 +101,7 @@
         <!-- small box -->
         <div class="small-box bg-navy">
             <div class="inner">
-                <h3>400</h3>
+                <h3><?= $jml_dosen ?></h3>
 
                 <p>Dosen</p>
             </div>
@@ -116,7 +116,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3>7500</h3>
+                <h3><?= $jml_mahasiswa ?></h3>
 
                 <p>Mahasiswa</p>
             </div>
@@ -131,7 +131,7 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>59</h3>
+                <h3><?= $jml_prodi ?></h3>
 
                 <p>Program Studi</p>
 
@@ -147,7 +147,7 @@
         <!-- small box -->
         <div class="small-box bg-blue">
             <div class="inner">
-                <h3>10</h3>
+                <h3><?= $jml_fakultas ?></h3>
 
                 <p>Fakultas</p>
             </div>
@@ -162,7 +162,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>400</h3>
+                <h3><?= $jml_matkul ?></h3>
 
                 <p>Mata Kuliah</p>
             </div>
@@ -177,7 +177,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>1</h3>
+                <h3><?= $jml_gedung ?></h3>
 
                 <p>Gedung</p>
             </div>
@@ -193,7 +193,7 @@
         <!-- small box -->
         <div class="small-box bg-maroon">
             <div class="inner">
-                <h3>25</h3>
+                <h3><?= $jml_ruangan ?></h3>
 
                 <p>Ruangan</p>
             </div>
