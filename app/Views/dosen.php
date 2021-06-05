@@ -29,9 +29,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('dsn/jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Mengajar</span></a></li>
-          <li><a href=<?= base_url('absen_kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Absen Kelas</span></a></li>
-          <li><a href=<?= base_url('nilai_mahasiswa') ?>><i class="glyphicon glyphicon-book"></i> <span>Nilai Mahasiswa</span></a></li>
+          <li><a href=<?= base_url('dsn/jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+          <li><a href=<?= base_url('dsn/presensi_kuliah') ?>><i class="glyphicon glyphicon-book"></i> <span>Presensi Kuliah</span></a></li>
+          <li><a href=<?= base_url('nilai_mahasiswa') ?>><i class="fa fa-user-circle-o"></i> <span>Nilai Mahasiswa</span></a></li>
           </ul>
         </li>
        
@@ -65,6 +65,8 @@
                 </div>
 
             </div>
+            
+            <a href="#" class="btn btn-warning btn-md"><i class="fa fa-edit"></i> Edit Profil</a><br><br>
 
         </div>
 

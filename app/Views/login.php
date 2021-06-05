@@ -2,7 +2,14 @@
 <div class="login-box">
     <div class="login-logo">
         <img src="img/logoumm.png" width="40%"></img>
-        <hr>
+        <style>
+
+            hr.hr {
+            border-top: 1px solid #eee;
+            }
+
+        </style>
+        <hr class="hr">
         <h3><b>Informasi Akademik</b></h3>
         <h4><b>Universitas Muhammadiyah Malang</b></h4>
     </div>
