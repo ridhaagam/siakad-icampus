@@ -1,9 +1,5 @@
      <!-- Collect the nav links, forms, and other content for toggling -->
-     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-       <ul class="nav navbar-nav">
-         <li><a href="<?= base_url() ?>"><b>Home</b></a></li>
-       </ul>
-     </div>
+   
      <!-- /.navbar-collapse -->
      <!-- Navbar Right Menu -->
 
@@ -20,7 +16,6 @@
            <!-- User Account Menu -->
          <li class="dropdown user user-menu">
            <!-- Menu Toggle Button -->
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown-sm">
 
              <div class="box-tools">
             <li><a href="<?= base_url('auth') ?>"><b> Log in</b></a></li>

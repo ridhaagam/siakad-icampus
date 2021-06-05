@@ -29,7 +29,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=<?= base_url('jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Mengajar</span></a></li>
+          <li><a href=<?= base_url('dsn/jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Mengajar</span></a></li>
           <li><a href=<?= base_url('absen_kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Absen Kelas</span></a></li>
           <li><a href=<?= base_url('nilai_mahasiswa') ?>><i class="glyphicon glyphicon-book"></i> <span>Nilai Mahasiswa</span></a></li>
           </ul>

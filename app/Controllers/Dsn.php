@@ -26,5 +26,16 @@ class Dsn extends BaseController
         return view('layout_dashboard/wrapper', $data);
     }
 
+    public function jadwal()
+    {
+        $dosen = $this->ModelDsn->DataDosen();
+        $data = [
+            'title' => 'Jadwal Mengajar',
+            'jadwal' => $this->ModelDsn->JadwalDosen($dosen['id_dosen']),
+            'isi'    => 'dosen/jadwal'
+        ];
+        return view('layout_dashboard/wrapper', $data);
+    }
+
     
 }
