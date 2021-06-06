@@ -118,7 +118,7 @@
                 <td class="text-center"><a class="label label-warning"><?= $total ?></a></td>
                 <td class="text-center"><?= $value['ka_prodi']  ?></td>
                 <td class="text-center">
-                  <a href="<?= base_url('matkul/detail/' . $value['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"> Mata Kuliah</i></a>
+                  <a href="<?= base_url('matkul/detail/' . $value['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i> <b>Mata Kuliah</b></a>
 
                 </td>
               </tr>
