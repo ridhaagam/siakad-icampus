@@ -40,7 +40,7 @@
                     <?php } elseif (session()->get('log') == 2) { ?>
                       <img src="<?= base_url('img-dosen/' . session()->get('foto')) ?>" class="user-image" alt="User Image">
                       <span class="hidden-xs"><?= session()->get('nama_dosen') ?></span>
-                    <?php } else { ?>
+                    <?php } elseif (session()->get('log') == 3) { ?>
                       <img src="<?= base_url('img-mahasiswa/' . session()->get('foto')) ?>" class="user-image" alt="User Image">
                       <span class="hidden-xs"><?= session()->get('nama_mahasiswa') ?></span>
                     <?php  } ?>

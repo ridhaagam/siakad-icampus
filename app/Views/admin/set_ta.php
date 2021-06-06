@@ -122,7 +122,7 @@
                 </td>
                 <td class="text-center">
                 <?php if ($value['status']== 0){?>
-                <a href="<?= base_url('Tahun_Akademik/set/'.$value['id_tahun_akademik'])?>"class="btn btn-success btn-sm"><i class="fa fa-check">Aktifkan</i></a>
+                <a href="<?= base_url('Tahun_Akademik/set/'.$value['id_tahun_akademik'])?>"class="btn btn-success btn-sm"><i class="fa fa-check"></i> <b>Aktifkan</b></a>
                 <?php } ?>
                 </td>
               </tr>

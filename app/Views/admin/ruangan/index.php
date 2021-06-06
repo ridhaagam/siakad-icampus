@@ -80,7 +80,7 @@
         <h3 class="box-title">Data <?= $title ?></h3>
 
         <div class="box-tools pull-right">
-          <a href="<?= base_url('ruangan/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> Tambah</a>
+          <a href="<?= base_url('ruangan/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> <b>Tambah</b></a>
         </div>
         <!-- /.box-tools -->
       </div>
