@@ -104,13 +104,13 @@
                     <tr>
                         <th>Tempat Lahir, Tanggal Lahir</th>
                         <th>:</th>
-                        <td>Malang, 1 Januari 2002</td>
+                        <td><?= $dosen['ttl'] ?></td>
                     </tr>
 
                     <tr>
                         <th>Jabatan Fungsional</th>
                         <th>:</th>
-                        <td>Lektor</td>
+                        <td><?= $dosen['jabatan_fungsional'] ?></td>
                     </tr>
 
                     <tr>
@@ -122,19 +122,19 @@
                     <tr>
                         <th>Status Ikatan Kerja</th>
                         <th>:</th>
-                        <td>Dosen Tetap</td>
+                        <td><?= $dosen['status_ikatan_kerja'] ?></td>
                     </tr>
 
                     <tr>
                         <th>Status Aktivitas</th>
                         <th>:</th>
-                        <td>Aktif</td>
+                        <td><?= $dosen['status_aktivitas'] ?></td>
                     </tr>
 
                     <tr>
                         <th>Alamat</th>
                         <th>:</th>
-                        <td>Malang</td>
+                        <td><?= $dosen['alamat'] ?></td>
                     </tr>
 
                 </table>

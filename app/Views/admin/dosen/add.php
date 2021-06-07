@@ -172,7 +172,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Status Ikatan Kerja</label>
-                <select name="pendidikan" class="form-control">
+                <select name="status_ikatan_kerja" class="form-control">
                   <option value="">--- Pilih Status Ikatan ---</option>
                   <option value="Dosen Tetap">Dosen Tetap</option>
                   <option value="Dosen Tidak Tetap">Dosen Tidak Tetap</option>
@@ -183,13 +183,24 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Jabatan Fungsional</label>
-                <select name="pendidikan" class="form-control">
+                <select name="jabatan_fungsional" class="form-control">
                   <option value="">--- Pilih Jabatan ---</option>
                   <option value="Tanpa Jabatan">Tanpa Jabatan</option>
                   <option value="Asisten Ahli">Asisten Ahli</option>
                   <option value="Lektor">Lektor</option>
                   <option value="Lektor Kepala">Lektor Kepala</option>
                   <option value="Profesor">Profesor</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Status Aktivitas</label>
+                <select name="status_aktivitas" class="form-control">
+                  <option value="">--- Pilih Status ---</option>
+                  <option value="Aktif">Aktif</option>
+                  <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
               </div>
             </div>
@@ -225,7 +236,7 @@
 
           </div>
           <div class="modal-footer">
-            <a href="<?= base_url('dosen') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
+            <a href="<?= base_url('dosen') ?>" class="btn btn-danger pull-left">Kembali</a>
             <button type="submit" class="btn btn-success">Simpan</button>
           </div>
           <?php echo form_close() ?>
