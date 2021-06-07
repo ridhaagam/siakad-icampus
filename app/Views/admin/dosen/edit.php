@@ -149,7 +149,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Foto Dosen</label>
+                <label>Ganti Foto Dosen</label>
                 <input type="file" name="foto" id="preview_gambar4" class="form-control">
               </div>
             </div>
@@ -159,7 +159,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <a href="<?= base_url('dosen') ?>" class="btn btn-danger pull-left">Kembali</a>
+              <a href="<?= base_url('dosen') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
               <button type="submit" class="btn btn-success">Perbarui</button>
             </div>
             <?php echo form_close() ?>

@@ -165,7 +165,7 @@
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Foto Mahasiswa</label>
+                <label>Ganti Foto Mahasiswa</label>
                 <input type="file" name="foto" id="preview_gambar3" class="form-control">
               </div>
             </div>
@@ -178,7 +178,7 @@
 
           </div>
           <div class="modal-footer">
-            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left">Kembali</a>
+            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
             <button type="submit" class="btn btn-success">Perbarui</button>
           </div>
           <?php echo form_close() ?>
