@@ -93,7 +93,17 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-
+          <?php
+            $errors = session()->getFlashdata('errors');
+            if (!empty($errors)) { ?>
+              <div class="alert alert-danger" role="alert">
+                <ul>
+                  <?php foreach ($errors as $key => $value) { ?>
+                    <li><?= esc($value) ?></li>
+                  <?php } ?>
+                </ul>
+              </div>
+            <?php } ?>
             <?php
             echo form_open_multipart('dosen/insert');
             ?>

@@ -62,8 +62,15 @@ class Dosen extends BaseController
                     'required' => '{field} Wajib diisi!'
                 ]
             ],
-			'password' => [
-                'label' => 'Passoword',
+            'alamat' => [
+                'label' => 'Alamat',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'ttl' => [
+                'label' => 'Tempat dan tanggal lahir',
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Wajib diisi!'
@@ -85,6 +92,34 @@ class Dosen extends BaseController
             ],
             'pendidikan' => [
                 'label' => 'Pendidikan',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'status_ikatan_kerja' => [
+                'label' => 'Status Ikatan Kerja',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'jabatan_fungsional' => [
+                'label' => 'Jabatan Fungsional',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'status_aktivitas' => [
+                'label' => 'Status Aktivitas',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Wajib diisi!'
