@@ -107,8 +107,8 @@
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>NIDN</label>
-                <input name="nidn" class="form-control" placeholder="NIDN">
+                <label>NIDN / NIDK / NUP</label>
+                <input name="nidn" class="form-control" placeholder="NIDN / NIDK / NUP">
               </div>
             </div>
 
@@ -132,6 +132,20 @@
 
             <div class="col-sm-6">
               <div class="form-group">
+                <label>Alamat</label>
+                <textarea name="alamat" class="form-control" rows="4" placeholder="Alamat"></textarea>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Tempat, Tanggal Lahir</label>
+                <input name="ttl" class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
                 <label>Email</label>
                 <input name="email" class="form-control" placeholder="Email">
               </div>
@@ -139,12 +153,43 @@
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Pendidikan</label>
+                <label>Jenjang Pendidikan</label>
                 <select name="pendidikan" class="form-control">
-                  <option value="">--- Pilih Pendidikann ---</option>
+                  <option value="">--- Pilih Jenjang ---</option>
+                  <option value="S1 Terapan">S1 Terapan</option>
+                  <option value="S2 Terapan">S2 Terapan</option>
+                  <option value="S3 Terapan">S3 Terapan</option>
+                  <option value="S1">S1</option>
                   <option value="S2">S2</option>
                   <option value="S3">S3</option>
-                  <option value="profesor">Profesor</option>
+                  <option value="Sp-1">Sp-1</option>
+                  <option value="Sp-2">Sp-2</option>
+                  <option value="Profesi">Profesi</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Status Ikatan Kerja</label>
+                <select name="pendidikan" class="form-control">
+                  <option value="">--- Pilih Status Ikatan ---</option>
+                  <option value="Dosen Tetap">Dosen Tetap</option>
+                  <option value="Dosen Tidak Tetap">Dosen Tidak Tetap</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Jabatan Fungsional</label>
+                <select name="pendidikan" class="form-control">
+                  <option value="">--- Pilih Jabatan ---</option>
+                  <option value="Tanpa Jabatan">Tanpa Jabatan</option>
+                  <option value="Asisten Ahli">Asisten Ahli</option>
+                  <option value="Lektor">Lektor</option>
+                  <option value="Lektor Kepala">Lektor Kepala</option>
+                  <option value="Profesor">Profesor</option>
                 </select>
               </div>
             </div>
@@ -159,8 +204,8 @@
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>No. Hp</label>
-                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No. Hp">
+                <label>No Handphone</label>
+                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No Handphone">
                 <small style="color:red">*terdiri dari 10-13 digit angka!</small>
               </div>
             </div>

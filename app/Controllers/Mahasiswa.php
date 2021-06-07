@@ -63,6 +63,13 @@ class Mahasiswa extends BaseController
 					'required' => '{field} Wajib diisi!'
 				]
 			],
+			'ttl' => [
+				'label' => 'Tempat, Tanggal Lahir',
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Wajib diisi!'
+				]
+			],
 			'password' => [
 				'label' => 'Passoword',
 				'rules' => 'required',

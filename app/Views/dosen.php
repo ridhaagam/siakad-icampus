@@ -102,15 +102,9 @@
                     </tr>
 
                     <tr>
-                        <th>Tempat Lahir</th>
+                        <th>Tempat Lahir, Tanggal Lahir</th>
                         <th>:</th>
-                        <td>Malang</td>
-                    </tr>
-
-                    <tr>
-                        <th>Tanggal Lahir</th>
-                        <th>:</th>
-                        <td>4 Juni 1902</td>
+                        <td>Malang, 1 Januari 2002</td>
                     </tr>
 
                     <tr>

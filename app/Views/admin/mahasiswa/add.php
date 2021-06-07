@@ -105,7 +105,7 @@
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>Nama Mahasiswwa</label>
+                <label>Nama Mahasiswa</label>
                 <input name="nama_mahasiswa" class="form-control" placeholder="Nama Mahasiswa">
               </div>
             </div>
@@ -113,7 +113,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Alamat</label>
-                <input name="alamat" class="form-control" placeholder="Alamat">
+                <textarea name="alamat" class="form-control" rows="4" placeholder="Alamat"></textarea>
               </div>
             </div>
 
@@ -125,6 +125,13 @@
                   <option value="Perempuan">Perempuan</option>
                   <option value="Laki-laki">Laki-laki</option>
                 </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Tempat, Tanggal Lahir</label>
+                <input name="ttl" class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
               </div>
             </div>
 
@@ -157,8 +164,8 @@
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>No. Hp</label>
-                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No. Hp">
+                <label>No Handphone</label>
+                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No Handphone">
                 <small style="color:red">*terdiri dari 10-13 digit angka!</small>
               </div>
             </div>
