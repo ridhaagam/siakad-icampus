@@ -53,4 +53,11 @@ class ModelDsn extends Model
             ->update($data);
     }
 
+    public function simpan_nilai($data)
+    {
+        $this->db->table('krs')
+            ->where('id_krs', $data['id_krs'])
+            ->update($data);
+    }
+
 }

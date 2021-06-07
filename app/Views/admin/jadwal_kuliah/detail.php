@@ -279,6 +279,7 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+        <a href="<?= base_url('jadwal_kuliah') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
 
 
         <!-- modal delete -->

@@ -379,6 +379,7 @@
                 <button class="btn btn-success"><i class="fa fa-save"></i> Simpan Presensi</button>
                 <?php echo form_close() ?>
             </div>
+            
             <!-- /.box-body -->
         </div>
     </div>

@@ -146,7 +146,7 @@
       </div>
       <!-- /.box-body -->
     </div>
-    <a href="<?= base_url('kelas') ?>" class="btn btn-danger pull-left">Kembali</a>
+    <a href="<?= base_url('kelas') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
   </div>
 </div>
 
