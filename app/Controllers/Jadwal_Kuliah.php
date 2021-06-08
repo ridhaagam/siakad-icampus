@@ -19,7 +19,7 @@ class Jadwal_Kuliah extends BaseController
 		$this->ModelDosen = new ModelDosen();
 		$this->ModelRuangan = new ModelRuangan();
 	
-    }
+    } 
 
 	public function index()
 	{
