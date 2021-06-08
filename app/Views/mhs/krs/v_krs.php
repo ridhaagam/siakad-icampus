@@ -77,7 +77,7 @@
                 <div class="row">
                     <table class="table-striped table-responsive">
                         <tr>
-                            <th rowspan="7"><img src="<?= base_url('img-mahasiswa/' . $mahasiswa['foto']) ?>" alt=""></th>
+                            <th rowspan="7"><img src="<?= base_url('img-mahasiswa/' . session()->get('foto')) ?>" height="150px"></th>
                             <th width="150px">Tahun Akademik</th>
                             <th width="20px">:</th>
                             <th><?= $ta_aktif['ta'] ?> - <?= $ta_aktif['semester'] ?></th>
@@ -121,29 +121,45 @@
                         <button class="btn btn-xs btn-flat btn-success"><i class="fa fa-print"></i> Cetak KRS</button>
                     </div>
                     <div class="col-sm-12">
+                        <?php
+                        if (session()->getFlashdata('pesan')) {
+                            echo '<div class="alert alert-success" role="alert">';
+                            echo session()->getFlashdata('pesan');
+                            echo '</div>';
+                        }
+                        ?>
                         <table class="table table-striped table-bordered table-responsive">
                             <tr class="label-warning">
-                                <th>#</th>
-                                <th>Kode</th>
-                                <th>Mata Kuliah</th>
-                                <th>SKS</th>
-                                <th>Semester</th>
-                                <th>Kelas</th>
-                                <th>Ruang</th>
-                                <th>Dosen</th>
-                                <th>Waktu</th>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Kode</th>
+                                <th class="text-center">Mata Kuliah</th>
+                                <th class="text-center">SKS</th>
+                                <th class="text-center">Semester</th>
+                                <th class="text-center">Kelas</th>
+                                <th class="text-center">Ruang</th>
+                                <th class="text-center">Dosen</th>
+                                <th class="text-center">Waktu</th>
+                                <th></th>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+
+                            <?php $no = 1;
+                            foreach ($data_matkul as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $value['kode_matkul'] ?></td>
+                                    <td><?= $value['matkul'] ?></td>
+                                    <td><?= $value['sks'] ?></td>
+                                    <td><?= $value['smt'] ?></td>
+                                    <td><?= $value['kelas'] ?>-<?= $value['angkatan'] ?></td>
+                                    <td><?= $value['ruangan'] ?></td>
+                                    <td><?= $value['nama_dosen'] ?></td>
+                                    <td><?= $value['hari'] ?>, <?= $value['waktu'] ?></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-danger btn-flat btn-xs" data-toggle="modal" data-target="#delete<?= $value['id_krs'] ?>"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+
                         </table>
                     </div>
                 </div>
@@ -180,7 +196,12 @@
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($matkul_ditawarkan as $key => $value) { ?>
+                            $db = \Config\Database::connect();
+                            foreach ($matkul_ditawarkan as $key => $value) {
+                                $total = $db->table('krs')
+                                    ->where('id_jadwal_kuliah', $value['id_jadwal_kuliah'])
+                                    ->countAllResults();
+                            ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>
                                     <td class="text-center"><?= $value['kode_matkul'] ?></td>
@@ -191,9 +212,13 @@
                                     <td><?= $value['ruangan'] ?></td>
                                     <td><?= $value['nama_dosen'] ?></td>
                                     <td><?= $value['hari'] ?>, <?= $value['waktu'] ?></td>
-                                    <td class="text-center"><span class="label label-success">0/<?= $value['kuota'] ?></span></td>
+                                    <td class="text-center"><span class="label label-success"><?= $total ?>/<?= $value['kuota'] ?></span></td>
                                     <td class="text-center">
-                                        <button class=" btn btn-success btn-xs btx-flat"><i class="fa fa-plus"></i></button>
+                                        <?php if ($total == $value['kuota']) { ?>
+                                            <span class="label label-danger">Penuh</span>
+                                        <?php } else { ?>
+                                            <a href="<?= base_url('krs/tambah_matkul/' . $value['id_jadwal_kuliah']) ?>" class=" btn btn-success btn-xs btx-flat"><i class="fa fa-plus"></i></a>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -207,3 +232,32 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+
+
+    <!-- modal delete -->
+    <?php foreach ($data_matkul as $key => $value) { ?>
+        <div class="modal fade" id="delete<?= $value['id_krs'] ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Hapus Data KRS</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        Apakah Anda Yakin Ingin Menghapus Data <b><?= $value['kode_matkul'] ?>|<?= $value['matkul'] ?> </b>?
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
+                        <a href="<?= base_url('krs/delete/' . $value['id_krs']) ?>" class="btn btn-success">Hapus</a>
+                    </div>
+
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    <?php } ?>

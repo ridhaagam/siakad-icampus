@@ -85,7 +85,7 @@
           <div class="box-body">
 
             <div class="text-center">
-              <img class="img-responsive" src="<?= base_url('img-mahasiswa/' . $mhs['foto']) ?>" width="100%"><br>
+              <img class="img-responsive" src="<?= base_url('img-mahasiswa/' . session()->get('foto')) ?>" width="100%"><br>
               <h4><b><?= $mhs['nama_mahasiswa'] ?></b></h4>
               <h5><b><?= $mhs['nim'] ?></b></h5>
 
