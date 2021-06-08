@@ -130,8 +130,31 @@
 
             <div class="col-sm-6">
               <div class="form-group">
+                <label>Tempat, Tanggal Lahir</label>
+                <input name="ttl" value="<?= $mahasiswa['ttl'] ?>"class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
                 <label>Email</label>
                 <input name="email" value="<?= $mahasiswa['email'] ?>" class="form-control" placeholder="Email">
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Password</label>
+                <input name="password" value="<?= $mahasiswa['password'] ?>" class="form-control" id="number" maxlength="8" placeholder="Password">
+                <small style="color:red">*maximal 8 digit angka!</small>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group" id="only-number">
+                <label>No. Hp</label>
+                <input name="no_hp" value="<?= $mahasiswa['no_hp'] ?>" class="form-control" id="number" maxlength="13" placeholder="Nomor Telepon">
+                <small style="color:red">*terdiri dari 10-13 digit angka!</small>
               </div>
             </div>
 
@@ -149,17 +172,12 @@
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Password</label>
-                <input name="password" value="<?= $mahasiswa['password'] ?>" class="form-control" id="number" maxlength="8" placeholder="Password">
-                <small style="color:red">*maximal 8 digit angka!</small>
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <div class="form-group" id="only-number">
-                <label>No. Hp</label>
-                <input name="no_hp" value="<?= $mahasiswa['no_hp'] ?>" class="form-control" id="number" maxlength="13" placeholder="Nomor Telepon">
-                <small style="color:red">*terdiri dari 10-13 digit angka!</small>
+                <label>Status Mahasiswa</label>
+                <select name="status_mahasiswa" class="form-control">
+                  <option value="<?= $mahasiswa['status_mahasiswa'] ?>"><?= $mahasiswa['status_mahasiswa'] ?></option>
+                  <option value="Belum Lulus">Belum Lulus</option>
+                  <option value="Lulus">Lulus</option>
+                </select>
               </div>
             </div>
 
