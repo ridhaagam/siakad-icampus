@@ -118,6 +118,7 @@ class Mahasiswa extends BaseController
 				'nama_mahasiswa' => $this->request->getPost('nama_mahasiswa'),
 				'id_prodi' => $this->request->getPost('id_prodi'),
 				'jenkel' => $this->request->getPost('jenkel'),
+				'ttl' => $this->request->getPost('ttl'),
 				'password' => $this->request->getPost('password'),
 				'no_hp' => $this->request->getPost('no_hp'),
 				'email' => $this->request->getPost('email'),

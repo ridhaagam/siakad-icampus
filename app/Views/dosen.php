@@ -59,7 +59,6 @@
                         <img class="img-responsive" src="<?= base_url('img-dosen/' . $dosen['foto']) ?>" width="100%"><br>
                         <h4><b><?= $dosen['nama_dosen'] ?></b></h4>
                         <h5><b><?= $dosen['nidn'] ?></b></h5>
-                        <h5><b><?= $dosen['email'] ?></b></h5>
                     </div>
                     
                 </div>
@@ -77,17 +76,6 @@
                     <h4>Data Dosen</h4>
 
                     <table class="table table-responsive">
-                    <tr>
-                        <th>Jenis Kelamin</th>
-                        <th>:</th>
-                        <td><?= $dosen['jenkel'] ?></td>
-                    </tr>
-
-                    <tr>
-                        <th>No Handphone</th>
-                        <th>:</th>
-                        <td><?= $dosen['no_hp'] ?></td>
-                    </tr>
 
                     <tr>
                         <th>Kode Dosen</th>
@@ -101,6 +89,11 @@
                         <td><?= $ta['ta'] ?> - <?= $ta['semester'] ?></td>
                     </tr>
 
+                    <tr>
+                        <th>Jenis Kelamin</th>
+                        <th>:</th>
+                        <td><?= $dosen['jenkel'] ?></td>
+                    </tr>
                     <tr>
                         <th>Tempat Lahir, Tanggal Lahir</th>
                         <th>:</th>
@@ -135,6 +128,18 @@
                         <th>Alamat</th>
                         <th>:</th>
                         <td><?= $dosen['alamat'] ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>No Handphone</th>
+                        <th>:</th>
+                        <td><?= $dosen['no_hp'] ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>Email</th>
+                        <th>:</th>
+                        <td><?= $dosen['email'] ?></td>
                     </tr>
 
                 </table>

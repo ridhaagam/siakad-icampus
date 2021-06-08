@@ -131,7 +131,16 @@
                         <th>:</th>
                         <td><?= $mhs['nama_dosen'] ?></td>
                     </tr>
-
+                    <tr>
+                        <th>Jenis Kelamin</th>
+                        <th>:</th>
+                        <td><?= $mhs['jenkel'] ?></td>
+                    </tr>
+                    <tr>
+                        <th>Tempat, Tanggal Lahir</th>
+                        <th>:</th>
+                        <td><?= $mhs['ttl'] ?></td>
+                    </tr>
                     <tr>
                         <th>Alamat</th>
                         <th>:</th>

@@ -96,7 +96,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>NIDN</label>
+                <label>NIDN / NIDK / NUP</label>
                 <input name="nidn" value="<?= $dosen['nidn'] ?>" class="form-control" placeholder="NIDN">
               </div>
             </div>
