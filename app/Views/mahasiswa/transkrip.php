@@ -170,7 +170,7 @@
 
                     </table>
                     <h4><b>Total SKS : <?= $sks ?></b></h4>
-                    <h4><b>Total Nila : <?= $nilai_angka ?></b></h4>
+                    <h4><b>Total Nilai : <?= $nilai_angka ?></b></h4>
                     <h4><b>IP : <?php if (empty($data_matkul)) {
                                     echo '0';
                                 } else {
