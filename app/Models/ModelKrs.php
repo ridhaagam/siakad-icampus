@@ -25,7 +25,6 @@ class ModelKrs extends Model
     }
 
     public function MatkulDitawarkan($id_tahun_akademik, $id_prodi)
-    public function MatkulDitawarkan($id_tahun_akademik/*, $id_prodi*/)
     {
         return $this->db->table('jadwal_kuliah')
             ->join('matkul', 'matkul.id_matkul = jadwal_kuliah.id_matkul', 'left')
