@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class ModelKrs extends Model
-{ 
+{
     public function DataMhs()
     {
         return $this->db->table('mahasiswa')

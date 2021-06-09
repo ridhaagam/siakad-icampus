@@ -71,5 +71,19 @@ class Mhs extends BaseController
         ];
         return view('mahasiswa/print_khs', $data);
     }
+    public function transkrip()
+    {
+        $mahasiswa = $this->ModelKrs->DataMhs();
+        $tahun_akademik = $this->ModelTahunAkademik->ta_aktif();
+        $data = [
+            'title' => 'Transkrip Nilai',
+            'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
+            'mahasiswa'   => $this->ModelKrs->DataMhs(),
+            'matkul_ditawarkan' => $this->ModelKrs->MatkulDitawarkan($tahun_akademik['id_tahun_akademik'], $mahasiswa['id_prodi']),
+            'data_matkul'  => $this->ModelKrs->DataKrs($mahasiswa['id_mhs'], $tahun_akademik['id_tahun_akademik']),
+            'isi'    => 'mahasiswa/transkrip'
+        ];
+        return view('layout_dashboard/wrapper', $data);
+    }
 
 }

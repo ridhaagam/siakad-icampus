@@ -31,7 +31,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                <li class="active"><a href=<?= base_url('mhs/khs') ?>><i class="fa fa-id-card"></i> <span>Kartu Hasil Studi (KHS)</span></a></li>
+                <li><a href=<?= base_url('mhs/khs') ?>><i class="fa fa-id-card"></i> <span>Kartu Hasil Studi (KHS)</span></a></li>
                 <li><a href=<?= base_url('mhs/transkrip') ?>><i class="fa fa-file-pdf-o"></i> <span>Transkrip</span></a></li>
                 </ul>
             </li>
@@ -189,7 +189,7 @@
     </div>
 </div>
 
-            </
+            
     <!-- modal Add  Matkul-->
     <div class="modal fade" id="add">
         <div class="modal-dialog modal-lg">
