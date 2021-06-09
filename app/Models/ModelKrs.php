@@ -34,7 +34,6 @@ class ModelKrs extends Model
             ->join('prodi', 'prodi.id_prodi = jadwal_kuliah.id_prodi', 'left')
             ->where('jadwal_kuliah.id_tahun_akademik', $id_tahun_akademik)
             ->where('jadwal_kuliah.id_prodi', $id_prodi)
-            ->where('id_tahun_akademik', $id_tahun_akademik)
             ->get()->getResultArray();
     }
 

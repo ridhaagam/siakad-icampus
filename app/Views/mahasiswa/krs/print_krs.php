@@ -19,11 +19,11 @@
 
 <body onload="window.print();">
     <div class="wrapper">
-        <h1 class="text-center"><b>Universitas Muhammadiyah Malang</b></h1>
-        <h2 class="text-center"><b>KARTU HASIL STUDI (KHS)</b></h2><br>
         <!-- Main content -->
         <section class="invoice">
-                    
+            <h1 class="text-center"><b>Universitas Muhammadiyah Malang</b></h1>
+            <h2 class="text-center"><b>KARTU RENCANA STUDI (KRS)</b></h2><br>
+            
             <!-- info row -->
             <div class="row invoice-info">
             <div class="col-xs-6 table-responsive">
@@ -32,17 +32,17 @@
                         </tr>
                             <th width="160px">Nama</th>
                             <td width="20px">:</td>
-                            <td><?= $mhs['nama_mahasiswa'] ?></td>
+                            <td><?= $mahasiswa['nama_mahasiswa'] ?></td>
                         </tr>
                         </tr>
                             <th>NIM</th>
                             <td>:</td>
-                            <td><?= $mhs['nim'] ?></td>
+                            <td><?= $mahasiswa['nim'] ?></td>
                         </tr>
                         </tr>
                             <th>Ketua Program Studi</th>
                             <td>:</td>
-                            <td><?= $mhs['ka_prodi'] ?></td>
+                            <td><?= $mahasiswa['ka_prodi'] ?></td>
                         </tr>
                     </table>
 
@@ -53,11 +53,11 @@
                                     <tr>
                                         <th width="200px">Fakultas</th></th>
                                         <td width="20px">:</td>
-                                        <td><?= $mhs['fakultas'] ?></td>
+                                        <td><?= $mahasiswa['fakultas'] ?></td>
                                     </tr>
                                         <th>Program Studi</th>
                                         <td>:</td>
-                                        <td><?= $mhs['prodi'] ?></td>
+                                        <td><?= $mahasiswa['prodi'] ?></td>
                                     </tr>
                                     </tr>
                                         <th>Tahun Akademik - Semester</th>
@@ -74,36 +74,38 @@
             <!-- Table row -->
             <div class="row">
                 <div class="col-xs-12 table-responsive">
-                    <table class="table table-striped table-bordered table-responsive">
-                        <tr class="label-success">
-                            <th class="text-center">NO</th>
-                            <th class="text-center">KODE</th>
-                            <th class="text-center">NAMA MATA KULIAH</th></th>
-                            <th class="text-center">NILAI HURUF</th>
-                            <th class="text-center">SKS</th>
-                            <th class="text-center">NILAI X SKS</th>
-                        </tr>
-                        <?php $no = 1;
-                        $sks = 0;
-                        $grand_total_bobot = 0;
-                        foreach ($data_matkul as $key => $value) {
-                            $sks = $sks + $value['sks'];
-                            $tot_bobot = $value['sks'] * $value['bobot'];
-                            $grand_total_bobot = $grand_total_bobot + $tot_bobot;
-                        ?>
-                            <tr>
-                                <td class="text-center"><?= $no++ ?></td>
-                                <td class="text-center"><?= $value['kode_matkul'] ?></td>
-                                <td class="text-center"><?= $value['matkul'] ?></td>
-                                <td class="text-center"><?= $value['nilai_huruf'] ?></td>
-                                <td class="text-center"><?= $value['sks'] ?></td>
-                                <td class="text-center"><?= $tot_bobot ?></td>
-
+                <table class="table table-striped table-bordered table-responsive">
+                            <tr class="label-warning">
+                                <th class="text-center">#</th>
+                                <th class="text-center">Kode</th>
+                                <th class="text-center">Mata Kuliah</th>
+                                <th class="text-center">SKS</th>
+                                <th class="text-center">Semester</th>
+                                <th class="text-center">Kelas</th>
+                                <th class="text-center">Ruang</th>
+                                <th class="text-center">Dosen</th>
+                                <th class="text-center">Waktu</th>
                             </tr>
-                        <?php } ?>
 
-                    </table>
+                            <?php $no = 1;
+                            $sks = 0;
+                            foreach ($data_matkul as $key => $value) { 
+                                $sks = $sks + $value['sks'];
+                                ?>
+                                <tr>
+                                    <td class="text-center"><?= $no++ ?></td>
+                                    <td><?= $value['kode_matkul'] ?></td>
+                                    <td><?= $value['matkul'] ?></td>
+                                    <td class="text-center"><?= $value['sks'] ?></td>
+                                    <td class="text-center"><?= $value['smt'] ?></td>
+                                    <td class="text-center"><?= $value['kelas'] ?>-<?= $value['angkatan'] ?></td>
+                                    <td class="text-center"><?= $value['ruangan'] ?></td>
+                                    <td><?= $value['nama_dosen'] ?></td>
+                                    <td><?= $value['hari'] ?>, <?= $value['waktu'] ?></td>
+                                </tr>
+                            <?php } ?>
 
+                        </table>
                 </div>
                 <!-- /.col -->
             </div>
@@ -112,35 +114,20 @@
             <div class="row">
                 <!-- accepted payments column -->
                 <div class="col-xs-4">
-                    <h4><b>Total SKS : <?= $sks ?></b></h4>
-                    <h4><b>IP : <?php if (empty($data_matkul)) {
-                                    echo '0';
-                                } else {
-                                    echo number_format($grand_total_bobot / $sks, 2);
-                                } ?></b></h4>
-
+                    <p class="lead">Jumlah SKS : <?= $sks ?></p>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-
                 </div>
                 <div class="col-xs-4">
-                    Malang, <?= date('d M Y') ?> <br>
-                    Pembimbing Akademik <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <?= $mhs['nama_dosen'] ?>
-                
-                </div>
-
-                <div class="col-md-12 float-left">
-                <h6><b>Catatan:</b></h6>
-                <h6>1. KHS dinyatakan sah bila ditandatangani Pembimbing Akademik dan stempel basah Program Studi</h6>
-                <h6>2. Data KHS yang sah adalah yang sesuai dengan database UMM, jika ada perbedaan versi cetak dengan yang ada di database maka</h6>
-                <h6>&nbsp;&nbsp;&nbsp;&nbsp;KHS Cetak dinyatakan tidak sah.</h6>
+                        Malang, <?= date('d M Y') ?> <br>
+                        Pembimbing Akademik <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <?= $mahasiswa['nama_dosen'] ?>
                 </div>
                 <!-- /.col -->
             </div>

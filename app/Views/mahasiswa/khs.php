@@ -23,7 +23,7 @@
             </a>
             </li>
 
-            <li class="treeview">
+            <li class="active treeview">
                 <a href="#">
                 <i class="glyphicon glyphicon-th-list"></i> <span>Hasil Studi</span>
                     <span class="pull-right-container">
@@ -56,7 +56,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href=<?= base_url('mhs/presensi') ?>><i class="fa fa-pencil-square-o"></i> <span>Presensi Kuliah</span></a></li>
+                <li><a href=<?= base_url('mhs/presensi') ?>><i class="fa fa-pencil-square-o"></i> <span>Jadwal & Presensi Kuliah</span></a></li>
                 </ul>
             </li>
 

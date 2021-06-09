@@ -31,7 +31,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                <li class="active"><a href=<?= base_url('mhs/khs') ?>><i class="fa fa-id-card"></i> <span>Kartu Hasil Studi (KHS)</span></a></li>
+                <li><a href=<?= base_url('mhs/khs') ?>><i class="fa fa-id-card"></i> <span>Kartu Hasil Studi (KHS)</span></a></li>
                 <li><a href=<?= base_url('mhs/transkrip') ?>><i class="fa fa-file-pdf-o"></i> <span>Transkrip</span></a></li>
                 </ul>
             </li>
@@ -48,7 +48,7 @@
                 </ul>
             </li>
 
-            <li class="treeview">
+            <li class="active treeview">
                 <a href="#">
                 <i class="fa fa-book"></i> <span>Akademik</span>
                     <span class="pull-right-container">
@@ -56,7 +56,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href=<?= base_url('mhs/presensi') ?>><i class="fa fa-pencil-square-o"></i> <span>Presensi Kuliah</span></a></li>
+                <li class="active"><a href=<?= base_url('mhs/presensi') ?>><i class="fa fa-pencil-square-o"></i> <span>Jadwal & Presensi Kuliah</span></a></li>
                 </ul>
             </li>
 
@@ -104,7 +104,7 @@
                                 <td width="20px">:</td>
                                 <td><?= $ta_aktif['ta'] ?></td>
                             </tr>
-                                <th>Program Studi</th>
+                                <th>Semester</th>
                                 <td>:</td>
                                 <td><?= $ta_aktif['semester'] ?></td>
                             </tr>

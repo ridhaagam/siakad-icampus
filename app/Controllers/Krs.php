@@ -20,12 +20,12 @@ class Krs extends BaseController
         $mahasiswa = $this->ModelKrs->DataMhs();
         $tahun_akademik = $this->ModelTahunAkademik->ta_aktif();
         $data = [
-            'title' => 'Kartu Rencana Studi(KRS)',
+            'title' => 'KRS / Pemrograman KRS',
             'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
             'mahasiswa'   => $this->ModelKrs->DataMhs(),
-            'matkul_ditawarkan' => $this->ModelKrs->MatkulDitawarkan($tahun_akademik['id_tahun_akademik']),
+            'matkul_ditawarkan' => $this->ModelKrs->MatkulDitawarkan($tahun_akademik['id_tahun_akademik'], $mahasiswa['id_prodi']),
             'data_matkul'  => $this->ModelKrs->DataKrs($mahasiswa['id_mhs'], $tahun_akademik['id_tahun_akademik']),
-            'isi'    => 'mhs/krs/v_krs'
+            'isi'    => 'mahasiswa/krs/krs'
         ];
         return view('layout_dashboard/wrapper', $data);
     }
@@ -53,7 +53,7 @@ class Krs extends BaseController
         return redirect()->to(base_url('krs'));
     }
 
-    public function cetak()
+    public function print()
     {
         $mahasiswa = $this->ModelKrs->DataMhs();
         $tahun_akademik = $this->ModelTahunAkademik->ta_aktif();
@@ -63,6 +63,6 @@ class Krs extends BaseController
             'mahasiswa'   => $this->ModelKrs->DataMhs(),
             'data_matkul'  => $this->ModelKrs->DataKrs($mahasiswa['id_mhs'], $tahun_akademik['id_tahun_akademik'])
         ];
-        return view('mhs/krs/v_cetak_krs', $data);
+        return view('mahasiswa/krs/print_krs', $data);
     }
 }
