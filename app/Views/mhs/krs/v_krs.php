@@ -143,7 +143,10 @@
                             </tr>
 
                             <?php $no = 1;
-                            foreach ($data_matkul as $key => $value) { ?>
+                            $sks = 0;
+                            foreach ($data_matkul as $key => $value) { 
+                                $sks = $sks + $value['sks'];
+                                ?>
                                 <tr>
                                     <td class="text-center"><?= $no++ ?></td>
                                     <td><?= $value['kode_matkul'] ?></td>
@@ -161,6 +164,7 @@
                             <?php } ?>
 
                         </table>
+                        <h4><b>Jumlah SKS : <?= $sks ?></b></h4>
                     </div>
                 </div>
             </div>
