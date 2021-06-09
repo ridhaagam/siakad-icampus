@@ -52,4 +52,17 @@ class Krs extends BaseController
         session()->setFlashdata('pesan', 'KRS Berhasil di Hapus!');
         return redirect()->to(base_url('krs'));
     }
+
+    public function cetak()
+    {
+        $mahasiswa = $this->ModelKrs->DataMhs();
+        $tahun_akademik = $this->ModelTahunAkademik->ta_aktif();
+        $data = [
+            'title' => 'Cetak KRS',
+            'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
+            'mahasiswa'   => $this->ModelKrs->DataMhs(),
+            'data_matkul'  => $this->ModelKrs->DataKrs($mahasiswa['id_mhs'], $tahun_akademik['id_tahun_akademik'])
+        ];
+        return view('mhs/krs/v_cetak_krs', $data);
+    }
 }

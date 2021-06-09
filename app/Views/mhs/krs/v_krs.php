@@ -118,7 +118,7 @@
                 <div class="box-body">
                     <div class="col-sm-12">
                         <button class="btn btn-xs btn-flat btn-primary" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> Tambah Mata Kuliah</button>
-                        <button class="btn btn-xs btn-flat btn-success"><i class="fa fa-print"></i> Cetak KRS</button>
+                        <a href="<?= base_url('krs/cetak') ?>" target="_blank" class="btn btn-xs btn-flat btn-success"><i class="fa fa-print"></i> Cetak KRS</a>
                     </div>
                     <div class="col-sm-12">
                         <?php
