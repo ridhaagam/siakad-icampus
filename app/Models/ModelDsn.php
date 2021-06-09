@@ -12,6 +12,20 @@ class ModelDsn extends Model
             ->where('nidn', session()->get('username'))
             ->get()->getRowArray();
     }
+    
+    public function detailData($id_dosen)
+    {
+        return $this->db->table('dosen')
+            ->where('id_dosen', $id_dosen)
+            ->get()->getRowArray();
+    }
+
+    public function edit($data)
+    {
+        $this->db->table('dosen')
+            ->where('id_dosen', $data['id_dosen'])
+            ->update($data);
+    }
 
     public function JadwalDosen($id_dosen, $id_ta)
     {

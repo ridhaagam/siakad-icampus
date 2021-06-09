@@ -21,9 +21,148 @@ class Dsn extends BaseController
             'title' => 'Dosen',
             'dosen' => $this->ModelDsn->DataDosen(),
             'ta' => $this->ModelTahunAkademik->ta_aktif(),
-            'isi'    => 'dosen'
+            'isi'    => 'dosen/dashboard/dosen'
         ];
         return view('layout_dashboard/wrapper', $data);
+    }
+
+    public function edit()
+    {
+        $data = [
+            'title'    => 'Edit Profile',
+            'dosen' => $this->ModelDsn->DataDosen(),
+            'ta' => $this->ModelTahunAkademik->ta_aktif(),
+            'isi'      => 'dosen/dashboard/edit'
+        ];
+        return view('layout_dashboard/wrapper', $data);
+    }
+
+    public function update($id_dosen)
+    {
+        if ($this->validate([
+            'kode_dosen' => [
+                'label' => 'Kode Dosen',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'nidn' => [
+                'label' => 'NIDN',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!',
+                ]
+            ],
+            'nama_dosen' => [
+                'label' => 'Nama Dosen',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!',
+                ]
+            ],
+            'jenkel' => [
+                'label' => 'Jenis Kelamin',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+			'password' => [
+                'label' => 'Passoword',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'no_hp' => [
+                'label' => 'No. Hp',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'pendidikan' => [
+                'label' => 'Pendidikan',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'foto' => [
+                'label' => 'Foto',
+                'rules' => 'max_size[foto,1024]|mime_in[foto,image/png,image/jpeg,image/jpg,image/gif,image/ico]',
+                'errors' => [
+                    'max_size' => '{field} Max 1024 KB',
+                    'mime_in' => 'Format {field} Wajib PNG, JPG, JPEG, GIF, ICO'
+                ]
+            ],
+        ])) {
+            //mengambil file foto dari form input
+            $foto = $this->request->getFile('foto');
+            if($foto->getError() == 4){
+                //jika foto tdk d ganti
+                $data = array(
+                    'id_dosen' => $id_dosen,
+                    'nidn' => $this->request->getPost('nidn'),
+                    'kode_dosen' => $this->request->getPost('kode_dosen'),
+                    'nama_dosen' => $this->request->getPost('nama_dosen'),
+                    'jenkel' => $this->request->getPost('jenkel'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'ttl' => $this->request->getPost('ttl'),
+                    'password' => $this->request->getPost('password'),
+                    'email' => $this->request->getPost('email'),
+                    'no_hp' => $this->request->getPost('no_hp'),
+                    'pendidikan' => $this->request->getPost('pendidikan'),
+                    'status_ikatan_kerja' => $this->request->getPost('status_ikatan_kerja'),
+                    'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
+                    'status_aktivitas' => $this->request->getPost('status_aktivitas'),
+                );
+                $this->ModelDsn->edit($data);
+            }else{
+                //delete foto lama
+                $dosen = $this->ModelDsn->detailData($id_dosen);
+                if ($dosen['foto'] != "") {
+                    unlink('img-dosen/'. $dosen['foto']);
+                }
+                //merename nama file foto
+                $nama_file = $foto->getRandomName();
+                //jika valid
+                $data = array(
+                    'id_dosen' => $id_dosen,
+                    'nidn' => $this->request->getPost('nidn'),
+                    'kode_dosen' => $this->request->getPost('kode_dosen'),
+                    'nama_dosen' => $this->request->getPost('nama_dosen'),
+                    'jenkel' => $this->request->getPost('jenkel'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'ttl' => $this->request->getPost('ttl'),
+                    'password' => $this->request->getPost('password'),
+                    'email' => $this->request->getPost('email'),
+                    'no_hp' => $this->request->getPost('no_hp'),
+                    'pendidikan' => $this->request->getPost('pendidikan'),
+                    'status_ikatan_kerja' => $this->request->getPost('status_ikatan_kerja'),
+                    'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
+                    'status_aktivitas' => $this->request->getPost('status_aktivitas'),
+                    'foto' => $nama_file,
+                );
+                //memindahkan file foto dari form input ke folder foto di directory
+                $foto->move('img-dosen', $nama_file);
+                $this->ModelDsn->edit($data);
+            }
+            session()->setFlashdata('pesan', 'Data Berhasil di Perbarui!');
+            return redirect()->to(base_url('dsn'));
+        } else {
+            //jika tidak valid
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('dsn/edit'));
+        }
     }
 
     public function jadwal()
