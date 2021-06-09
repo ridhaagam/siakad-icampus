@@ -154,7 +154,7 @@
                             $sks = $sks + $value['sks'];
                             $tot_bobot = $value['sks'] * $value['bobot'];
                             $grand_total_bobot = $grand_total_bobot + $tot_bobot;
-                            $nilai_angka = $nilai_angka + $value['nilai_akhir'];
+                            $nilai_angka = $nilai_angka + $value['bobot'];
                         ?>
                             <tr>
                                 <td class="text-center"><?= $no++ ?></td>
