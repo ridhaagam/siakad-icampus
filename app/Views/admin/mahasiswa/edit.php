@@ -130,20 +130,15 @@
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Email</label>
-                <input name="email" value="<?= $mahasiswa['email'] ?>" class="form-control" placeholder="Email">
+                <label>Tempat, Tanggal Lahir</label>
+                <input name="ttl" value="<?= $mahasiswa['ttl'] ?>"class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Program Studi</label>
-                <select name="id_prodi" class="form-control">
-                  <option value="<?= $mahasiswa['id_prodi'] ?>"><?= $mahasiswa['prodi'] ?></option>
-                  <?php foreach ($prodi as $key => $value) { ?>
-                    <option value="<?= $value['id_prodi'] ?>"><?= $value['prodi'] ?></option>
-                  <?php } ?>
-                </select>
+                <label>Email</label>
+                <input name="email" value="<?= $mahasiswa['email'] ?>" class="form-control" placeholder="Email">
               </div>
             </div>
 
@@ -165,7 +160,30 @@
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label>Foto Mahasiswa</label>
+                <label>Program Studi</label>
+                <select name="id_prodi" class="form-control">
+                  <option value="<?= $mahasiswa['id_prodi'] ?>"><?= $mahasiswa['prodi'] ?></option>
+                  <?php foreach ($prodi as $key => $value) { ?>
+                    <option value="<?= $value['id_prodi'] ?>"><?= $value['prodi'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Status Mahasiswa</label>
+                <select name="status_mahasiswa" class="form-control">
+                  <option value="<?= $mahasiswa['status_mahasiswa'] ?>"><?= $mahasiswa['status_mahasiswa'] ?></option>
+                  <option value="Belum Lulus">Belum Lulus</option>
+                  <option value="Lulus">Lulus</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Ganti Foto Mahasiswa</label>
                 <input type="file" name="foto" id="preview_gambar3" class="form-control">
               </div>
             </div>
@@ -178,7 +196,7 @@
 
           </div>
           <div class="modal-footer">
-            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left">Kembali</a>
+            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
             <button type="submit" class="btn btn-success">Perbarui</button>
           </div>
           <?php echo form_close() ?>

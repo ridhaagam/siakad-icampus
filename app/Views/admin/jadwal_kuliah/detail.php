@@ -279,6 +279,7 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+        <a href="<?= base_url('jadwal_kuliah') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
 
 
         <!-- modal delete -->
@@ -299,7 +300,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
-                            <a href="<?= base_url('jadwal_kuliah/delete/' . $value['id_ruangan'] . '/' . $prodi['id_prodi']) ?>" class="btn btn-success ">Hapus</a>
+                            <a href="<?= base_url('jadwal_kuliah/delete/' . $value['id_jadwal_kuliah'] . '/' . $prodi['id_prodi']) ?>" class="btn btn-success ">Hapus</a>
                         </div>
 
                     </div>

@@ -101,12 +101,14 @@
           <thead>
             <tr>
               <th width="50px" class="text-center">No</th>
-              <th class="text-center">NIDN</th>
+              <th class="text-center">NIDN / NIDK / NUP</th>
               <th class="text-center">Kode Dosen</th>
               <th class="text-center">Nama Dosen</th>
-              <th class="text-center">No. Hp</th>
+              <th class="text-center">Alamat</th>
+              <th class="text-center">TTL</th>
               <th class="text-center">Pendidikan</th>
-              <th class="text-center">Password</th>
+              <th class="text-center">Status Kerja</th>
+              <th class="text-center">Jabatan</th>
               <th class="text-center">Foto</th>
               <th width="150px" class="text-center">Action</th>
             </tr>
@@ -120,9 +122,11 @@
                 <td class="text-center"><?= $value['nidn']  ?></td>
                 <td class="text-center"><?= $value['kode_dosen']  ?></td>
                 <td class="text-center"><?= $value['nama_dosen']  ?></td>
-                <td class="text-center"><?= $value['no_hp']  ?></td>
+                <td class="text-center"><?= $value['alamat']  ?></td>
+                <td class="text-center"><?= $value['ttl']  ?></td>
                 <td class="text-center"><?= $value['pendidikan']  ?></td>
-                <td class="text-center"><?= $value['password']  ?></td>
+                <td class="text-center"><?= $value['status_ikatan_kerja']  ?></td>
+                <td class="text-center"><?= $value['jabatan_fungsional']  ?></td>
                 <td class="text-center"><img src="<?= base_url('img-dosen/' . $value['foto']) ?>" class="img-circle" width="70px" height="70px"></td>
                 <td class="text-center">
                   <a href="<?= base_url('dosen/edit/' . $value['id_dosen']) ?>" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>

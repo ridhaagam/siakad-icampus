@@ -63,6 +63,13 @@ class Mahasiswa extends BaseController
 					'required' => '{field} Wajib diisi!'
 				]
 			],
+			'ttl' => [
+				'label' => 'Tempat, Tanggal Lahir',
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Wajib diisi!'
+				]
+			],
 			'password' => [
 				'label' => 'Passoword',
 				'rules' => 'required',
@@ -111,6 +118,7 @@ class Mahasiswa extends BaseController
 				'nama_mahasiswa' => $this->request->getPost('nama_mahasiswa'),
 				'id_prodi' => $this->request->getPost('id_prodi'),
 				'jenkel' => $this->request->getPost('jenkel'),
+				'ttl' => $this->request->getPost('ttl'),
 				'password' => $this->request->getPost('password'),
 				'no_hp' => $this->request->getPost('no_hp'),
 				'email' => $this->request->getPost('email'),
@@ -183,6 +191,13 @@ class Mahasiswa extends BaseController
 					'required' => '{field} Wajib diisi!'
 				]
 			],
+			'ttl' => [
+				'label' => 'Tempat, Tanggal Lahir',
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Wajib diisi!'
+				]
+			],
 			'email' => [
 				'label' => 'Email',
 				'rules' => 'required',
@@ -216,8 +231,10 @@ class Mahasiswa extends BaseController
 					'nama_mahasiswa' => $this->request->getPost('nama_mahasiswa'),
 					'id_prodi' => $this->request->getPost('id_prodi'),
 					'jenkel' => $this->request->getPost('jenkel'),
+					'status_mahasiswa' => $this->request->getPost('status_mahasiswa'),
 					'password' => $this->request->getPost('password'),
 					'no_hp' => $this->request->getPost('no_hp'),
+					'ttl' => $this->request->getPost('ttl'),
 					'email' => $this->request->getPost('email'),
 					'alamat' => $this->request->getPost('alamat'),
 				);
@@ -232,8 +249,10 @@ class Mahasiswa extends BaseController
 					'nama_mahasiswa' => $this->request->getPost('nama_mahasiswa'),
 					'id_prodi' => $this->request->getPost('id_prodi'),
 					'jenkel' => $this->request->getPost('jenkel'),
+					'status_mahasiswa' => $this->request->getPost('status_mahasiswa'),
 					'password' => $this->request->getPost('password'),
 					'no_hp' => $this->request->getPost('no_hp'),
+					'ttl' => $this->request->getPost('ttl'),
 					'email' => $this->request->getPost('email'),
 					'alamat' => $this->request->getPost('alamat'),
 					'foto' => $nama_file,

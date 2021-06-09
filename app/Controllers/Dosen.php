@@ -62,8 +62,15 @@ class Dosen extends BaseController
                     'required' => '{field} Wajib diisi!'
                 ]
             ],
-			'password' => [
-                'label' => 'Passoword',
+            'alamat' => [
+                'label' => 'Alamat',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'ttl' => [
+                'label' => 'Tempat dan tanggal lahir',
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Wajib diisi!'
@@ -90,6 +97,34 @@ class Dosen extends BaseController
                     'required' => '{field} Wajib diisi!'
                 ]
             ],
+            'status_ikatan_kerja' => [
+                'label' => 'Status Ikatan Kerja',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'jabatan_fungsional' => [
+                'label' => 'Jabatan Fungsional',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'status_aktivitas' => [
+                'label' => 'Status Aktivitas',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib diisi!'
+                ]
+            ],
             'foto' => [
                 'label' => 'Foto',
                 'rules' => 'uploaded[foto]|max_size[foto,1024]|mime_in[foto,image/png,image/jpeg,image/jpg,image/gif,image/ico]',
@@ -110,11 +145,17 @@ class Dosen extends BaseController
                 'kode_dosen' => $this->request->getPost('kode_dosen'),
                 'nama_dosen' => $this->request->getPost('nama_dosen'),
                 'jenkel' => $this->request->getPost('jenkel'),
+                'alamat' => $this->request->getPost('alamat'),
+                'ttl' => $this->request->getPost('ttl'),
                 'password' => $this->request->getPost('password'),
                 'email' => $this->request->getPost('email'),
                 'no_hp' => $this->request->getPost('no_hp'),
                 'pendidikan' => $this->request->getPost('pendidikan'),
+                'status_ikatan_kerja' => $this->request->getPost('status_ikatan_kerja'),
+                'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
+                'status_aktivitas' => $this->request->getPost('status_aktivitas'),
                 'foto' => $nama_file,
+                
             );
             //memindahkan file foto dari form input ke folder foto di directory
             $foto->move('img-dosen', $nama_file);
@@ -216,10 +257,15 @@ class Dosen extends BaseController
                     'kode_dosen' => $this->request->getPost('kode_dosen'),
                     'nama_dosen' => $this->request->getPost('nama_dosen'),
                     'jenkel' => $this->request->getPost('jenkel'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'ttl' => $this->request->getPost('ttl'),
                     'password' => $this->request->getPost('password'),
                     'email' => $this->request->getPost('email'),
                     'no_hp' => $this->request->getPost('no_hp'),
                     'pendidikan' => $this->request->getPost('pendidikan'),
+                    'status_ikatan_kerja' => $this->request->getPost('status_ikatan_kerja'),
+                    'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
+                    'status_aktivitas' => $this->request->getPost('status_aktivitas'),
                 );
                 $this->ModelDosen->edit($data);
             }else{
@@ -237,10 +283,15 @@ class Dosen extends BaseController
                     'kode_dosen' => $this->request->getPost('kode_dosen'),
                     'nama_dosen' => $this->request->getPost('nama_dosen'),
                     'jenkel' => $this->request->getPost('jenkel'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'ttl' => $this->request->getPost('ttl'),
                     'password' => $this->request->getPost('password'),
                     'email' => $this->request->getPost('email'),
                     'no_hp' => $this->request->getPost('no_hp'),
                     'pendidikan' => $this->request->getPost('pendidikan'),
+                    'status_ikatan_kerja' => $this->request->getPost('status_ikatan_kerja'),
+                    'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
+                    'status_aktivitas' => $this->request->getPost('status_aktivitas'),
                     'foto' => $nama_file,
                 );
                 //memindahkan file foto dari form input ke folder foto di directory

@@ -107,4 +107,83 @@ class Dsn extends BaseController
         return view('dosen/presensi_kuliah/print_presensi', $data);
     }
 
+    public function nilai_mahasiswa()
+    {
+        $ta = $this->ModelTahunAkademik->ta_aktif();
+        $dosen = $this->ModelDsn->DataDosen();
+        $data = [
+            'title' => 'Nilai Mahasiswa',
+            'ta'    => $ta,
+            'absen' => $this->ModelDsn->JadwalDosen($dosen['id_dosen'], $ta['id_tahun_akademik']),
+            'isi'    => 'dosen/nilai_mahasiswa/nilai_mahasiswa'
+        ];
+        return view('layout_dashboard/wrapper', $data);
+    }
+
+    public function nilai($id_jadwal)
+    {
+        $ta = $this->ModelTahunAkademik->ta_aktif();
+        $data = [
+            'title' => 'Nilai Mahasiswa',
+            'ta'    => $ta,
+            'jadwal' => $this->ModelDsn->DetailJadwal($id_jadwal),
+            'mhs'   => $this->ModelDsn->mhs($id_jadwal),
+            'isi'    => 'dosen/nilai_mahasiswa/nilai'
+        ];
+        return view('layout_dashboard/wrapper', $data);
+    }
+
+    public function simpan_nilai($id_jadwal)
+    {
+        $mhs   = $this->ModelDsn->mhs($id_jadwal);
+        foreach ($mhs as $key => $value) {
+            $absen = $this->request->getPost($value['id_krs'] . 'absen');
+            $tugas = $this->request->getPost($value['id_krs'] . 'nilai_tugas');
+            $uts = $this->request->getPost($value['id_krs'] . 'nilai_uts');
+            $uas = $this->request->getPost($value['id_krs'] . 'nilai_uas');
+            $na = ($absen * 15 / 100) + ($tugas * 15 / 100) + ($uts * 30 / 100) + ($uas * 40 / 100);
+            if($na >= 85){
+                $nh = 'A';
+                $bobot = 4;
+            }else if($na < 85 && $na >= 75){
+                $nh = 'B';
+                $bobot = 3;
+            }else if($na <75 && $na >= 65){
+                $nh = 'C';
+                $bobot = 2;
+            }else if($na <65 && $na >= 55){
+                $nh = 'D';
+                $bobot = 1;
+            }else{
+                $nh = 'E';
+                $bobot = 0;
+            }
+            $data = [
+                'id_krs' => $this->request->getPost($value['id_krs'] . 'id_krs'),
+                'nilai_tugas' => $this->request->getPost($value['id_krs'] . 'nilai_tugas'),
+                'nilai_uts' => $this->request->getPost($value['id_krs'] . 'nilai_uts'),
+                'nilai_uas' => $this->request->getPost($value['id_krs'] . 'nilai_uas'),
+                'nilai_akhir' => number_format($na, 0),
+                'nilai_huruf' => $nh,
+                'bobot' => $bobot,
+            ];
+            $this->ModelDsn->simpan_nilai($data);
+
+        }
+        session()->setFlashdata('pesan', 'Nilai Berhasil di Perbarui!');
+        return redirect()->to(base_url('dsn/nilai/' . $id_jadwal));
+    }
+
+    public function print_nilai($id_jadwal)
+    {
+        $ta = $this->ModelTahunAkademik->ta_aktif();
+        $data = [
+            'title' => 'Nilai Mahasiswa',
+            'ta'    => $ta,
+            'jadwal' => $this->ModelDsn->DetailJadwal($id_jadwal),
+            'mhs'   => $this->ModelDsn->mhs($id_jadwal),
+        ];
+        return view('dosen/nilai_mahasiswa/print_nilai', $data);
+    }
+
 }

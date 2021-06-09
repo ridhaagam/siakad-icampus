@@ -31,7 +31,7 @@
           <ul class="treeview-menu">
           <li><a href=<?= base_url('dsn/jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
           <li><a href=<?= base_url('dsn/presensi_kuliah') ?>><i class="glyphicon glyphicon-book"></i> <span>Presensi Kuliah</span></a></li>
-          <li><a href=<?= base_url('nilai_mahasiswa') ?>><i class="fa fa-user-circle-o"></i> <span>Nilai Mahasiswa</span></a></li>
+          <li><a href=<?= base_url('dsn/nilai_mahasiswa') ?>><i class="fa fa-user-circle-o"></i> <span>Nilai Mahasiswa</span></a></li>
           </ul>
         </li>
        
@@ -59,7 +59,6 @@
                         <img class="img-responsive" src="<?= base_url('img-dosen/' . $dosen['foto']) ?>" width="100%"><br>
                         <h4><b><?= $dosen['nama_dosen'] ?></b></h4>
                         <h5><b><?= $dosen['nidn'] ?></b></h5>
-                        <h5><b><?= $dosen['email'] ?></b></h5>
                     </div>
                     
                 </div>
@@ -77,17 +76,6 @@
                     <h4>Data Dosen</h4>
 
                     <table class="table table-responsive">
-                    <tr>
-                        <th>Jenis Kelamin</th>
-                        <th>:</th>
-                        <td><?= $dosen['jenkel'] ?></td>
-                    </tr>
-
-                    <tr>
-                        <th>No Handphone</th>
-                        <th>:</th>
-                        <td><?= $dosen['no_hp'] ?></td>
-                    </tr>
 
                     <tr>
                         <th>Kode Dosen</th>
@@ -102,21 +90,20 @@
                     </tr>
 
                     <tr>
-                        <th>Tempat Lahir</th>
+                        <th>Jenis Kelamin</th>
                         <th>:</th>
-                        <td>Malang</td>
+                        <td><?= $dosen['jenkel'] ?></td>
                     </tr>
-
                     <tr>
-                        <th>Tanggal Lahir</th>
+                        <th>Tempat Lahir, Tanggal Lahir</th>
                         <th>:</th>
-                        <td>4 Juni 1902</td>
+                        <td><?= $dosen['ttl'] ?></td>
                     </tr>
 
                     <tr>
                         <th>Jabatan Fungsional</th>
                         <th>:</th>
-                        <td>Lektor</td>
+                        <td><?= $dosen['jabatan_fungsional'] ?></td>
                     </tr>
 
                     <tr>
@@ -128,19 +115,31 @@
                     <tr>
                         <th>Status Ikatan Kerja</th>
                         <th>:</th>
-                        <td>Dosen Tetap</td>
+                        <td><?= $dosen['status_ikatan_kerja'] ?></td>
                     </tr>
 
                     <tr>
                         <th>Status Aktivitas</th>
                         <th>:</th>
-                        <td>Aktif</td>
+                        <td><?= $dosen['status_aktivitas'] ?></td>
                     </tr>
 
                     <tr>
                         <th>Alamat</th>
                         <th>:</th>
-                        <td>Malang</td>
+                        <td><?= $dosen['alamat'] ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>No Handphone</th>
+                        <th>:</th>
+                        <td><?= $dosen['no_hp'] ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>Email</th>
+                        <th>:</th>
+                        <td><?= $dosen['email'] ?></td>
                     </tr>
 
                 </table>

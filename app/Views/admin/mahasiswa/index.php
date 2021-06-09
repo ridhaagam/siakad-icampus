@@ -105,6 +105,7 @@
               <th class="text-center">Jenis Kelamin</th>
               <th class="text-center">Nomor Telepon</th>
               <th class="text-center">Alamat</th>
+              <th class="text-center">TTL</th>
               <th class="text-center">Foto</th>
               <th width="150px" class="text-center">Action</th>
             </tr>
@@ -120,6 +121,7 @@
                 <td><?= $value['jenkel'] ?></td>
                 <td><?= $value['no_hp'] ?></td>
                 <td><?= $value['alamat'] ?></td>
+                <td><?= $value['ttl'] ?></td>
                 <td class="text-center"><img src="<?= base_url('img-mahasiswa/' . $value['foto']) ?>" class="img-circle" width="70px" height="70px"></td>
 
                 <td class="text-center">

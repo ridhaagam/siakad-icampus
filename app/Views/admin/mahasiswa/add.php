@@ -91,7 +91,18 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-
+          <?php
+            $errors = session()->getFlashdata('errors');
+            if (!empty($errors)) { ?>
+              <div class="alert alert-danger" role="alert">
+                <ul>
+                  <?php foreach ($errors as $key => $value) { ?>
+                    <li><?= esc($value) ?></li>
+                  <?php } ?>
+                </ul>
+              </div>
+            <?php } ?>
+            
             <?php
             echo form_open_multipart('mahasiswa/insert');
             ?>
@@ -105,7 +116,7 @@
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>Nama Mahasiswwa</label>
+                <label>Nama Mahasiswa</label>
                 <input name="nama_mahasiswa" class="form-control" placeholder="Nama Mahasiswa">
               </div>
             </div>
@@ -113,7 +124,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Alamat</label>
-                <input name="alamat" class="form-control" placeholder="Alamat">
+                <textarea name="alamat" class="form-control" rows="4" placeholder="Alamat"></textarea>
               </div>
             </div>
 
@@ -125,6 +136,13 @@
                   <option value="Perempuan">Perempuan</option>
                   <option value="Laki-laki">Laki-laki</option>
                 </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Tempat, Tanggal Lahir</label>
+                <input name="ttl" class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
               </div>
             </div>
 
@@ -157,8 +175,8 @@
 
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
-                <label>No. Hp</label>
-                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No. Hp">
+                <label>No Handphone</label>
+                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No Handphone">
                 <small style="color:red">*terdiri dari 10-13 digit angka!</small>
               </div>
             </div>
@@ -178,7 +196,7 @@
 
           </div>
           <div class="modal-footer">
-            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left">Kembali</a>
+            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
             <button type="submit" class="btn btn-success">Simpan</button>
           </div>
           <?php echo form_close() ?>

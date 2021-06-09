@@ -165,7 +165,7 @@
 
           </div>
           <div class="modal-footer">
-            <a href="<?= base_url('prodi') ?>" class="btn btn-danger pull-left">Kembali</a>
+            <a href="<?= base_url('prodi') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
             <button type="submit" class="btn btn-success">Simpan</button>
           </div>
           <?php echo form_close() ?>

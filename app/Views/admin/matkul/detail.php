@@ -167,7 +167,7 @@
             </div>
             <!-- /.box-body -->
         </div>
-        <a href="<?= base_url('matkul') ?>" class="btn btn-danger pull-left">Kembali</a>
+        <a href="<?= base_url('matkul') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>
         <!-- modal Add -->
         <div class="modal fade" id="add">
             <div class="modal-dialog modal-sm">
