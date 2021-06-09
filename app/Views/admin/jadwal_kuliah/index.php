@@ -101,7 +101,7 @@
           <tbody>
             <?php $no = 1;
             foreach ($prodi as $key => $value) { ?>
-              <tr>
+              <tr> 
                 <td><?= $no++ ?></td>
                 <td><?= $value['fakultas'] ?></td>
                 <td><?= $value['kode_prodi'] ?></td>

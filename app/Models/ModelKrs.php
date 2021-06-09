@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class ModelKrs extends Model
-{
+{ 
     public function DataMhs()
     {
         return $this->db->table('mahasiswa')
@@ -25,6 +25,7 @@ class ModelKrs extends Model
     }
 
     public function MatkulDitawarkan($id_tahun_akademik, $id_prodi)
+    public function MatkulDitawarkan($id_tahun_akademik/*, $id_prodi*/)
     {
         return $this->db->table('jadwal_kuliah')
             ->join('matkul', 'matkul.id_matkul = jadwal_kuliah.id_matkul', 'left')
@@ -34,6 +35,7 @@ class ModelKrs extends Model
             ->join('prodi', 'prodi.id_prodi = jadwal_kuliah.id_prodi', 'left')
             ->where('jadwal_kuliah.id_tahun_akademik', $id_tahun_akademik)
             ->where('jadwal_kuliah.id_prodi', $id_prodi)
+            ->where('id_tahun_akademik', $id_tahun_akademik)
             ->get()->getResultArray();
     }
 

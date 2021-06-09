@@ -209,7 +209,7 @@
                         <label>Ganti Foto</label>
                         <input type="file" name="foto" id="preview_gambar2" class="form-control">
                     </div>
-
+ 
                     <div class="form-group">
                         <img src="<?= base_url('img-user/' . $value['foto']) ?>" id="gambar_load2" class="img-circle" width="70px" height="70px">
                     </div>

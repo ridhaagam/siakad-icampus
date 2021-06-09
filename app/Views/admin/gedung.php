@@ -120,7 +120,7 @@
                 </table>
             </div>
             <!-- /.box-body -->
-        </div>
+        </div> 
         <!-- /.box -->
     </div>
 </div>

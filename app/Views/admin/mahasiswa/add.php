@@ -184,13 +184,13 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Foto Mahasiswa</label>
-                <input type="file" name="foto" id="preview_gambar" class="form-control">
+                <input type="file" name="foto" id="preview_gambar3" class="form-control">
               </div>
             </div>
 
             <div class="col-sm-6 ">
               <div class="form-group">
-                <img src="<?= base_url('img-mahasiswa/default-profile.jpg') ?>" id="gambar_load" width="100px">
+                <img src="<?= base_url('img-mahasiswa/default-profile.jpg') ?>" id="gambar_load3" width="100px">
               </div>
             </div>
 
