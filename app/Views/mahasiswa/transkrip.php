@@ -162,7 +162,7 @@
                                 <td class="text-center"><?= $value['kode_matkul'] ?></td>
                                 <td class="text-center"><?= $value['matkul'] ?></td>
                                 <td class="text-center"><?= $value['sks'] ?></td>
-                                <td class="text-center"><?= $value['nilai_akhir'] ?></td>
+                                <td class="text-center"><?= $value['bobot'] ?></td>
                                 <td class="text-center"><?= $value['semester'] ?></td>
                                 <td class="text-center"><?= $ta_aktif['ta'] ?></td>
                             </tr>
