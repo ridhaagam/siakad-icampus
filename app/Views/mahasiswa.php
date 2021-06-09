@@ -96,10 +96,7 @@
         </div>
 
       </div>
-
-    </div>
-
-    <div class="col-md-9">
+      <div class="col-md-9">
 
       <div class="box box-warning">
         <div class="box-body">
@@ -200,6 +197,10 @@
               }
             });
           </script>
+
+    </div>
+
+    
 
         </div>
 
