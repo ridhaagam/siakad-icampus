@@ -78,7 +78,7 @@
                     <table class="table table-responsive">
 
                     <tr>
-                        <th>Kode Dosen</th>
+                        <th width="200px">Kode Dosen</th>
                         <th>:</th>
                         <td><?= $dosen['kode_dosen'] ?></td>
                     </tr>
