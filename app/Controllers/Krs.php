@@ -17,13 +17,14 @@ class Krs extends BaseController
 
     public function index()
     {
-        $mahasiswa = $this->ModelKrs->DetailMhs();
+        $mahasiswa = $this->ModelKrs->DataMhs();
+        $tahun_akademik = $this->ModelTahunAkademik->ta_aktif();
         $data = [
             'title' => 'Kartu Rencana Studi(KRS)',
             'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
             'mahasiswa'   => $this->ModelKrs->DataMhs(),
-            'matkul_ditawarkan' => $this->ModelKrs->MatkulDitawarkan(),
-            'data_matkul'  => $this->ModelKrs->DataKrs($mahasiswa['id_mhs']),
+            'matkul_ditawarkan' => $this->ModelKrs->MatkulDitawarkan($tahun_akademik['id_tahun_akademik']),
+            'data_matkul'  => $this->ModelKrs->DataKrs($mahasiswa['id_mhs'], $tahun_akademik['id_tahun_akademik']),
             'isi'    => 'mhs/krs/v_krs'
         ];
         return view('layout_dashboard/wrapper', $data);

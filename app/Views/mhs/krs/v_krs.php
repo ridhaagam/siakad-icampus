@@ -145,13 +145,13 @@
                             <?php $no = 1;
                             foreach ($data_matkul as $key => $value) { ?>
                                 <tr>
-                                    <td><?= $no++ ?></td>
+                                    <td class="text-center"><?= $no++ ?></td>
                                     <td><?= $value['kode_matkul'] ?></td>
                                     <td><?= $value['matkul'] ?></td>
-                                    <td><?= $value['sks'] ?></td>
-                                    <td><?= $value['smt'] ?></td>
-                                    <td><?= $value['kelas'] ?>-<?= $value['angkatan'] ?></td>
-                                    <td><?= $value['ruangan'] ?></td>
+                                    <td class="text-center"><?= $value['sks'] ?></td>
+                                    <td class="text-center"><?= $value['smt'] ?></td>
+                                    <td class="text-center"><?= $value['kelas'] ?>-<?= $value['angkatan'] ?></td>
+                                    <td class="text-center"><?= $value['ruangan'] ?></td>
                                     <td><?= $value['nama_dosen'] ?></td>
                                     <td><?= $value['hari'] ?>, <?= $value['waktu'] ?></td>
                                     <td class="text-center">

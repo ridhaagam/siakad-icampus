@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2021 at 11:50 AM
+-- Generation Time: Jun 08, 2021 at 01:24 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -33,10 +33,16 @@ CREATE TABLE `dosen` (
   `kode_dosen` varchar(8) DEFAULT NULL,
   `nama_dosen` varchar(40) DEFAULT NULL,
   `jenkel` enum('Laki-laki','Perempuan','','') NOT NULL,
+  `alamat` text NOT NULL,
+  `ttl` varchar(50) NOT NULL,
   `password` varchar(8) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `no_hp` varchar(13) DEFAULT NULL,
-  `pendidikan` enum('S2','S3','Profesor','') DEFAULT NULL,
+  `pendidikan` enum('S1 Terapan','S2 Terapan','S3 Terapan','S1','S2','S3','Sp-1','Sp-2','Profesi') DEFAULT NULL,
+  `status_ikatan_kerja` enum('Dosen Tetap','Dosen Tidak Tetap','','') NOT NULL,
+  `jabatan_fungsional` enum('Tanpa Jabatan','Asisten Ahli','Lektor','Lektor Kepala','Profesor') NOT NULL,
+  `status` int(2) NOT NULL DEFAULT 1,
+  `status_aktivitas` enum('Aktif','Tidak Aktif','','') NOT NULL,
   `foto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,8 +50,8 @@ CREATE TABLE `dosen` (
 -- Dumping data for table `dosen`
 --
 
-INSERT INTO `dosen` (`id_dosen`, `nidn`, `kode_dosen`, `nama_dosen`, `jenkel`, `password`, `email`, `no_hp`, `pendidikan`, `foto`) VALUES
-(4, 714086102, 'DSN0001', 'Dr. Fauzan, M.Pd', 'Laki-laki', 'admin', 'fauzan@umm.ac.id', '081254658956', 'S3', '1622345430_ded8cc1b7a66adf28ebf.png');
+INSERT INTO `dosen` (`id_dosen`, `nidn`, `kode_dosen`, `nama_dosen`, `jenkel`, `alamat`, `ttl`, `password`, `email`, `no_hp`, `pendidikan`, `status_ikatan_kerja`, `jabatan_fungsional`, `status`, `status_aktivitas`, `foto`) VALUES
+(4, 723028801, 'DSN0001', 'Galih Wasis Wicaksono, S.kom,. M.Cs.', 'Laki-laki', 'Malang', 'Malang, 01 Januari 1980', '123', 'galih.w.w@umm.ac.id', '081254658956', 'S2', 'Dosen Tetap', 'Lektor', 1, 'Aktif', '1622345430_ded8cc1b7a66adf28ebf.png');
 
 -- --------------------------------------------------------
 
@@ -63,7 +69,6 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fakultas`, `fakultas`) VALUES
-(5, 'Fakultas Ekonomi dan Bisnis'),
 (6, 'Fakultas Agama Islam'),
 (7, 'Fakultas Hukum'),
 (8, 'Fakultas Ilmu Kesehatan'),
@@ -72,7 +77,8 @@ INSERT INTO `fakultas` (`id_fakultas`, `fakultas`) VALUES
 (11, 'Fakultas Keguruan dan Ilmu Pendidikan'),
 (12, 'Fakultas Pertanian dan Peternakan'),
 (14, 'Fakultas Teknik'),
-(15, 'Fakultas Psikologi');
+(15, 'Fakultas Psikologi'),
+(16, 'Fakultas Ekonomi dan Bisnis');
 
 -- --------------------------------------------------------
 
@@ -116,13 +122,6 @@ CREATE TABLE `jadwal_kuliah` (
   `kuota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `jadwal_kuliah`
---
-
-INSERT INTO `jadwal_kuliah` (`id_jadwal_kuliah`, `id_prodi`, `id_tahun_akademik`, `id_kelas`, `id_matkul`, `id_dosen`, `hari`, `waktu`, `id_ruangan`, `kuota`) VALUES
-(12, 1, 1, 1, 4, 4, 'Senin', '07:00 - 08:40', 3, 47);
-
 -- --------------------------------------------------------
 
 --
@@ -142,7 +141,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id_kelas`, `kelas`, `id_prodi`, `id_dosen`, `angkatan`) VALUES
-(1, 'A', 1, 4, 2021);
+(10, 'A', 1, 4, 2020);
 
 -- --------------------------------------------------------
 
@@ -152,32 +151,39 @@ INSERT INTO `kelas` (`id_kelas`, `kelas`, `id_prodi`, `id_dosen`, `angkatan`) VA
 
 CREATE TABLE `krs` (
   `id_krs` int(11) NOT NULL,
-  `nim` varchar(16) NOT NULL,
-  `id_jadwal_kuliah` int(11) NOT NULL,
-  `id_tahun_akademik` int(3) NOT NULL,
-  `p1` int(3) NOT NULL,
-  `p2` int(3) NOT NULL,
-  `p3` int(3) NOT NULL,
-  `p4` int(3) NOT NULL,
-  `p5` int(3) NOT NULL,
-  `p6` int(3) NOT NULL,
-  `p7` int(3) NOT NULL,
-  `p8` int(3) NOT NULL,
-  `p9` int(3) NOT NULL,
-  `p10` int(3) NOT NULL,
-  `p11` int(3) NOT NULL,
-  `p12` int(3) NOT NULL,
-  `p13` int(3) NOT NULL,
-  `p14` int(3) NOT NULL,
-  `p15` int(3) NOT NULL,
-  `p16` int(3) NOT NULL,
-  `nilai_tugas` int(3) NOT NULL,
-  `nilai_uts` int(3) NOT NULL,
-  `nilai_uas` int(3) NOT NULL,
-  `nilai_akhir` int(3) NOT NULL,
-  `nilai_huruf` varchar(2) NOT NULL,
-  `bobot` int(3) NOT NULL
+  `id_mhs` int(11) DEFAULT NULL,
+  `id_jadwal_kuliah` int(11) DEFAULT NULL,
+  `id_tahun_akademik` int(3) DEFAULT NULL,
+  `p1` int(3) DEFAULT 0,
+  `p2` int(3) DEFAULT 0,
+  `p3` int(3) DEFAULT 0,
+  `p4` int(3) DEFAULT 0,
+  `p5` int(3) DEFAULT 0,
+  `p6` int(3) DEFAULT 0,
+  `p7` int(3) DEFAULT 0,
+  `p8` int(3) DEFAULT 0,
+  `p9` int(3) DEFAULT 0,
+  `p10` int(3) DEFAULT 0,
+  `p11` int(3) DEFAULT 0,
+  `p12` int(3) DEFAULT 0,
+  `p13` int(3) DEFAULT 0,
+  `p14` int(3) DEFAULT 0,
+  `p15` int(3) DEFAULT 0,
+  `p16` int(3) DEFAULT 0,
+  `nilai_tugas` int(3) DEFAULT 0,
+  `nilai_uts` int(3) DEFAULT 0,
+  `nilai_uas` int(3) DEFAULT 0,
+  `nilai_akhir` int(3) DEFAULT 0,
+  `nilai_huruf` varchar(2) DEFAULT '-',
+  `bobot` int(3) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `krs`
+--
+
+INSERT INTO `krs` (`id_krs`, `id_mhs`, `id_jadwal_kuliah`, `id_tahun_akademik`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `p9`, `p10`, `p11`, `p12`, `p13`, `p14`, `p15`, `p16`, `nilai_tugas`, `nilai_uts`, `nilai_uas`, `nilai_akhir`, `nilai_huruf`, `bobot`) VALUES
+(1, 8, 14, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 65, 70, 85, 80, 'B', 3);
 
 -- --------------------------------------------------------
 
@@ -195,7 +201,10 @@ CREATE TABLE `mahasiswa` (
   `no_hp` varchar(13) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
+  `ttl` varchar(50) NOT NULL,
   `foto` varchar(255) DEFAULT NULL,
+  `status` int(2) DEFAULT 1,
+  `status_mahasiswa` enum('Belum Lulus','Lulus','','') NOT NULL DEFAULT 'Belum Lulus',
   `id_kelas` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -207,7 +216,7 @@ CREATE TABLE `mahasiswa` (
 
 CREATE TABLE `matkul` (
   `id_matkul` int(3) NOT NULL,
-  `kode_matkul` int(11) DEFAULT NULL,
+  `kode_matkul` varchar(8) DEFAULT NULL,
   `matkul` varchar(50) DEFAULT NULL,
   `sks` int(3) DEFAULT NULL,
   `kategori` varchar(10) DEFAULT NULL,
@@ -221,8 +230,7 @@ CREATE TABLE `matkul` (
 --
 
 INSERT INTO `matkul` (`id_matkul`, `kode_matkul`, `matkul`, `sks`, `kategori`, `smt`, `semester`, `id_prodi`) VALUES
-(1, 120374975, 'Foreign Language of Specific Purpose', 4, 'Wajib', 2, 'Genap', 1),
-(4, 23232143, 'Pemrograman Dasar', 3, 'Pilihan', 1, 'Ganjil', 1);
+(5, '20374801', 'Pemrograman Dasar', 4, 'Wajib', 1, 'Ganjil', 1);
 
 -- --------------------------------------------------------
 
@@ -244,9 +252,7 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `id_fakultas`, `prodi`, `jenjang`, `ka_prodi`) VALUES
-(1, 55201, 14, 'Informatika', 'S2', 'Gita Indah Marthasari, Hj., ST., M.Kom'),
-(5, 55202, 15, 'FIKES', 'S1', 'Gita Indah Marthasari, Hj., ST., M.Kom'),
-(6, 55203, 14, 'Teknik Informatika', 'S1', 'Gita Indah Marthasari, Hj., ST., M.Kom');
+(1, 55201, 14, 'Informatika', 'S1', 'Gita Indah Marthasari, Hj., ST., M.Kom');
 
 -- --------------------------------------------------------
 
@@ -286,8 +292,8 @@ CREATE TABLE `tahun_akademik` (
 --
 
 INSERT INTO `tahun_akademik` (`id_tahun_akademik`, `ta`, `semester`, `status`) VALUES
-(1, '2020/2021', 'Ganjil', 1),
-(2, '2020/2021', 'Genap', 1);
+(1, '2021/2022', 'Genap', 0),
+(4, '2020/2021', 'Ganjil', 1);
 
 -- --------------------------------------------------------
 
@@ -300,15 +306,16 @@ CREATE TABLE `user` (
   `username` varchar(16) NOT NULL,
   `password` varchar(8) NOT NULL,
   `nama_user` varchar(40) NOT NULL,
-  `foto` varchar(255) NOT NULL
+  `foto` varchar(255) NOT NULL,
+  `status` int(2) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `nama_user`, `foto`) VALUES
-(2, 'admin', 'admin', 'Putro Setyoko', '1622354182_3a085a456e45016eafe2.jpg');
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama_user`, `foto`, `status`) VALUES
+(2, 'admin', 'admin', 'Putro Setyoko', '1622354182_3a085a456e45016eafe2.jpg', 1);
 
 --
 -- Indexes for dumped tables
@@ -357,7 +364,7 @@ ALTER TABLE `kelas`
 --
 ALTER TABLE `krs`
   ADD PRIMARY KEY (`id_krs`),
-  ADD KEY `nim` (`nim`),
+  ADD KEY `nim` (`id_mhs`),
   ADD KEY `id_jadwal_kuliah` (`id_jadwal_kuliah`),
   ADD KEY `id_tahun_akademik` (`id_tahun_akademik`);
 
@@ -409,13 +416,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `dosen`
 --
 ALTER TABLE `dosen`
-  MODIFY `id_dosen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_dosen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id_fakultas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_fakultas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `gedung`
@@ -427,31 +434,31 @@ ALTER TABLE `gedung`
 -- AUTO_INCREMENT for table `jadwal_kuliah`
 --
 ALTER TABLE `jadwal_kuliah`
-  MODIFY `id_jadwal_kuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_jadwal_kuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `matkul`
 --
 ALTER TABLE `matkul`
-  MODIFY `id_matkul` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_matkul` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `prodi`
@@ -469,66 +476,13 @@ ALTER TABLE `ruangan`
 -- AUTO_INCREMENT for table `tahun_akademik`
 --
 ALTER TABLE `tahun_akademik`
-  MODIFY `id_tahun_akademik` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_tahun_akademik` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `jadwal_kuliah`
---
-ALTER TABLE `jadwal_kuliah`
-  ADD CONSTRAINT `jadwal_kuliah_ibfk_1` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`),
-  ADD CONSTRAINT `jadwal_kuliah_ibfk_2` FOREIGN KEY (`id_tahun_akademik`) REFERENCES `tahun_akademik` (`id_tahun_akademik`),
-  ADD CONSTRAINT `jadwal_kuliah_ibfk_3` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`),
-  ADD CONSTRAINT `jadwal_kuliah_ibfk_4` FOREIGN KEY (`id_matkul`) REFERENCES `matkul` (`id_matkul`),
-  ADD CONSTRAINT `jadwal_kuliah_ibfk_6` FOREIGN KEY (`id_ruangan`) REFERENCES `ruangan` (`id_ruangan`),
-  ADD CONSTRAINT `jadwal_kuliah_ibfk_7` FOREIGN KEY (`id_dosen`) REFERENCES `dosen` (`id_dosen`);
-
---
--- Constraints for table `kelas`
---
-ALTER TABLE `kelas`
-  ADD CONSTRAINT `kelas_ibfk_1` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`),
-  ADD CONSTRAINT `kelas_ibfk_2` FOREIGN KEY (`id_dosen`) REFERENCES `dosen` (`id_dosen`);
-
---
--- Constraints for table `krs`
---
-ALTER TABLE `krs`
-  ADD CONSTRAINT `krs_ibfk_1` FOREIGN KEY (`id_tahun_akademik`) REFERENCES `tahun_akademik` (`id_tahun_akademik`),
-  ADD CONSTRAINT `krs_ibfk_2` FOREIGN KEY (`id_jadwal_kuliah`) REFERENCES `jadwal_kuliah` (`id_jadwal_kuliah`);
-
---
--- Constraints for table `mahasiswa`
---
-ALTER TABLE `mahasiswa`
-  ADD CONSTRAINT `mahasiswa_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`);
-
---
--- Constraints for table `matkul`
---
-ALTER TABLE `matkul`
-  ADD CONSTRAINT `matkul_ibfk_1` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`);
-
---
--- Constraints for table `prodi`
---
-ALTER TABLE `prodi`
-  ADD CONSTRAINT `prodi_ibfk_1` FOREIGN KEY (`id_fakultas`) REFERENCES `fakultas` (`id_fakultas`);
-
---
--- Constraints for table `ruangan`
---
-ALTER TABLE `ruangan`
-  ADD CONSTRAINT `ruangan_ibfk_1` FOREIGN KEY (`id_gedung`) REFERENCES `gedung` (`id_gedung`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
