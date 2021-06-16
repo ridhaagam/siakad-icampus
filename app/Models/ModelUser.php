@@ -16,7 +16,7 @@ class ModelUser extends Model
     public function detail_data($id_user)
     {
         return $this->db->table('user')
-        ->where('id_user', $id_user)
+            ->where('id_user', $id_user)
             ->get()->getRowArray();
     }
 

@@ -50,16 +50,16 @@
                 </ul>
             </li>
             <li class="treeview">
-          <a href="#">
-          <i class="fa fa-gear"></i> <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href=<?= base_url('tahun_akademik/setting') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
+                <a href="#">
+                    <i class="fa fa-gear"></i> <span>Settings</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=<?= base_url('tahun_akademik/setting') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
+                </ul>
+            </li>
     </section>
     <!-- /.sidebar -->
 </aside>
@@ -154,7 +154,14 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control password" id="number" placeholder="Masukkan Password">
+                    <small style="color: red;">Password harus angka, tidak mengandung simbol, dan minimal 6 digit</small>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <div class="form-group">
+                        <input type="password" name="confirm_password" class="form-control confirm_password" id="number" placeholder="Masukkan Ulang Password">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Foto</label>
@@ -202,14 +209,21 @@
 
                     <div class="form-group">
                         <label>Password</label>
-                        <input name="password" value="<?= $value['password']  ?>" class="form-control">
+                        <input type="password" name="password" class="form-control password" id="number" placeholder="Masukkan Password">
+                        <small style="color: red;">Password harus angka, tidak mengandung simbol, dan minimal 6 digit</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <div class="form-group">
+                            <input type="password" name="confirm_password" class="form-control confirm_password" id="number" placeholder="Masukkan Ulang Password">
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label>Ganti Foto</label>
                         <input type="file" name="foto" id="preview_gambar2" class="form-control">
                     </div>
- 
+
                     <div class="form-group">
                         <img src="<?= base_url('img-user/' . $value['foto']) ?>" id="gambar_load2" class="img-circle" width="70px" height="70px">
                     </div>

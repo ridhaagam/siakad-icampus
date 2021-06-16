@@ -1,46 +1,58 @@
 <!-- =============================================== -->
 
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Sidebar user panel -->
+        <!-- Sidebar user panel -->
 
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Menu</li>
-        <li>
-            <a href=<?= base_url('dsn') ?>>
-            <i class="fa fa-tachometer"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-            <a href=<?= base_url('home') ?>>
-            <i class="fa fa-home"></i></i> <span>Homepage</span>
-          </a>
-        </li>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
 
-        <li class="active treeview">
-          <a href="#">
-          <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href=<?= base_url('dsn/jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
-          <li class="active"><a href=<?= base_url('dsn/presensi_kuliah') ?>><i class="glyphicon glyphicon-book"></i> <span>Presensi Kuliah</span></a></li>
-          <li><a href=<?= base_url('dsn/nilai_mahasiswa') ?>><i class="fa fa-user-circle-o"></i> <span>Nilai Mahasiswa</span></a></li>
-          </ul>
-        </li>
-       
-        
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">Menu</li>
+            <li>
+                <a href=<?= base_url('dsn') ?>>
+                    <i class="fa fa-tachometer"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href=<?= base_url('home') ?>>
+                    <i class="fa fa-home"></i></i> <span>Homepage</span>
+                </a>
+            </li>
+
+            <li class="active treeview">
+                <a href="#">
+                    <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=<?= base_url('dsn/jadwal') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
+                    <li class="active"><a href=<?= base_url('dsn/presensi_kuliah') ?>><i class="glyphicon glyphicon-book"></i> <span>Presensi Kuliah</span></a></li>
+                    <li><a href=<?= base_url('dsn/nilai_mahasiswa') ?>><i class="fa fa-user-circle-o"></i> <span>Nilai Mahasiswa</span></a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gear"></i> <span>Setting</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=<?= base_url('dsn/setting_password/' . $dosen['id_dosen']) ?>><i class="fa fa-lock"></i> <span>Setting Password</span></a></li>
+                </ul>
+            </li>
+
+
     </section>
     <!-- /.sidebar -->
-  </aside>
+</aside>
 
-  <!-- =============================================== -->
+<!-- =============================================== -->
 <div class="content-wrapper">
     <div class="content">
         <h1>Halaman <?= $title ?></h1>
@@ -60,14 +72,14 @@
 
                         <table class="table table-bordered">
                             </tr>
-                                <th width="200px">Dosen Pengampu</th>
-                                <td width="20px">:</td>
-                                <td><?= $jadwal['nama_dosen'] ?></td>
+                            <th width="200px">Dosen Pengampu</th>
+                            <td width="20px">:</td>
+                            <td><?= $jadwal['nama_dosen'] ?></td>
                             </tr>
                             </tr>
-                                <th>Mata Kuliah</th>
-                                <td>:</td>
-                                <td><?= $jadwal['matkul'] ?></td>
+                            <th>Mata Kuliah</th>
+                            <td>:</td>
+                            <td><?= $jadwal['matkul'] ?></td>
                             </tr>
                             <tr>
                                 <th>Kelas</th>
@@ -84,14 +96,14 @@
                                 <td width="20px">:</td>
                                 <td><?= $jadwal['sks'] ?></td>
                             </tr>
-                                <th>Tahun Akademik - Semester</th>
-                                <td>:</td>
-                                <td><?= $ta['ta'] ?> - <?= $ta['semester'] ?></td>
+                            <th>Tahun Akademik - Semester</th>
+                            <td>:</td>
+                            <td><?= $ta['ta'] ?> - <?= $ta['semester'] ?></td>
                             </tr>
                             </tr>
-                                <th>Waktu Mengajar</th>
-                                <td>:</td>
-                                <td><?= $jadwal['hari'] ?>, <?= $jadwal['waktu'] ?></td>
+                            <th>Waktu Mengajar</th>
+                            <td>:</td>
+                            <td><?= $jadwal['hari'] ?>, <?= $jadwal['waktu'] ?></td>
                             </tr>
                         </table>
                     </div>
@@ -107,7 +119,7 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-            <a href="<?= base_url('dsn/print_presensi/' . $jadwal['id_jadwal_kuliah']) ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Print Presensi</a><br><br>
+                <a href="<?= base_url('dsn/print_presensi/' . $jadwal['id_jadwal_kuliah']) ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Print Presensi</a><br><br>
 
                 <?php
                 $errors = session()->getFlashdata('errors');
@@ -379,9 +391,8 @@
                 <button class="btn btn-success"><i class="fa fa-save"></i> Simpan Presensi</button>
                 <?php echo form_close() ?>
             </div>
-            
+
             <!-- /.box-body -->
         </div>
     </div>
-</div>    
-  
+</div>

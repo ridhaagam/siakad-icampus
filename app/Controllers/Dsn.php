@@ -21,18 +21,27 @@ class Dsn extends BaseController
             'title' => 'Dosen',
             'dosen' => $this->ModelDsn->DataDosen(),
             'ta' => $this->ModelTahunAkademik->ta_aktif(),
-            'isi'    => 'dosen/dashboard/dosen'
+            'isi'    => 'dosen'
         ];
         return view('layout_dashboard/wrapper', $data);
     }
 
-    public function edit()
+    public function edit_profil($id_dosen)
     {
         $data = [
-            'title'    => 'Edit Profile',
-            'dosen' => $this->ModelDsn->DataDosen(),
-            'ta' => $this->ModelTahunAkademik->ta_aktif(),
-            'isi'      => 'dosen/dashboard/edit'
+            'title'    => 'Edit Profil',
+            'dosen' => $this->ModelDsn->detailData($id_dosen),
+            'isi'      => 'dosen/dashboard/edit_profil'
+        ];
+        return view('layout_dashboard/wrapper', $data);
+    }
+
+    public function setting_password($id_dosen)
+    {
+        $data = [
+            'title'    => 'Setting Password',
+            'dosen' => $this->ModelDsn->detailData($id_dosen),
+            'isi'      => 'dosen/dashboard/setting_password'
         ];
         return view('layout_dashboard/wrapper', $data);
     }
@@ -40,74 +49,27 @@ class Dsn extends BaseController
     public function update($id_dosen)
     {
         if ($this->validate([
-            'kode_dosen' => [
-                'label' => 'Kode Dosen',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
-            'nidn' => [
-                'label' => 'NIDN',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!',
-                ]
-            ],
-            'nama_dosen' => [
-                'label' => 'Nama Dosen',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!',
-                ]
-            ],
-            'jenkel' => [
-                'label' => 'Jenis Kelamin',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
-			'password' => [
-                'label' => 'Passoword',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
-            'email' => [
-                'label' => 'Email',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
-            'no_hp' => [
-                'label' => 'No. Hp',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
-            'pendidikan' => [
-                'label' => 'Pendidikan',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
             'foto' => [
                 'label' => 'Foto',
                 'rules' => 'max_size[foto,1024]|mime_in[foto,image/png,image/jpeg,image/jpg,image/gif,image/ico]',
                 'errors' => [
-                    'max_size' => '{field} Max 1024 KB',
+                    'max_size' => 'Maksimal ukuran Foto 1024kb',
                     'mime_in' => 'Format {field} Wajib PNG, JPG, JPEG, GIF, ICO'
+                ]
+            ],
+            'no_hp' => [
+                'label' => 'No Handphone',
+                'rules' => 'integer|min_length[10]|max_length[13]|',
+                'errors' => [
+                    'min_length' => 'No Handphone terlalu pendek, minimal 10 digit.',
+                    'max_length' => 'No Handphone terlalu panjang, maksimal 12 digit.',
+                    'integer' => 'No Handphone harus angka.'
                 ]
             ],
         ])) {
             //mengambil file foto dari form input
             $foto = $this->request->getFile('foto');
-            if($foto->getError() == 4){
+            if ($foto->getError() == 4) {
                 //jika foto tdk d ganti
                 $data = array(
                     'id_dosen' => $id_dosen,
@@ -125,12 +87,12 @@ class Dsn extends BaseController
                     'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
                     'status_aktivitas' => $this->request->getPost('status_aktivitas'),
                 );
-                $this->ModelDsn->edit($data);
-            }else{
+                $this->ModelDsn->edit_profil($data);
+            } else {
                 //delete foto lama
                 $dosen = $this->ModelDsn->detailData($id_dosen);
                 if ($dosen['foto'] != "") {
-                    unlink('img-dosen/'. $dosen['foto']);
+                    unlink('img-dosen/' . $dosen['foto']);
                 }
                 //merename nama file foto
                 $nama_file = $foto->getRandomName();
@@ -154,14 +116,60 @@ class Dsn extends BaseController
                 );
                 //memindahkan file foto dari form input ke folder foto di directory
                 $foto->move('img-dosen', $nama_file);
-                $this->ModelDsn->edit($data);
+                $this->ModelDsn->edit_profil($data);
             }
             session()->setFlashdata('pesan', 'Data Berhasil di Perbarui!');
-            return redirect()->to(base_url('dsn'));
+            return redirect()->to(base_url('dsn/edit_profil/' . $id_dosen));
         } else {
             //jika tidak valid
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('dsn/edit'));
+            return redirect()->to(base_url('dsn/edit_profil/' . $id_dosen));
+        }
+    }
+
+    public function update_password($id_dosen)
+    {
+        if ($this->validate([
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|trim|min_length[6]|max_length[12]|integer|matches[confirm_password]',
+                'errors' => [
+                    'required' => 'Password tidak boleh kosong.',
+                    'matches' => 'Password tidak cocok.',
+                    'min_length' => 'Password terlalu pendek, minimal 6 digit.',
+                    'max_length' => 'Password terlalu panjang, maksimal 12 digit.',
+                    'integer' => 'Password harus angka.'
+                ]
+            ],
+            'confirm_password' => [
+                'label' => 'Password',
+                'rules' => 'required|trim|matches[password]',
+                'errors' => [
+                    'required' => ' Ulangi Password tidak boleh kosong.',
+                ]
+            ],
+        ])) {
+
+            $data = array(
+                'id_dosen' => $id_dosen,
+                'password' => $this->request->getPost('password'),
+            );
+            $this->ModelDsn->setting_password($data);
+
+            //jika valid
+            $data = array(
+                'id_dosen' => $id_dosen,
+                'password' => $this->request->getPost('password'),
+            );
+
+            $this->ModelDsn->setting_password($data);
+
+            session()->setFlashdata('pesan', 'Password Berhasil di ubah!');
+            return redirect()->to(base_url('dsn/setting_password/' . $id_dosen));
+        } else {
+            //jika tidak valid
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('dsn/setting_password/' . $id_dosen));
         }
     }
 
@@ -172,6 +180,7 @@ class Dsn extends BaseController
         $data = [
             'title' => 'Jadwal Mengajar',
             'ta' => $ta,
+            'dosen' => $dosen,
             'jadwal' => $this->ModelDsn->JadwalDosen($dosen['id_dosen'], $ta['id_tahun_akademik']),
             'isi'    => 'dosen/jadwal'
         ];
@@ -185,6 +194,7 @@ class Dsn extends BaseController
         $data = [
             'title' => 'Presensi Kuliah',
             'ta'    => $ta,
+            'dosen' => $dosen,
             'absen' => $this->ModelDsn->JadwalDosen($dosen['id_dosen'], $ta['id_tahun_akademik']),
             'isi'    => 'dosen/presensi_kuliah/presensi_kuliah'
         ];
@@ -194,9 +204,11 @@ class Dsn extends BaseController
     public function presensi($id_jadwal)
     {
         $ta = $this->ModelTahunAkademik->ta_aktif();
+        $dosen = $this->ModelDsn->DataDosen();
         $data = [
             'title' => 'Presensi Mengajar',
             'ta'    => $ta,
+            'dosen' => $dosen,
             'jadwal' => $this->ModelDsn->DetailJadwal($id_jadwal),
             'mhs'   => $this->ModelDsn->mhs($id_jadwal),
             'isi'    => 'dosen/presensi_kuliah/presensi'
@@ -253,6 +265,7 @@ class Dsn extends BaseController
         $data = [
             'title' => 'Nilai Mahasiswa',
             'ta'    => $ta,
+            'dosen' => $dosen,
             'absen' => $this->ModelDsn->JadwalDosen($dosen['id_dosen'], $ta['id_tahun_akademik']),
             'isi'    => 'dosen/nilai_mahasiswa/nilai_mahasiswa'
         ];
@@ -262,9 +275,11 @@ class Dsn extends BaseController
     public function nilai($id_jadwal)
     {
         $ta = $this->ModelTahunAkademik->ta_aktif();
+        $dosen = $this->ModelDsn->DataDosen();
         $data = [
             'title' => 'Nilai Mahasiswa',
             'ta'    => $ta,
+            'dosen' => $dosen,
             'jadwal' => $this->ModelDsn->DetailJadwal($id_jadwal),
             'mhs'   => $this->ModelDsn->mhs($id_jadwal),
             'isi'    => 'dosen/nilai_mahasiswa/nilai'
@@ -280,20 +295,27 @@ class Dsn extends BaseController
             $tugas = $this->request->getPost($value['id_krs'] . 'nilai_tugas');
             $uts = $this->request->getPost($value['id_krs'] . 'nilai_uts');
             $uas = $this->request->getPost($value['id_krs'] . 'nilai_uas');
-            $na = ($absen * 15 / 100) + ($tugas * 15 / 100) + ($uts * 30 / 100) + ($uas * 40 / 100);
-            if($na >= 85){
+            $praktikum = $this->request->getPost($value['id_krs'] . 'nilai_praktikum');
+            $na = ($absen * 10 / 100) + ($tugas * 30 / 100) + ($uts * 10 / 100) + ($uas * 20 / 100) + ($praktikum * 30 / 100);
+            if ($na > 80) {
                 $nh = 'A';
                 $bobot = 4;
-            }else if($na < 85 && $na >= 75){
+            } else if ($na > 75 && $na < 80) {
+                $nh = 'B+';
+                $bobot = 3.5;
+            } else if ($na > 70 && $na < 74.99) {
                 $nh = 'B';
                 $bobot = 3;
-            }else if($na <75 && $na >= 65){
+            } else if ($na > 60 && $na < 69.99) {
+                $nh = 'C+';
+                $bobot = 2.5;
+            } else if ($na > 55 && $na < 59.99) {
                 $nh = 'C';
                 $bobot = 2;
-            }else if($na <65 && $na >= 55){
+            } else if ($na > 40 && $na < 54.99) {
                 $nh = 'D';
                 $bobot = 1;
-            }else{
+            } else if ($na < 40) {
                 $nh = 'E';
                 $bobot = 0;
             }
@@ -302,12 +324,12 @@ class Dsn extends BaseController
                 'nilai_tugas' => $this->request->getPost($value['id_krs'] . 'nilai_tugas'),
                 'nilai_uts' => $this->request->getPost($value['id_krs'] . 'nilai_uts'),
                 'nilai_uas' => $this->request->getPost($value['id_krs'] . 'nilai_uas'),
-                'nilai_akhir' => number_format($na, 0),
+                'nilai_praktikum' => $this->request->getPost($value['id_krs'] . 'nilai_praktikum'),
+                'nilai_akhir' => number_format($na, 3),
                 'nilai_huruf' => $nh,
                 'bobot' => $bobot,
             ];
             $this->ModelDsn->simpan_nilai($data);
-
         }
         session()->setFlashdata('pesan', 'Nilai Berhasil di Perbarui!');
         return redirect()->to(base_url('dsn/nilai/' . $id_jadwal));
@@ -324,5 +346,4 @@ class Dsn extends BaseController
         ];
         return view('dosen/nilai_mahasiswa/print_nilai', $data);
     }
-
 }

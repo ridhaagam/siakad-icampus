@@ -7,11 +7,11 @@
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-     &copy; 2021 - Developed by iCampus Team Universitas Muhammadiyah Malang
+        &copy; 2021 - Developed by iCampus Team Universitas Muhammadiyah Malang
     </div>
     <strong><br></strong>
-  </footer>
- 
+</footer>
+
 <!-- jQuery 3 -->
 <script src="<?= base_url() ?>/template/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -29,21 +29,37 @@
 <script src="<?= base_url() ?>/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
-  $(function() {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging': true,
-      'lengthChange': false,
-      'searching': false,
-      'ordering': true,
-      'info': true,
-      'autoWidth': false
+    $(function() {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
     })
-  })
 </script>
 <script>
     window.setTimeout(function() {
-        $(".alert").fadeTo(1000, 0).slideUp(500, function() {
+        $(".alert-warning").fadeTo(1000, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000);
+</script>
+
+<script>
+    window.setTimeout(function() {
+        $(".alert-success").fadeTo(1000, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000);
+</script>
+
+<script>
+    window.setTimeout(function() {
+        $(".alert-danger").fadeTo(1000, 0).slideUp(500, function() {
             $(this).remove();
         });
     }, 3000);

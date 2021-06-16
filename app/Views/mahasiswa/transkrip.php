@@ -23,7 +23,7 @@
                 </a>
             </li>
 
-            <li class="active">
+            <li class="active treeview">
                 <a href="#">
                     <i class="glyphicon glyphicon-th-list"></i> <span>Hasil Studi</span>
                     <span class="pull-right-container">
@@ -57,6 +57,19 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href=<?= base_url('mhs/presensi') ?>><i class="fa fa-pencil-square-o"></i> <span>Jadwal & Presensi Kuliah</span></a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gear"></i> <span>Setting</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=<?= base_url('mhs/setting_password/' . $mahasiswa['id_mhs']) ?>><i class="fa fa-lock"></i> <span>Setting Password</span></a>
+                    </li>
                 </ul>
             </li>
 

@@ -131,7 +131,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Tempat, Tanggal Lahir</label>
-                <input name="ttl" value="<?= $mahasiswa['ttl'] ?>"class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
+                <input name="ttl" value="<?= $mahasiswa['ttl'] ?>" class="form-control" placeholder="Ex: Malang, 01 Januari 2002">
               </div>
             </div>
 
@@ -143,18 +143,10 @@
             </div>
 
             <div class="col-sm-6">
-              <div class="form-group">
-                <label>Password</label>
-                <input name="password" value="<?= $mahasiswa['password'] ?>" class="form-control" id="number" maxlength="8" placeholder="Password">
-                <small style="color:red">*maximal 8 digit angka!</small>
-              </div>
-            </div>
-
-            <div class="col-sm-6">
               <div class="form-group" id="only-number">
                 <label>No. Hp</label>
                 <input name="no_hp" value="<?= $mahasiswa['no_hp'] ?>" class="form-control" id="number" maxlength="13" placeholder="Nomor Telepon">
-                <small style="color:red">*terdiri dari 10-13 digit angka!</small>
+                <small style="color:red">No HP terdiri dari 10-13 digit angka</small>
               </div>
             </div>
 
@@ -184,16 +176,10 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Ganti Foto Mahasiswa</label>
-                <input type="file" name="foto" id="preview_gambar3" class="form-control">
-              </div>
-            </div>
-
-            <div class="col-sm-6 ">
-              <div class="form-group">
+                <input type="file" name="foto" id="preview_gambar3" class="form-control"><br>
                 <img src="<?= base_url('img-mahasiswa/' . $mahasiswa['foto']) ?>" id="gambar_load3" width="100px">
               </div>
             </div>
-
           </div>
           <div class="modal-footer">
             <a href="<?= base_url('mahasiswa') ?>" class="btn btn-danger pull-left"><i class="fa fa-caret-left"></i> Kembali</a>

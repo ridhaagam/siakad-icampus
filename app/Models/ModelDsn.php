@@ -12,7 +12,7 @@ class ModelDsn extends Model
             ->where('nidn', session()->get('username'))
             ->get()->getRowArray();
     }
-    
+
     public function detailData($id_dosen)
     {
         return $this->db->table('dosen')
@@ -20,7 +20,21 @@ class ModelDsn extends Model
             ->get()->getRowArray();
     }
 
-    public function edit($data)
+    public function edit_profil($data)
+    {
+        $this->db->table('dosen')
+            ->where('id_dosen', $data['id_dosen'])
+            ->update($data);
+    }
+
+    public function setting_password($data)
+    {
+        $this->db->table('dosen')
+            ->where('id_dosen', $data['id_dosen'])
+            ->update($data);
+    }
+
+    public function id_dosen($data)
     {
         $this->db->table('dosen')
             ->where('id_dosen', $data['id_dosen'])
@@ -30,15 +44,15 @@ class ModelDsn extends Model
     public function JadwalDosen($id_dosen, $id_ta)
     {
         return $this->db->table('jadwal_kuliah')
-        ->join('matkul', 'matkul.id_matkul = jadwal_kuliah.id_matkul', 'left')
-        ->join('prodi', 'prodi.id_prodi = jadwal_kuliah.id_prodi', 'left')
-        ->join('dosen', 'dosen.id_dosen = jadwal_kuliah.id_dosen', 'left')
-        ->join('ruangan', 'ruangan.id_ruangan = jadwal_kuliah.id_ruangan', 'left')
-        ->join('kelas', 'kelas.id_kelas = jadwal_kuliah.id_kelas', 'left')
-        ->where('jadwal_kuliah.id_dosen', $id_dosen)
-        ->where('jadwal_kuliah.id_tahun_akademik', $id_ta)
-        ->get()->getResultArray();
-    } 
+            ->join('matkul', 'matkul.id_matkul = jadwal_kuliah.id_matkul', 'left')
+            ->join('prodi', 'prodi.id_prodi = jadwal_kuliah.id_prodi', 'left')
+            ->join('dosen', 'dosen.id_dosen = jadwal_kuliah.id_dosen', 'left')
+            ->join('ruangan', 'ruangan.id_ruangan = jadwal_kuliah.id_ruangan', 'left')
+            ->join('kelas', 'kelas.id_kelas = jadwal_kuliah.id_kelas', 'left')
+            ->where('jadwal_kuliah.id_dosen', $id_dosen)
+            ->where('jadwal_kuliah.id_tahun_akademik', $id_ta)
+            ->get()->getResultArray();
+    }
 
     public function DetailJadwal($id_jadwal)
     {
@@ -73,5 +87,4 @@ class ModelDsn extends Model
             ->where('id_krs', $data['id_krs'])
             ->update($data);
     }
-
 }

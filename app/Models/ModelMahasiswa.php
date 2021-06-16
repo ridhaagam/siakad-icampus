@@ -35,6 +35,21 @@ class ModelMahasiswa extends Model
             ->update($data);
     }
 
+    public function edit_profil($data)
+    {
+
+        $this->db->table('mahasiswa')
+            ->where('id_mhs', $data['id_mhs'])
+            ->update($data);
+    }
+
+    public function setting_password($data)
+    {
+        $this->db->table('mahasiswa')
+            ->where('id_mhs', $data['id_mhs'])
+            ->update($data);
+    }
+
     public function delete_data($data)
     {
         $this->db->table('mahasiswa')

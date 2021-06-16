@@ -58,17 +58,15 @@ class Auth extends BaseController
                 session()->set('foto', $cek['foto']);
                 //login
                 return redirect()->to(base_url('admin'));
-            
-            } elseif($cek2) {
-                
+            } elseif ($cek2) {
+
                 session()->set('log', 2);
                 session()->set('username', $cek2['nidn']);
                 session()->set('nama_dosen', $cek2['nama_dosen']);
                 session()->set('foto', $cek2['foto']);
                 //login
                 return redirect()->to(base_url('dsn'));
-
-            } elseif($cek3) {
+            } elseif ($cek3) {
 
                 session()->set('log', 3);
                 session()->set('username', $cek3['nim']);
@@ -76,10 +74,9 @@ class Auth extends BaseController
                 session()->set('foto', $cek3['foto']);
                 //login
                 return redirect()->to(base_url('mhs'));
-
             } else {
                 //jika data tidak cocok
-                session()->setFlashdata('pesan', 'Login Gagal!, Username Atau Password Salah !!');
+                session()->setFlashdata('pesan', 'Gagal Login, Username atau Password Salah!');
                 return redirect()->to(base_url('auth'));
             }
         } else {
@@ -89,7 +86,8 @@ class Auth extends BaseController
     }
 
 
-    public function logout(){
+    public function logout()
+    {
         session()->remove('log');
         session()->remove('nama_user');
         session()->remove('foto');

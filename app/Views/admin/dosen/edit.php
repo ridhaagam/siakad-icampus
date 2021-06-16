@@ -83,6 +83,25 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
+            <?php
+            $errors = session()->getFlashdata('errors');
+            if (!empty($errors)) { ?>
+              <div class="alert alert-danger" role="alert">
+                <ul>
+                  <?php foreach ($errors as $key => $value) { ?>
+                    <li><?= esc($value) ?></li>
+                  <?php } ?>
+                </ul>
+              </div>
+            <?php } ?>
+
+            <?php
+            if (session()->getFlashdata('pesan')) {
+              echo '<div class="alert alert-success" role="alert">';
+              echo session()->getFlashdata('pesan');
+              echo '</div>';
+            }
+            ?>
 
             <?php
             echo form_open_multipart('dosen/update/' . $dosen['id_dosen']);
@@ -141,7 +160,7 @@
               <div class="form-group">
                 <label>Jenjang Pendidikan</label>
                 <select name="pendidikan" class="form-control">
-                <option value="<?= $dosen['pendidikan'] ?>"><?= $dosen['pendidikan'] ?></option>
+                  <option value="<?= $dosen['pendidikan'] ?>"><?= $dosen['pendidikan'] ?></option>
                   <option value="S1 Terapan">S1 Terapan</option>
                   <option value="S2 Terapan">S2 Terapan</option>
                   <option value="S3 Terapan">S3 Terapan</option>
@@ -154,12 +173,12 @@
                 </select>
               </div>
             </div>
-            
+
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Status Ikatan Kerja</label>
                 <select name="status_ikatan_kerja" class="form-control">
-                <option value="<?= $dosen['status_ikatan_kerja'] ?>"><?= $dosen['status_ikatan_kerja'] ?></option>
+                  <option value="<?= $dosen['status_ikatan_kerja'] ?>"><?= $dosen['status_ikatan_kerja'] ?></option>
                   <option value="Dosen Tetap">Dosen Tetap</option>
                   <option value="Dosen Tidak Tetap">Dosen Tidak Tetap</option>
                 </select>
@@ -170,7 +189,7 @@
               <div class="form-group">
                 <label>Jabatan Fungsional</label>
                 <select name="jabatan_fungsional" class="form-control">
-                <option value="<?= $dosen['jabatan_fungsional'] ?>"><?= $dosen['jabatan_fungsional'] ?></option>
+                  <option value="<?= $dosen['jabatan_fungsional'] ?>"><?= $dosen['jabatan_fungsional'] ?></option>
                   <option value="Tanpa Jabatan">Tanpa Jabatan</option>
                   <option value="Asisten Ahli">Asisten Ahli</option>
                   <option value="Lektor">Lektor</option>
@@ -184,7 +203,7 @@
               <div class="form-group">
                 <label>Status Aktivitas</label>
                 <select name="status_aktivitas" class="form-control">
-                      <option value="<?= $dosen['status_aktivitas'] ?>"><?= $dosen['status_aktivitas'] ?></option>
+                  <option value="<?= $dosen['status_aktivitas'] ?>"><?= $dosen['status_aktivitas'] ?></option>
                   <option value="Aktif">Aktif</option>
                   <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
@@ -194,16 +213,8 @@
             <div class="col-sm-6">
               <div class="form-group" id="only-number">
                 <label>No. Hp</label>
-                <input name="no_hp" value="<?= $dosen['no_hp'] ?>" class="form-control" id="number" maxlength="13" placeholder="No. Hp">
-                <small style="color:red">*terdiri dari 10-13 digit angka!</small>
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Password</label>
-                <input name="password" value="<?= $dosen['password'] ?>" class="form-control" id="number" maxlength="8" placeholder="Password">
-                <small style="color:red">*maximal 8 digit angka!</small>
+                <input name="no_hp" value="<?= $dosen['no_hp'] ?>" class="form-control" id="number" placeholder="No. Hp">
+                <small style="color:red">No HP terdiri dari 10-13 digit angka</small>
               </div>
             </div>
 

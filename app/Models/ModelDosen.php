@@ -12,7 +12,7 @@ class ModelDosen extends Model
             ->orderBy('id_dosen', 'DESC')
             ->get()->getResultArray();
     }
-    
+
     public function detailData($id_dosen)
     {
         return $this->db->table('dosen')

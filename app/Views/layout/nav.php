@@ -1,33 +1,30 @@
-     <!-- Collect the nav links, forms, and other content for toggling -->
-   
-     <!-- /.navbar-collapse -->
-     <!-- Navbar Right Menu -->
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 
-     <div class="navbar-custom-menu">
-       <ul class="nav navbar-nav">
+</div>
+<!-- /.navbar-collapse -->
+<!-- Navbar Right Menu -->
+<div class="navbar-custom-menu float-right">
 
-         <!-- Messages: style can be found in dropdown.less-->
-         <li class="dropdown messages-menu">
+    <ul class="nav navbar-nav">
 
-           <!-- Tasks Menu -->
-         <li class="dropdown tasks-menu">
-           <!-- Menu Toggle Button -->
+            <li class="dropdown user user-menu">
+            
+            <li><a href="<?= base_url('auth') ?>"><b>Log in</b></a></li>
+                <!-- Menu Toggle Button -->
+                
+                <ul class="dropdown-menu">
+                    <!-- The user image in the menu -->
+                    <li class="user-header">
 
-           <!-- User Account Menu -->
-         <li class="dropdown user user-menu">
-           <!-- Menu Toggle Button -->
+                    </li>
 
-             <div class="box-tools">
-            <li><a href="<?= base_url('auth') ?>"><b> Log in</b></a></li>
-     </div>
-
-
-     </a>
-     </ul>
-     </div>
-     <!-- LOGGED IN -->
-     <!-- /.navbar-custom-menu -->
-     </div>
-     <!-- /.container-fluid -->
-     </nav>
-     </header>
+                </ul>
+            </li>
+    </ul>
+</div>
+<!-- /.navbar-custom-menu -->
+</div>
+<!-- /.container-fluid -->
+</nav>
+</header>

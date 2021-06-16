@@ -26,7 +26,7 @@ class Mahasiswa extends BaseController
 	public function add()
 	{
 		$data = [
-			'title'    => 'Mahasiswa',
+			'title'    => 'Tambah Data Mahasiswa',
 			'prodi' => $this->ModelProdi->allData(),
 			'isi'      => 'admin/mahasiswa/add'
 		];
@@ -71,17 +71,24 @@ class Mahasiswa extends BaseController
 				]
 			],
 			'password' => [
-				'label' => 'Passoword',
-				'rules' => 'required',
+				'label' => 'Password',
+				'rules' => 'required|trim|min_length[6]|max_length[12]|integer',
 				'errors' => [
-					'required' => '{field} Wajib diisi!'
+					'required' => 'Password tidak boleh kosong.',
+					'matches' => 'Password tidak cocok.',
+					'min_length' => 'Password terlalu pendek, minimal 6 digit.',
+					'max_length' => 'Password terlalu panjang, maksimal 12 digit.',
+					'integer' => 'Password harus angka.'
 				]
 			],
 			'no_hp' => [
-				'label' => 'No. Hp',
-				'rules' => 'required',
+				'label' => 'No Handphone',
+				'rules' => 'required|integer|min_length[10]|max_length[13]|',
 				'errors' => [
-					'required' => '{field} Wajib diisi!'
+					'required' => 'No Handphone tidak boleh kosong.',
+					'min_length' => 'No Handphone terlalu pendek, minimal 10 digit.',
+					'max_length' => 'No Handphone terlalu panjang, maksimal 12 digit.',
+					'integer' => 'No Handphone harus angka.'
 				]
 			],
 			'email' => [
@@ -139,7 +146,7 @@ class Mahasiswa extends BaseController
 	public function edit($id_mhs)
 	{
 		$data = [
-			'title'    => 'Mahasiswa',
+			'title'    => 'Perbarui Data Mahasiswa',
 			'prodi'	   => $this->ModelProdi->allData(),
 			'mahasiswa'      => $this->ModelMahasiswa->detailData($id_mhs),
 			'isi'      => 'admin/mahasiswa/edit'
@@ -177,18 +184,14 @@ class Mahasiswa extends BaseController
 					'required' => '{field} Wajib diisi!'
 				]
 			],
-			'password' => [
-				'label' => 'Passoword',
-				'rules' => 'required',
-				'errors' => [
-					'required' => '{field} Wajib diisi!'
-				]
-			],
 			'no_hp' => [
-				'label' => 'No. Hp',
-				'rules' => 'required',
+				'label' => 'No Handphone',
+				'rules' => 'required|integer|min_length[10]|max_length[13]',
 				'errors' => [
-					'required' => '{field} Wajib diisi!'
+					'required' => 'No Handphone tidak boleh kosong.',
+					'min_length' => 'No Handphone terlalu pendek, minimal 10 digit.',
+					'max_length' => 'No Handphone terlalu panjang, maksimal 12 digit.',
+					'integer' => 'No Handphone harus angka.'
 				]
 			],
 			'ttl' => [
@@ -232,7 +235,6 @@ class Mahasiswa extends BaseController
 					'id_prodi' => $this->request->getPost('id_prodi'),
 					'jenkel' => $this->request->getPost('jenkel'),
 					'status_mahasiswa' => $this->request->getPost('status_mahasiswa'),
-					'password' => $this->request->getPost('password'),
 					'no_hp' => $this->request->getPost('no_hp'),
 					'ttl' => $this->request->getPost('ttl'),
 					'email' => $this->request->getPost('email'),
@@ -250,7 +252,6 @@ class Mahasiswa extends BaseController
 					'id_prodi' => $this->request->getPost('id_prodi'),
 					'jenkel' => $this->request->getPost('jenkel'),
 					'status_mahasiswa' => $this->request->getPost('status_mahasiswa'),
-					'password' => $this->request->getPost('password'),
 					'no_hp' => $this->request->getPost('no_hp'),
 					'ttl' => $this->request->getPost('ttl'),
 					'email' => $this->request->getPost('email'),
@@ -268,7 +269,7 @@ class Mahasiswa extends BaseController
 		} else {
 			//jika tidak valid
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-			return redirect()->to(base_url('mahasiswa/edit' . $id_mhs));
+			return redirect()->to(base_url('mahasiswa/edit/' . $id_mhs));
 		}
 	}
 	public function delete($id_mhs)

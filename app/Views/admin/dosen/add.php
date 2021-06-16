@@ -93,7 +93,7 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-          <?php
+            <?php
             $errors = session()->getFlashdata('errors');
             if (!empty($errors)) { ?>
               <div class="alert alert-danger" role="alert">
@@ -218,8 +218,8 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Password</label>
-                <input name="password" class="form-control" id="number" maxlength="8" placeholder="Password">
-                <small style="color:red">*maximal 8 digit angka!</small>
+                <input type="password" name="password" class="form-control" id="number" maxlength="8" placeholder="Password">
+                <small style="color:red">Password harus angka, tidak mengandung simbol, dan minimal 6 digit</small>
               </div>
             </div>
 
@@ -227,19 +227,14 @@
               <div class="form-group" id="only-number">
                 <label>No Handphone</label>
                 <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No Handphone">
-                <small style="color:red">*terdiri dari 10-13 digit angka!</small>
+                <small style="color:red">No HP terdiri dari 10-13 digit angka</small>
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Foto Dosen</label>
-                <input type="file" name="foto" id="preview_gambar" class="form-control">
-              </div>
-            </div>
-
-            <div class="col-sm-6 ">
-              <div class="form-group">
+                <input type="file" name="foto" id="preview_gambar" class="form-control"><br>
                 <img src="<?= base_url('img-dosen/default-profile.jpg') ?>" id="gambar_load" width="100px">
               </div>
             </div>

@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\ModelDosen;
+
 class Dosen extends BaseController
 
 {
- public function __construct()
+    public function __construct()
     {
         helper('form');
         $this->ModelDosen = new ModelDosen();
@@ -24,7 +26,7 @@ class Dosen extends BaseController
     public function add()
     {
         $data = [
-            'title'    => 'Dosen',
+            'title'    => 'Tambah Data Dosen',
             'dosen' => $this->ModelDosen->allData(),
             'isi'      => 'admin/dosen/add'
         ];
@@ -84,10 +86,13 @@ class Dosen extends BaseController
                 ]
             ],
             'no_hp' => [
-                'label' => 'No. Hp',
-                'rules' => 'required',
+                'label' => 'No Handphone',
+                'rules' => 'required|integer|min_length[10]|max_length[13]|',
                 'errors' => [
-                    'required' => '{field} Wajib diisi!'
+                    'required' => 'No Handphone tidak boleh kosong.',
+                    'min_length' => 'No Handphone terlalu pendek, minimal 10 digit.',
+                    'max_length' => 'No Handphone terlalu panjang, maksimal 12 digit.',
+                    'integer' => 'No Handphone harus angka.'
                 ]
             ],
             'pendidikan' => [
@@ -120,9 +125,13 @@ class Dosen extends BaseController
             ],
             'password' => [
                 'label' => 'Password',
-                'rules' => 'required',
+                'rules' => 'required|trim|min_length[6]|max_length[12]|integer',
                 'errors' => [
-                    'required' => '{field} Wajib diisi!'
+                    'required' => 'Password tidak boleh kosong.',
+                    'matches' => 'Password tidak cocok.',
+                    'min_length' => 'Password terlalu pendek, minimal 6 digit.',
+                    'max_length' => 'Password terlalu panjang, maksimal 12 digit.',
+                    'integer' => 'Password harus angka.'
                 ]
             ],
             'foto' => [
@@ -155,7 +164,7 @@ class Dosen extends BaseController
                 'jabatan_fungsional' => $this->request->getPost('jabatan_fungsional'),
                 'status_aktivitas' => $this->request->getPost('status_aktivitas'),
                 'foto' => $nama_file,
-                
+
             );
             //memindahkan file foto dari form input ke folder foto di directory
             $foto->move('img-dosen', $nama_file);
@@ -165,14 +174,14 @@ class Dosen extends BaseController
         } else {
             //jika tidak valid
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-			return redirect()->to(base_url('dosen/add'));
+            return redirect()->to(base_url('dosen/add'));
         }
     }
 
     public function edit($id_dosen)
     {
         $data = [
-            'title'    => 'Dosen',
+            'title'    => 'Perbarui Data Dosen',
             'dosen' => $this->ModelDosen->detailData($id_dosen),
             'isi'      => 'admin/dosen/edit'
         ];
@@ -210,13 +219,6 @@ class Dosen extends BaseController
                     'required' => '{field} Wajib diisi!'
                 ]
             ],
-			'password' => [
-                'label' => 'Passoword',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} Wajib diisi!'
-                ]
-            ],
             'email' => [
                 'label' => 'Email',
                 'rules' => 'required',
@@ -225,10 +227,13 @@ class Dosen extends BaseController
                 ]
             ],
             'no_hp' => [
-                'label' => 'No. Hp',
-                'rules' => 'required',
+                'label' => 'No Handphone',
+                'rules' => 'required|integer|min_length[10]|max_length[13]',
                 'errors' => [
-                    'required' => '{field} Wajib diisi!'
+                    'required' => 'No Handphone tidak boleh kosong.',
+                    'min_length' => 'No Handphone terlalu pendek, minimal 10 digit.',
+                    'max_length' => 'No Handphone terlalu panjang, maksimal 12 digit.',
+                    'integer' => 'No Handphone harus angka.'
                 ]
             ],
             'pendidikan' => [
@@ -249,7 +254,7 @@ class Dosen extends BaseController
         ])) {
             //mengambil file foto dari form input
             $foto = $this->request->getFile('foto');
-            if($foto->getError() == 4){
+            if ($foto->getError() == 4) {
                 //jika foto tdk d ganti
                 $data = array(
                     'id_dosen' => $id_dosen,
@@ -259,7 +264,6 @@ class Dosen extends BaseController
                     'jenkel' => $this->request->getPost('jenkel'),
                     'alamat' => $this->request->getPost('alamat'),
                     'ttl' => $this->request->getPost('ttl'),
-                    'password' => $this->request->getPost('password'),
                     'email' => $this->request->getPost('email'),
                     'no_hp' => $this->request->getPost('no_hp'),
                     'pendidikan' => $this->request->getPost('pendidikan'),
@@ -268,11 +272,11 @@ class Dosen extends BaseController
                     'status_aktivitas' => $this->request->getPost('status_aktivitas'),
                 );
                 $this->ModelDosen->edit($data);
-            }else{
+            } else {
                 //delete foto lama
                 $dosen = $this->ModelDosen->detailData($id_dosen);
                 if ($dosen['foto'] != "") {
-                    unlink('img-dosen/'. $dosen['foto']);
+                    unlink('img-dosen/' . $dosen['foto']);
                 }
                 //merename nama file foto
                 $nama_file = $foto->getRandomName();
@@ -285,7 +289,6 @@ class Dosen extends BaseController
                     'jenkel' => $this->request->getPost('jenkel'),
                     'alamat' => $this->request->getPost('alamat'),
                     'ttl' => $this->request->getPost('ttl'),
-                    'password' => $this->request->getPost('password'),
                     'email' => $this->request->getPost('email'),
                     'no_hp' => $this->request->getPost('no_hp'),
                     'pendidikan' => $this->request->getPost('pendidikan'),
@@ -303,10 +306,10 @@ class Dosen extends BaseController
         } else {
             //jika tidak valid
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('dosen/edit' . $id_dosen));
+            return redirect()->to(base_url('dosen/edit/' . $id_dosen));
         }
     }
-	
+
     public function delete($id_dosen)
     {
         //menghapus foto lama
