@@ -175,19 +175,32 @@
                             }
                         </style>
                         <hr class="hr">
+
                         <script type="text/javascript" src="Chart.js"></script>
-                        <div style="width: 700px">
-                            <canvas id="myChart"></canvas>
-                        </div>
+                        <?php $no = 1;
+                        $sks = 0;
+                        $grand_total_bobot = 0;
+                        foreach ($data_matkul as $key => $value) {
+                            $sks = $sks + $value['sks'];
+                            $tot_bobot = $value['sks'] * $value['bobot'];
+                            $grand_total_bobot = $grand_total_bobot + $tot_bobot;
+                            $ip = number_format($grand_total_bobot / $sks, 2);
+                            $ipx = [$ip];
+                        ?>
+
+                        <?php  } ?>
+                        <canvas width="700px" id="myChart"></canvas>
+
                         <script>
+                            var dataArray = [<?php echo join(',', $ipx); ?>];
                             var ctx = document.getElementById("myChart").getContext('2d');
                             var myChart = new Chart(ctx, {
                                 type: 'bar',
                                 data: {
-                                    labels: ["IP"],
+                                    labels: [""],
                                     datasets: [{
-                                        label: 'Indeks Prestasi (IP)',
-                                        data: [4],
+                                        label: 'IP ',
+                                        data: dataArray,
                                         backgroundColor: [
                                             'rgb(38, 185, 154)',
                                             'rgb(38, 185, 154)',
@@ -219,9 +232,9 @@
                             });
                         </script>
 
+                        </canvas>
+
                     </div>
-
                 </div>
-            </div>
 
-        </div>
+            </div>

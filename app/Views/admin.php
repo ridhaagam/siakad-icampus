@@ -1,34 +1,34 @@
 <!-- =============================================== -->
 
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
 
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Menu</li>
-        <li>
-          <a href=<?= base_url('admin') ?>>
-            <i class="fa fa-tachometer"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href=<?= base_url('home') ?>>
-            <i class="fa fa-home"></i></i> <span>Homepage</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">Menu</li>
+      <li>
+        <a href=<?= base_url('admin') ?>>
+          <i class="fa fa-tachometer"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href=<?= base_url('home') ?>>
+          <i class="fa fa-home"></i></i> <span>Homepage</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
           <i class="fa fa-id-card-o"></i> <span>Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-       
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+
           <li><a href=<?= base_url('user') ?>><i class=" fa fa-user-circle-o"></i> <span>User</span></a></li>
           <li><a href=<?= base_url('dosen') ?>><i class=" fa fa-users"></i> <span>Dosen</span></a></li>
           <li><a href=<?= base_url('mahasiswa') ?>><i class=" fa fa-user"></i> <span>Mahasiswa</span></a></li>
@@ -38,177 +38,175 @@
           <li><a href=<?= base_url('gedung') ?>><i class=" fa fa-building-o"></i> <span>Gedung</span></a></li>
           <li><a href=<?= base_url('ruangan') ?>><i class=" fa fa-columns"></i> <span>Ruangan</span></a></li>
           <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
+        </ul>
+      </li>
 
-        <li class="treeview">
-          <a href="#">
+      <li class="treeview">
+        <a href="#">
           <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
           <li><a href=<?= base_url('jadwal_kuliah') ?>><i class="glyphicon glyphicon-calendar"></i> <span>Jadwal Kuliah</span></a></li>
           <li><a href=<?= base_url('kelas') ?>><i class="glyphicon glyphicon-book"></i> <span>Kelas</span></a></li>
-          </ul>
-        </li>
+        </ul>
+      </li>
 
-        <li class="treeview">
-          <a href="#">
+      <li class="treeview">
+        <a href="#">
           <i class="fa fa-gear"></i> <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
           <li><a href=<?= base_url('tahun_akademik/setting') ?>><i class="fa  fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
-          </ul>
-        </li>
-       
+        </ul>
+      </li>
 
-        
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-  
- <!-- =============================================== -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <section class="content">
 
-		<h2>Dashboard <small>Control Panel</small></h2>
+  </section>
+  <!-- /.sidebar -->
+</aside>
 
-        <div class="row">
+<!-- =============================================== -->
 
-        <div class="col-lg-3 col-xs-6">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <section class="content">
+
+    <h2>Dashboard <small>Control Panel</small></h2>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-yellow">
-            <div class="inner">
-                <h3><?= $jml_user ?></h3>
+          <div class="inner">
+            <h3><?= $jml_user ?></h3>
 
-                <p>User</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-user-circle-o"></i>
-            </div>
-            <a href="<?= base_url('user') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>User</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-user-circle-o"></i>
+          </div>
+          <a href="<?= base_url('user') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+      </div>
 
-    <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-navy">
-            <div class="inner">
-                <h3><?= $jml_dosen ?></h3>
+          <div class="inner">
+            <h3><?= $jml_dosen ?></h3>
 
-                <p>Dosen</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-users"></i>
-            </div>
-            <a href="<?= base_url('dosen') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>Dosen</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-users"></i>
+          </div>
+          <a href="<?= base_url('dosen') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+      </div>
 
-    <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-red">
-            <div class="inner">
-                <h3><?= $jml_mahasiswa ?></h3>
+          <div class="inner">
+            <h3><?= $jml_mahasiswa ?></h3>
 
-                <p>Mahasiswa</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-user"></i>
-            </div>
-            <a href="<?= base_url('mahasiswa') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>Mahasiswa</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-user"></i>
+          </div>
+          <a href="<?= base_url('mahasiswa') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+      </div>
 
-    <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-green">
-            <div class="inner">
-                <h3><?= $jml_prodi ?></h3>
+          <div class="inner">
+            <h3><?= $jml_prodi ?></h3>
 
-                <p>Program Studi</p>
+            <p>Program Studi</p>
 
-            </div>
-            <div class="icon">
-                <i class="fa fa-rss-square"></i>
-            </div>
-            <a href="<?= base_url('prodi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+          <div class="icon">
+            <i class="fa fa-rss-square"></i>
+          </div>
+          <a href="<?= base_url('prodi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div> 
+      </div>
 
-    <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-blue">
-            <div class="inner">
-                <h3><?= $jml_fakultas ?></h3>
+          <div class="inner">
+            <h3><?= $jml_fakultas ?></h3>
 
-                <p>Fakultas</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-archive"></i>
-            </div>
-            <a href="<?= base_url('fakultas') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>Fakultas</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-archive"></i>
+          </div>
+          <a href="<?= base_url('fakultas') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+      </div>
 
-    <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-green">
-            <div class="inner">
-                <h3><?= $jml_matkul ?></h3>
+          <div class="inner">
+            <h3><?= $jml_matkul ?></h3>
 
-                <p>Mata Kuliah</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-book"></i>
-            </div>
-            <a href="<?= base_url('matkul') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>Mata Kuliah</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-book"></i>
+          </div>
+          <a href="<?= base_url('matkul') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
-    
-    <div class="col-lg-3 col-xs-6">
+      </div>
+
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3><?= $jml_gedung ?></h3>
+          <div class="inner">
+            <h3><?= $jml_gedung ?></h3>
 
-                <p>Gedung</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-building-o"></i>
-            </div>
-            <a href="<?= base_url('gedung') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>Gedung</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-building-o"></i>
+          </div>
+          <a href="<?= base_url('gedung') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+      </div>
 
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-maroon">
-            <div class="inner">
-                <h3><?= $jml_ruangan ?></h3>
+          <div class="inner">
+            <h3><?= $jml_ruangan ?></h3>
 
-                <p>Ruangan</p>
-            </div>
-            <div class="icon">
-                <i class="fa fa-columns"></i>
-            </div>
-            <a href="<?= base_url('ruangan') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <p>Ruangan</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-columns"></i>
+          </div>
+          <a href="<?= base_url('ruangan') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
+      </div>
+
     </div>
 
+  </section>
 </div>
 
-      </section>
-  </div>
-
 </div>
- 
- 

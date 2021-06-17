@@ -21,8 +21,13 @@ class Mhs extends BaseController
 
     public function index()
     {
+        $mhs =  $this->ModelKrs->DataMhs();
+        $ta = $this->ModelTahunAkademik->ta_aktif();
         $data = [
             'title' => 'Mahasiswa',
+            'ta_aktif' => $this->ModelTahunAkademik->ta_aktif(),
+            'matkul_ditawarkan' => $this->ModelKrs->MatkulDitawarkan($ta['id_tahun_akademik'], $mhs['id_prodi']),
+            'data_matkul'   => $this->ModelKrs->DataKrs($mhs['id_mhs'], $ta['id_tahun_akademik'], $mhs['id_prodi']),
             'mhs'   => $this->ModelKrs->DataMhs(),
             'mahasiswa'   => $this->ModelKrs->DataMahasiswa(),
             'ta' => $this->ModelTahunAkademik->ta_aktif(),

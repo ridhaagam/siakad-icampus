@@ -157,7 +157,7 @@
                             <th class="text-center">Mata Kuliah</th>
                             <th class="text-center">SKS</th>
                             <th class="text-center">Kelas</th>
-                            <th class="text-center">Nilai</th>
+                            <th class="text-center">Nilai Angka</th>
                         </tr>
                         <?php $no = 1;
                         $sks = 0;

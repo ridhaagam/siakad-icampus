@@ -35,17 +35,17 @@ class Filters extends BaseConfig
 			'authfilter' => ['except' => [
 				'auth', 'auth/*',
 				'home', 'home/*',
-				'/'
+				'/',
 			]],
 			'dosenfilter' => ['except' => [
 				'auth', 'auth/*',
 				'home', 'home/*',
-				'/'
+				'/',
 			]],
 			'mahasiswafilter' => ['except' => [
 				'auth', 'auth/*',
 				'home', 'home/*',
-				'/'
+				'/',
 			]],
 			//'honeypot'
 			// 'csrf',
@@ -73,8 +73,8 @@ class Filters extends BaseConfig
 				'/',
 			]],
 			'mahasiswafilter' => ['except' => [
-				'mhs', 'mhs/*',
 				'home', 'home/*',
+				'mhs', 'mhs/*',
 				'krs', 'krs/*',
 				'/',
 			]],
