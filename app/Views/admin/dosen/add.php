@@ -216,17 +216,17 @@
             </div>
 
             <div class="col-sm-6">
+              <label>Password</label>
               <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" id="number" maxlength="8" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="number" placeholder="Password">
                 <small style="color:red">Password harus angka, tidak mengandung simbol, dan minimal 6 digit</small>
               </div>
             </div>
 
             <div class="col-sm-6">
-              <div class="form-group" id="only-number">
-                <label>No Handphone</label>
-                <input name="no_hp" class="form-control" id="number" maxlength="13" placeholder="No Handphone">
+              <label>No Handphone</label>
+              <div class="form-group">
+                <input name="no_hp" class="form-control" id="number" placeholder="No Handphone">
                 <small style="color:red">No HP terdiri dari 10-13 digit angka</small>
               </div>
             </div>

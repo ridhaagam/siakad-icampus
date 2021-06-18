@@ -40,7 +40,7 @@
           <li><a href=<?= base_url('tahun_akademik') ?>><i class=" fa fa-folder-o"></i> <span>Tahun Akademik</span></a></li>
         </ul>
       </li>
- 
+
       <li class="treeview">
         <a href="#">
           <i class="glyphicon glyphicon-th-list"></i> <span>Akademik</span>
@@ -96,6 +96,27 @@
           echo '</div>';
         }
         ?>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('#example1').DataTable({
+              "scrollY": 300,
+              "scrollX": true
+            });
+          });
+        </script>
+
+        <style>
+          th,
+          td {
+            white-space: nowrap;
+          }
+
+          div.dataTables_wrapper {
+            width: 0 auto;
+            margin: 0 auto;
+          }
+        </style>
 
         <table id="example1" class="table table-bordered table-striped">
           <thead>

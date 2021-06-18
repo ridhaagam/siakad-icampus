@@ -87,7 +87,7 @@ class Dosen extends BaseController
             ],
             'no_hp' => [
                 'label' => 'No Handphone',
-                'rules' => 'required|integer|min_length[10]|max_length[13]|',
+                'rules' => 'required|integer|min_length[10]|max_length[13]',
                 'errors' => [
                     'required' => 'No Handphone tidak boleh kosong.',
                     'min_length' => 'No Handphone terlalu pendek, minimal 10 digit.',
